@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from './app.component';
-import { ToolsComponent } from './tools/tools.component';
+import { ToolsComponent } from './pageElements/tools/tools.component';
 import { IndexComponent } from './contents/index/index.component';
 
 @NgModule({
