@@ -10,6 +10,8 @@ import 'jquery-ui/ui/core';
 import 'jquery-ui/ui/widgets/draggable';
 import 'jquery-ui/ui/widgets/droppable';
 
+import { JsPlumbSingleton } from '../../../singleton/jslumb.singleton';
+import 'jsplumb/dist/css/jsplumbtoolkit-defaults.css';
 declare var jsPlumb: any;
 
 @Component({
@@ -36,16 +38,42 @@ export class IndexComponent implements OnInit {
     });
     $( '#drop' ).droppable({
       drop: function( event, ui ) {
-        console.log(ui.helper);
+        const i = JsPlumbSingleton.getInstance();
         const newDiv = ui.helper.clone(false);
-        jsPlumb.draggable( newDiv, { containment: true });
+        i.registerConnectionType('basic', { anchor: 'Continuous', connector: 'StateMachine' });
+        i.getSelector('.elt');
+        i.draggable( newDiv, { containment: true });
         $('#drop').append(newDiv);
+
+        // Make the div able to be draggable line from
+      i.makeSource(newDiv, {
+          filter: '.anchor-out',
+          anchor: 'Continuous',
+          connectorStyle: { stroke: '#0073CF', strokeWidth: 2, outlineStroke: 'transparent', outlineWidth: 4 },
+          connectionType: 'basic',
+          connectorHoverStyle: {
+            strokeWidth: 3,
+            stroke: '#1e8151'
+        },
+      });
+      // Make the div able to be draggable line to
+      i.makeTarget(newDiv, {
+          dropOptions: { hoverClass: 'dragHover' },
+          anchor: 'Continuous',
+          connectorStyle: { stroke: '#0073CF', strokeWidth: 2, outlineStroke: 'transparent', outlineWidth: 4 },
+          connectionType: 'basic',
+          extract: {
+              'action': 'the-action'
+          },
+          allowLoopback: false
+      });
+
       }
     });
   }
 
   moveHelper() {
-    return '<span>' + $(this)[0].innerHTML + '</span>';
+    return '<span class="elt">' + $(this)[0].innerHTML + '</span>';
   }
 
 }
