@@ -1,6 +1,9 @@
+$color: #F0F0F0;
 h3 {
     text-align: center;
 }
-button {
-    margin: 1px
+span {
+    margin: 1px;
+    background-color: $color;
+    font-weight: 600;
 }
