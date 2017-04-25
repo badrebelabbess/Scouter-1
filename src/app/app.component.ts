@@ -28,16 +28,20 @@ export class AppComponent implements OnInit {
     // $('div').draggable();
     $('span').draggable({
       cursor: 'move',
+      delay: 0,
+      refreshPositions: true,
       revert: true
     });
-    $( '#droppable' ).droppable({
+    // $( '#droppable' ).droppable({
+    $( 'div' ).droppable({
       classes: {
         'ui-droppable-active': 'ui-state-active',
         'ui-droppable-hover': 'ui-state-hover'
       },
       drop: function( event, ui ) {
-        console.log('done');
+        console.log(ui.draggable[0].innerHTML);
       }
     });
   }
+
 }
