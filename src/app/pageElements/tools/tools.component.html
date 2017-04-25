@@ -1,21 +1,24 @@
 <h3>Tools</h3>
 <hr/>
+
 <h4>Data</h4>
-<div fxLayout="column" class="dd">
+<div fxLayout="column" *ngIf="isOpenData">
   <span class="btn">RSS Feed</span>
   <span class="btn">Open Data</span>
   <span class="btn">Social Networks</span>
   <span class="btn">Geo Location</span>
 <div>
 <hr/>
+
 <h4>Keywords</h4>
-<div fxLayout="column">
+<div fxLayout="column" *ngIf="isOpenKeywords">
   <span class="btn">Keyword list</span>
   <span class="btn">Ontology</span>
 <div>
 <hr/>
+
 <h4>Analytics</h4>
-<div fxLayout="column">
+<div fxLayout="column" *ngIf="isOpenAnalytics">
   <span class="btn">Sentimental Analysis</span>
   <span class="btn">Topic extraction</span>
 <div>

@@ -45,7 +45,6 @@ export class IndexComponent implements OnInit {
   }
 
   moveHelper() {
-    console.log($(this)[0].innerHTML);
     return '<span>' + $(this)[0].innerHTML + '</span>';
   }
 
