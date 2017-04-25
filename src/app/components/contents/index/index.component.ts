@@ -36,9 +36,9 @@ export class IndexComponent implements OnInit {
     });
     $( '#drop' ).droppable({
       drop: function( event, ui ) {
-        console.log(ui.draggable[0].innerHTML);
         console.log(ui.helper);
         const newDiv = ui.helper.clone(false);
+        jsPlumb.draggable( newDiv, { containment: true });
         $('#drop').append(newDiv);
       }
     });
