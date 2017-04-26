@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+import { JsPlumbSingleton } from '../../../singleton/jslumb.singleton';
+
+import { DBPediaModel } from '../../../models/dbpedia-model';
+
 // Import Jquery
 import $ from 'jquery/dist/jquery';
 // Import jQuery UI to drag and drop
@@ -10,8 +14,6 @@ import 'jquery-ui/ui/core';
 import 'jquery-ui/ui/widgets/draggable';
 import 'jquery-ui/ui/widgets/droppable';
 
-import { JsPlumbSingleton } from '../../../singleton/jslumb.singleton';
-import 'jsplumb/dist/css/jsplumbtoolkit-defaults.css';
 declare var jsPlumb: any;
 
 @Component({
@@ -61,7 +63,12 @@ export class IndexComponent implements OnInit {
   }
 
   open(elt: any): void {
-    console.log(elt.path[0]);
+    console.log(elt.path[0].classList);
+    console.log(elt.path[0].id);
+    // let o = new DBPediaModel(0.0, '2017-04-01', 'b');
+    // let o = new DBPediaModel(0.0, null, 'b');
+    let o = new DBPediaModel(1.0, null);
+    console.log(o.getModel());
   }
 
 }
