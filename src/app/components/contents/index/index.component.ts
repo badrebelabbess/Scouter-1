@@ -52,9 +52,10 @@ export class IndexComponent implements OnInit {
   private moveHelper(): string {
     const elt = $(this)[0].innerHTML;
     const pic = elt.replace(/ /g, '-').toLowerCase() + '.png';
-    return '<div class="elt"><img src="assets/images/' + pic +
-    // return '<div class="elt"><img src="assets/images/' + this.toStringPicture('a') +
-           '"/><p class="anchor-out">' + elt + '</p></div>';
+    return '<div class="elt">' +
+              '<img src="assets/images/' + pic + '"/ class="anchor-out">' +
+              '<p>' + elt + '</p>' +
+            '</div>';
   }
 
 }
