@@ -1,4 +1,5 @@
 declare var jsPlumb: any;
+declare var jsPlumbUtil: any;
 
 export class JsPlumbSingleton {
 
@@ -22,7 +23,8 @@ export class JsPlumbSingleton {
     }
 
     static initNode(el: any): void {
-        // JsPlumbSingleton.instance.draggable( el, { containment: true });
+        // Create new id for the block
+        // el.id = jsPlumbUtil.uuid();
         JsPlumbSingleton.instance.draggable( el, { containment: true });
         // Make the div able to be draggable line from
         JsPlumbSingleton.instance.makeSource(el, {

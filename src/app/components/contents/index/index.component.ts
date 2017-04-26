@@ -21,6 +21,8 @@ declare var jsPlumb: any;
 })
 export class IndexComponent implements OnInit {
 
+  private static type = '.png';
+
   constructor() { }
 
   ngOnInit() {
@@ -51,11 +53,15 @@ export class IndexComponent implements OnInit {
 
   private moveHelper(): string {
     const elt = $(this)[0].innerHTML;
-    const pic = elt.replace(/ /g, '-').toLowerCase() + '.png';
-    return '<div class="elt">' +
+    const pic = elt.replace(/ /g, '-').toLowerCase() + IndexComponent.type;
+    return '<div class="elt ' + pic + '">' +
               '<img src="assets/images/' + pic + '"/ class="anchor-out">' +
               '<p>' + elt + '</p>' +
             '</div>';
+  }
+
+  open(elt: any): void {
+    console.log(elt.path[0]);
   }
 
 }
