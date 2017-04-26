@@ -3,7 +3,7 @@ declare var jsPlumb: any;
 export class JsPlumbSingleton {
 
     private static instance: any = jsPlumb.getInstance({
-        Endpoint: ['Dot', {radius: 2}],
+        Endpoint: ['Dot', {radius: 5}],
         Connector: 'StateMachine',
         HoverPaintStyle: {stroke: '#1e8151', strokeWidth: 2 },
         ConnectionOverlays: [
@@ -17,11 +17,38 @@ export class JsPlumbSingleton {
         Container: 'drop'
     });
 
-    public static getInstance(): any {
+    static getInstance(): any {
         return JsPlumbSingleton.instance;
     }
 
-    constructor() {
+    static initNode(el: any): void {
+        // JsPlumbSingleton.instance.draggable( el, { containment: true });
+        JsPlumbSingleton.instance.draggable( el, { containment: true });
+        // Make the div able to be draggable line from
+        JsPlumbSingleton.instance.makeSource(el, {
+            filter: '.anchor-out',
+            anchor: 'Continuous',
+            connectorStyle: { stroke: '#0073CF', strokeWidth: 2, outlineStroke: 'transparent', outlineWidth: 4 },
+            connectionType: 'basic',
+            connectorHoverStyle: {
+              strokeWidth: 3,
+              stroke: '#1e8151'
+          },
+        });
+        // Make the div able to be draggable line to
+        JsPlumbSingleton.instance.makeTarget(el, {
+            dropOptions: { hoverClass: 'dragHover' },
+            anchor: 'Continuous',
+            connectorStyle: { stroke: '#0073CF', strokeWidth: 2, outlineStroke: 'transparent', outlineWidth: 4 },
+            connectionType: 'basic',
+            extract: {
+                'action': 'the-action'
+            },
+            allowLoopback: false
+        });
+    }
+
+    private constructor() {
         if (JsPlumbSingleton.instance) {
             throw new Error('The JsPlumbSingleton is a singleton class and cannot be created!');
         }

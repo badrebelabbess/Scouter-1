@@ -34,6 +34,8 @@ export class IndexComponent implements OnInit {
       refreshPositions: true,
       //  revert: true,
       scroll: false,
+      containement: '#drop',
+      appendTo: '#drop',
       helper: this.moveHelper
     });
     $( '#drop' ).droppable({
@@ -41,39 +43,18 @@ export class IndexComponent implements OnInit {
         const i = JsPlumbSingleton.getInstance();
         const newDiv = ui.helper.clone(false);
         i.registerConnectionType('basic', { anchor: 'Continuous', connector: 'StateMachine' });
-        i.getSelector('.elt');
-        i.draggable( newDiv, { containment: true });
         $('#drop').append(newDiv);
-
-        // Make the div able to be draggable line from
-      i.makeSource(newDiv, {
-          filter: '.anchor-out',
-          anchor: 'Continuous',
-          connectorStyle: { stroke: '#0073CF', strokeWidth: 2, outlineStroke: 'transparent', outlineWidth: 4 },
-          connectionType: 'basic',
-          connectorHoverStyle: {
-            strokeWidth: 3,
-            stroke: '#1e8151'
-        },
-      });
-      // Make the div able to be draggable line to
-      i.makeTarget(newDiv, {
-          dropOptions: { hoverClass: 'dragHover' },
-          anchor: 'Continuous',
-          connectorStyle: { stroke: '#0073CF', strokeWidth: 2, outlineStroke: 'transparent', outlineWidth: 4 },
-          connectionType: 'basic',
-          extract: {
-              'action': 'the-action'
-          },
-          allowLoopback: false
-      });
-
+        JsPlumbSingleton.initNode(newDiv);
       }
     });
   }
 
-  moveHelper() {
-    return '<span class="elt">' + $(this)[0].innerHTML + '</span>';
+  private moveHelper(): string {
+    const elt = $(this)[0].innerHTML;
+    const pic = elt.replace(/ /g, '-').toLowerCase() + '.png';
+    return '<div class="elt"><img src="assets/images/' + pic +
+    // return '<div class="elt"><img src="assets/images/' + this.toStringPicture('a') +
+           '"/><p class="anchor-out">' + elt + '</p></div>';
   }
 
 }
