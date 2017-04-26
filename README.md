@@ -35,7 +35,9 @@ After open the index.html file and replace :
 
 by 
 
-<base href="baseUriOfTheproject/">
+```bash
+<base href="BaseUriOfTheProduction/">
+```
 
 
 ## Development server
