@@ -4,6 +4,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
+import { LocalStorageModule } from 'angular-2-local-storage';
+
 import { RoutingModule } from './modules/routing/routing.module';
 
 import { AppComponent } from './app.component';
@@ -28,7 +30,11 @@ import { DbpediaFormComponent } from './components/contents/forms/dbpedia-form/d
     HttpModule,
     FlexLayoutModule,
     RoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    LocalStorageModule.withConfig({
+        prefix: 'app-root',
+        storageType: 'localStorage'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

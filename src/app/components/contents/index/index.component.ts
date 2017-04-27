@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
-import { JsPlumbSingleton } from '../../../singleton/jslumb.singleton';
+import { LocalStorageService } from 'angular-2-local-storage';
+import { ILocalStorageServiceConfig } from 'angular-2-local-storage';
 
-import { DBPediaModel } from '../../../models/dbpedia-model';
+import { JsPlumbSingleton } from '../../../singleton/jslumb.singleton';
 
 // Import Jquery
 import $ from 'jquery/dist/jquery';
@@ -19,7 +20,8 @@ declare var jsPlumb: any;
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
-  styleUrls: ['./index.component.scss']
+  styleUrls: ['./index.component.scss'],
+  providers: [LocalStorageService]
 })
 export class IndexComponent implements OnInit {
 
@@ -27,7 +29,7 @@ export class IndexComponent implements OnInit {
 
   workspace = true;
 
-  constructor() { }
+  constructor(private ls: LocalStorageService) { }
 
   ngOnInit() {
   }
@@ -65,10 +67,15 @@ export class IndexComponent implements OnInit {
   }
 
   open(elt: any): void {
-    console.log(elt.path[0].classList);
-    console.log(elt.path[0].id);
-    // let o = new DBPediaModel(0.0, '2017-04-01', 'b');
-    this.workspace = !this.workspace;
+    console.log(elt);
+    console.log(elt.target);
+    console.log(elt.target.classList);
+    console.log(elt.target.id);
+    if ( elt.target.classList[1].endsWith('.png') ) {
+      this.ls.set('id', elt.target.id);
+      this.ls.set('type', elt.target.classList[1]);
+      this.workspace = !this.workspace;
+    }
   }
 
 }
