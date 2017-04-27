@@ -3,7 +3,7 @@ fxLayoutAlign="space-between center" fxLayoutAlign.xs="stretch" class="hundred">
     <div fxFlexAlign="start" fxFlex="stretch" class="hundred">
         <h1>Scouter Démo</h1>
         <div id="drop" fxLayout="row" (dblclick)="open($event)" *ngIf="workspace"></div>
-        <div fxLayout="row" *ngIf="!workspace">
+        <div class="workspace" *ngIf="!workspace">
             <app-dbpedia-form></app-dbpedia-form>
         </div>
     </div>
