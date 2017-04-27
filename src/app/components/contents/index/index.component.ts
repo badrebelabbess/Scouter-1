@@ -25,6 +25,8 @@ export class IndexComponent implements OnInit {
 
   private static type = '.png';
 
+  workspace = true;
+
   constructor() { }
 
   ngOnInit() {
@@ -66,9 +68,7 @@ export class IndexComponent implements OnInit {
     console.log(elt.path[0].classList);
     console.log(elt.path[0].id);
     // let o = new DBPediaModel(0.0, '2017-04-01', 'b');
-    // let o = new DBPediaModel(0.0, null, 'b');
-    let o = new DBPediaModel(1.0, null);
-    console.log(o.getModel());
+    this.workspace = !this.workspace;
   }
 
 }

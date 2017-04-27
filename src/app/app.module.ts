@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { RoutingModule } from './modules/routing/routing.module';
 
@@ -11,6 +12,7 @@ import { ToolsComponent } from './components/pageElements/tools/tools.component'
 import { IndexComponent } from './components/contents/index/index.component';
 import { HeaderComponent } from './components/pageElements/header/header.component';
 import { PageNotFoundComponent } from './components/pageElements/page-not-found/page-not-found.component';
+import { DbpediaFormComponent } from './components/contents/forms/dbpedia-form/dbpedia-form.component';
 
 @NgModule({
   declarations: [
@@ -18,14 +20,16 @@ import { PageNotFoundComponent } from './components/pageElements/page-not-found/
     ToolsComponent,
     IndexComponent,
     HeaderComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    DbpediaFormComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     FlexLayoutModule,
-    RoutingModule
+    RoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
