@@ -24,7 +24,6 @@ export class JsPlumbSingleton {
 
     static initNode(el: any): void {
         // Create new id for the block
-        // el.id = jsPlumbUtil.uuid();
         JsPlumbSingleton.instance.draggable( el, { containment: true });
         // Make the div able to be draggable line from
         JsPlumbSingleton.instance.makeSource(el, {
@@ -48,6 +47,10 @@ export class JsPlumbSingleton {
             },
             allowLoopback: false
         });
+    }
+
+    static newId() {
+        return jsPlumbUtil.uuid();
     }
 
     private constructor() {

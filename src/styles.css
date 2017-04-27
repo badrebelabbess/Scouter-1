@@ -634,3 +634,14 @@ Assigned to tile images in a tiled background
     width: 46px;
     margin: auto;
 }
+
+.selector {
+    position: absolute;
+    bottom: 50%;
+    right: 5px;
+    width: 0.5em;
+    height: 0.5em;
+    background-color: #0066A1;
+    cursor: pointer;
+    box-shadow: 0 0 2px black;
+}

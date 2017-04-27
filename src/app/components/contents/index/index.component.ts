@@ -5,6 +5,8 @@ import { ILocalStorageServiceConfig } from 'angular-2-local-storage';
 
 import { JsPlumbSingleton } from '../../../singleton/jslumb.singleton';
 
+import { ToolModel } from '../../../models/tool-model';
+
 // Import Jquery
 import $ from 'jquery/dist/jquery';
 // Import jQuery UI to drag and drop
@@ -24,8 +26,6 @@ declare var jsPlumb: any;
   providers: [LocalStorageService]
 })
 export class IndexComponent implements OnInit {
-
-  private static type = '.png';
 
   workspace = true;
 
@@ -58,19 +58,10 @@ export class IndexComponent implements OnInit {
   }
 
   private moveHelper(): string {
-    const elt = $(this)[0].innerHTML;
-    const pic = elt.replace(/ /g, '-').toLowerCase() + IndexComponent.type;
-    return '<div class="elt ' + pic + '">' +
-              '<img src="assets/images/' + pic + '"/ class="anchor-out">' +
-              '<p>' + elt + '</p>' +
-            '</div>';
+    return new ToolModel($(this)[0].innerHTML).getToolIstanceElement();
   }
 
   open(elt: any): void {
-    console.log(elt);
-    console.log(elt.target);
-    console.log(elt.target.classList);
-    console.log(elt.target.id);
     if ( elt.target.classList[1].endsWith('.png') ) {
       this.ls.set('id', elt.target.id);
       this.ls.set('type', elt.target.classList[1]);
