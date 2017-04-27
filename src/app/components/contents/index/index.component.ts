@@ -74,8 +74,12 @@ export class IndexComponent implements OnInit {
     if ( elt.target.classList[1].endsWith('.png') ) {
       this.ls.set('id', elt.target.id);
       this.ls.set('type', elt.target.classList[1]);
-      this.workspace = !this.workspace;
+      this.reverse();
     }
+  }
+
+  reverse(): void {
+    this.workspace = !this.workspace;
   }
 
 }

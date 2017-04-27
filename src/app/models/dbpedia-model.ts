@@ -8,7 +8,7 @@ export class DBPediaModel {
         if ( startDate != null ) {
             this.startDate = new Date(startDate);
         } else {
-            this.startDate = null;
+            this.startDate = new Date();
         }
         this.query = query || '';
     }

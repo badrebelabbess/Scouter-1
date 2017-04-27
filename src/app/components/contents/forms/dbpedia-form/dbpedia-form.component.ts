@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { LocalStorageService } from 'angular-2-local-storage';
@@ -13,19 +13,22 @@ import { DBPediaModel } from '../../../../models/dbpedia-model';
 })
 export class DbpediaFormComponent implements OnInit {
 
-  @Input() id: string;
-  @Input() type: string;
+  @Output() notify = new EventEmitter();
 
   DBform: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private ls: LocalStorageService
+  ) { }
 
   ngOnInit() {
-    this.DBform = this.formBuilder.group(new DBPediaModel());
+    this.DBform = this.formBuilder.group(new DBPediaModel().getModel());
   }
 
   save(): void {
-    console.log(this.DBform.value);
+    this.ls.set(this.ls.get('id') + '.' + this.ls.get('type'), this.DBform.value);
+    this.notify.emit();
   }
 
 }
