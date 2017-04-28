@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 import { LocalStorageService } from 'angular-2-local-storage';
 import { ILocalStorageServiceConfig } from 'angular-2-local-storage';
@@ -17,15 +17,13 @@ import 'jquery-ui/ui/core';
 import 'jquery-ui/ui/widgets/draggable';
 import 'jquery-ui/ui/widgets/droppable';
 
-declare var jsPlumb: any;
-
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.scss'],
   providers: [LocalStorageService]
 })
-export class IndexComponent implements OnInit {
+export class IndexComponent implements OnInit, OnDestroy {
 
   workspace = true;
 
@@ -36,6 +34,13 @@ export class IndexComponent implements OnInit {
 
   // tslint:disable-next-line:use-life-cycle-interface
   ngAfterViewInit() {
+    // JsPlumbSingleton.getInstance()
+    // .registerConnectionType('basic', { anchor: 'Continuous', connector: 'StateMachine' });
+
+    const o = new ToolModel('RSS feed');
+    $('#drop').append(o.getToolIstanceElement());
+    JsPlumbSingleton.configureNodes('.elt');
+
     $('span').draggable({
       cursor: 'move',
       delay: 0,
@@ -48,16 +53,19 @@ export class IndexComponent implements OnInit {
     });
     $( '#drop' ).droppable({
       drop: function( event, ui ) {
-        const i = JsPlumbSingleton.getInstance();
         const newDiv = ui.helper.clone(false);
-        i.registerConnectionType('basic', { anchor: 'Continuous', connector: 'StateMachine' });
+        console.log(newDiv);
         $('#drop').append(newDiv);
         JsPlumbSingleton.initNode(newDiv);
       }
     });
   }
 
-  private moveHelper(): string {
+  ngOnDestroy(): void {
+    console.log('dddddddddd');
+  }
+
+  private moveHelper(): HTMLDivElement {
     return new ToolModel($(this)[0].innerHTML).getToolIstanceElement();
   }
 

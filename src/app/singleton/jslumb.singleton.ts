@@ -22,8 +22,20 @@ export class JsPlumbSingleton {
         return JsPlumbSingleton.instance;
     }
 
-    static initNode(el: any): void {
-        // Create new id for the block
+    static initNode(elt: any): void {
+        JsPlumbSingleton.configureJsPlumbElements(elt);
+    }
+
+    static configureNodes(className: string): void {
+        const elts = document.querySelectorAll(className);
+        JsPlumbSingleton.configureJsPlumbElements(elts);
+    }
+
+    static newId() {
+        return jsPlumbUtil.uuid();
+    }
+
+    private static configureJsPlumbElements(el: any) {
         JsPlumbSingleton.instance.draggable( el, { containment: true });
         // Make the div able to be draggable line from
         JsPlumbSingleton.instance.makeSource(el, {
@@ -47,10 +59,6 @@ export class JsPlumbSingleton {
             },
             allowLoopback: false
         });
-    }
-
-    static newId() {
-        return jsPlumbUtil.uuid();
     }
 
     private constructor() {
