@@ -2,10 +2,14 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 
 import { LocalStorageService } from 'angular-2-local-storage';
 import { ILocalStorageServiceConfig } from 'angular-2-local-storage';
+import { WorkflowService } from '../../../services/workflow.service';
+import { RestoreElementService } from '../../../services/restore-element.service';
 
 import { JsPlumbSingleton } from '../../../singleton/jslumb.singleton';
 
 import { ToolModel } from '../../../models/tool-model';
+
+import { ConfigApp } from '../../../config/config-app';
 
 // Import Jquery
 import $ from 'jquery/dist/jquery';
@@ -21,44 +25,57 @@ import 'jquery-ui/ui/widgets/droppable';
   selector: 'app-index',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.scss'],
-  providers: [LocalStorageService]
+  providers: [
+    LocalStorageService,
+    WorkflowService,
+    RestoreElementService
+  ]
 })
 export class IndexComponent implements OnInit, OnDestroy {
 
   workspace = true;
+  defaultWorkflow: any;
+  errorMsg: string;
 
-  constructor(private ls: LocalStorageService) { }
+  constructor(
+    private ls: LocalStorageService,
+    private ws: WorkflowService,
+    private re: RestoreElementService
+  ) { }
 
   ngOnInit() {
+    this.ws.getDefautWorkFlow()
+        .subscribe( resData  => this.defaultWorkflow = resData,
+                    resError => this.errorMsg        = resError);
   }
 
   // tslint:disable-next-line:use-life-cycle-interface
   ngAfterViewInit() {
     // JsPlumbSingleton.getInstance()
     // .registerConnectionType('basic', { anchor: 'Continuous', connector: 'StateMachine' });
-
-    const o = new ToolModel('RSS feed');
-    $('#drop').append(o.getToolIstanceElement());
-    JsPlumbSingleton.configureNodes('.elt');
-
-    $('span').draggable({
-      cursor: 'move',
-      delay: 0,
-      refreshPositions: true,
-      //  revert: true,
-      scroll: false,
-      containement: '#drop',
-      appendTo: '#drop',
+    $(ConfigApp.draggableSelector).draggable({
+      cursor: ConfigApp.draggableConfig.cursor,
+      delay: ConfigApp.draggableConfig.delay,
+      refreshPositions: ConfigApp.draggableConfig.refreshPositions,
+      scroll: ConfigApp.draggableConfig.scroll,
+      containement: ConfigApp.draggableConfig.containement,
+      appendTo: ConfigApp.draggableConfig.appendTo,
       helper: this.moveHelper
     });
-    $( '#drop' ).droppable({
+    $(ConfigApp.dropContainer).droppable({
       drop: function( event, ui ) {
         const newDiv = ui.helper.clone(false);
-        console.log(newDiv);
-        $('#drop').append(newDiv);
+        $(ConfigApp.dropContainer).append(newDiv);
         JsPlumbSingleton.initNode(newDiv);
       }
     });
+  }
+
+  // tslint:disable-next-line:use-life-cycle-interface
+  ngAfterViewChecked(): void {
+    // if ( this.defaultWorkflow !== undefined ) {
+    //   this.re.draw(this.defaultWorkflow);
+    // }
   }
 
   ngOnDestroy(): void {
@@ -69,12 +86,22 @@ export class IndexComponent implements OnInit, OnDestroy {
     return new ToolModel($(this)[0].innerHTML).getToolIstanceElement();
   }
 
-  open(elt: any): void {
-    if ( elt.target.classList[1].endsWith('.png') ) {
-      this.ls.set('id', elt.target.id);
-      this.ls.set('type', elt.target.classList[1]);
-      this.reverse();
+  open(evt: any): void {
+    try {
+      if ( evt.target.classList[1].endsWith(ConfigApp.imageType)) {
+        this.apply(evt);
+      }
+    } catch (e) {
+      if ( evt.path[1].classList[1].endsWith(ConfigApp.imageType)) {
+        this.apply(evt);
+      }
     }
+  }
+
+  private apply(evt: any): void {
+    this.ls.set(ConfigApp.localStorage.id, evt.target.id);
+    this.ls.set(ConfigApp.localStorage.type, evt.target.classList[1]);
+    this.reverse();
   }
 
   reverse(): void {

@@ -1,0 +1,76 @@
+{  
+   "workflow_components":[  
+      {  
+         "id":"0",
+         "component_type":"RSS Feed",
+         "x_position":"40px",
+         "y_position":"22px",
+         "links_to":[  
+            "1"
+         ]
+      },
+      {  
+         "id":"1",
+         "component_type":"Open Data",
+         "x_position":"150px",
+         "y_position":"62px",
+         "links_to":[  
+            "2"
+         ]
+      },
+      {  
+         "id":"2",
+         "component_type":"Social Networks",
+         "x_position":"260px",
+         "y_position":"132px",
+         "links_to":[  
+            "3"
+         ]
+      },
+      {  
+         "id":"3",
+         "component_type":"Geo Location",
+         "x_position":"380px",
+         "y_position":"212px",
+         "links_to":[  
+            "4"
+         ]
+      },
+      {  
+         "id":"4",
+         "component_type":"Keyword List",
+         "x_position":"460px",
+         "y_position":"102px",
+         "links_to":[  
+            "5"
+         ]
+      },
+      {  
+         "id":"5",
+         "component_type":"Ontology",
+         "x_position":"600px",
+         "y_position":"202px",
+         "links_to":[  
+            
+         ]
+      },
+      {  
+         "id":"6",
+         "component_type":"Sentimental Analysis",
+         "x_position":"600px",
+         "y_position":"322px",
+         "links_to":[  
+            "5"
+         ]
+      },
+      {  
+         "id":"7",
+         "component_type":"Topic extraction",
+         "x_position":"220px",
+         "y_position":"342px",
+         "links_to":[  
+            "3"
+         ]
+      }
+   ]
+}

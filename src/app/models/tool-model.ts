@@ -2,14 +2,19 @@ import { ElementRef } from '@angular/core';
 
 import { JsPlumbSingleton } from '../singleton/jslumb.singleton';
 
-export class ToolModel {
+import { ConfigApp } from '../config/config-app';
 
-    private static type = '.png';
+export class ToolModel {
 
     private elt: string;
 
-    constructor(elt: string) {
+    private id: string;
+
+    constructor(elt: string, id?: string) {
         this.elt = elt;
+        if ( id ) {
+            this.id = id;
+        }
      }
 
     /**
@@ -26,7 +31,7 @@ export class ToolModel {
         const pic = this.getPictureOfElement();
         const newDiv = document.createElement('div');
         newDiv.classList.add('elt', pic);
-        newDiv.id = JsPlumbSingleton.newId();
+        newDiv.id = ( this.id !== undefined ) ? this.id : JsPlumbSingleton.newId();
         newDiv.style.position = 'absolute';
         newDiv.style.left = '412.988px';
         newDiv.style.top = '26.6px';
@@ -51,6 +56,6 @@ export class ToolModel {
      * Create a picture string to the element.
      */
     private getPictureOfElement() {
-        return this.elt.replace(/ /g, '-').toLowerCase() + ToolModel.type;
+        return this.elt.replace(/ /g, '-').toLowerCase() + ConfigApp.imageType;
     }
 }
