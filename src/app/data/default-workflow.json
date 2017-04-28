@@ -3,8 +3,8 @@
       {  
          "id":"0",
          "component_type":"RSS Feed",
-         "x_position":"40px",
-         "y_position":"22px",
+         "x_position":"132px",
+         "y_position":"250px",
          "links_to":[  
             "1"
          ]
@@ -12,8 +12,8 @@
       {  
          "id":"1",
          "component_type":"Open Data",
-         "x_position":"150px",
-         "y_position":"62px",
+         "x_position":"99px",
+         "y_position":"69px",
          "links_to":[  
             "2"
          ]
@@ -21,8 +21,8 @@
       {  
          "id":"2",
          "component_type":"Social Networks",
-         "x_position":"260px",
-         "y_position":"132px",
+         "x_position":"333px",
+         "y_position":"68px",
          "links_to":[  
             "3"
          ]
@@ -30,8 +30,8 @@
       {  
          "id":"3",
          "component_type":"Geo Location",
-         "x_position":"380px",
-         "y_position":"212px",
+         "x_position":"384px",
+         "y_position":"244px",
          "links_to":[  
             "4"
          ]
@@ -39,8 +39,8 @@
       {  
          "id":"4",
          "component_type":"Keyword List",
-         "x_position":"460px",
-         "y_position":"102px",
+         "x_position":"615px",
+         "y_position":"50px",
          "links_to":[  
             "5"
          ]
@@ -48,8 +48,8 @@
       {  
          "id":"5",
          "component_type":"Ontology",
-         "x_position":"600px",
-         "y_position":"202px",
+         "x_position":"744px",
+         "y_position":"217px",
          "links_to":[  
             
          ]
@@ -57,8 +57,8 @@
       {  
          "id":"6",
          "component_type":"Sentimental Analysis",
-         "x_position":"600px",
-         "y_position":"322px",
+         "x_position":"642px",
+         "y_position":"427px",
          "links_to":[  
             "5"
          ]
@@ -66,8 +66,8 @@
       {  
          "id":"7",
          "component_type":"Topic extraction",
-         "x_position":"220px",
-         "y_position":"342px",
+         "x_position":"232px",
+         "y_position":"439px",
          "links_to":[  
             "3"
          ]

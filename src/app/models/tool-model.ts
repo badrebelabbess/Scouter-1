@@ -7,13 +7,16 @@ import { ConfigApp } from '../config/config-app';
 export class ToolModel {
 
     private elt: string;
-
     private id: string;
+    private xPosition: string;
+    private yPosition: string;
 
-    constructor(elt: string, id?: string) {
+    constructor(elt: string, id?: string, xPosition?: string, yPosition?: string) {
         this.elt = elt;
         if ( id ) {
             this.id = id;
+            this.xPosition = xPosition;
+            this.yPosition = yPosition;
         }
      }
 
@@ -33,8 +36,12 @@ export class ToolModel {
         newDiv.classList.add('elt', pic);
         newDiv.id = ( this.id !== undefined ) ? this.id : JsPlumbSingleton.newId();
         newDiv.style.position = 'absolute';
-        newDiv.style.left = '412.988px';
-        newDiv.style.top = '26.6px';
+        if ( this.xPosition ) {
+            newDiv.style.left = this.xPosition;
+        }
+        if ( this.xPosition ) {
+           newDiv.style.top = this.yPosition;
+        }
         // Create image element
         const img = document.createElement('img');
         img.src = 'assets/images/' + pic;
