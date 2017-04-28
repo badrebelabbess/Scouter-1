@@ -36,6 +36,7 @@ export class IndexComponent implements OnInit, OnDestroy {
   workspace = true;
   defaultWorkflow: any;
   errorMsg: string;
+  isComponentWasDrawed: boolean;
 
   constructor(
     private ls: LocalStorageService,
@@ -47,6 +48,7 @@ export class IndexComponent implements OnInit, OnDestroy {
     this.ws.getDefautWorkFlow()
         .subscribe( resData  => this.defaultWorkflow = resData,
                     resError => this.errorMsg        = resError);
+    this.isComponentWasDrawed = false;
   }
 
   // tslint:disable-next-line:use-life-cycle-interface
@@ -73,9 +75,11 @@ export class IndexComponent implements OnInit, OnDestroy {
 
   // tslint:disable-next-line:use-life-cycle-interface
   ngAfterViewChecked(): void {
-    // if ( this.defaultWorkflow !== undefined ) {
-    //   this.re.draw(this.defaultWorkflow);
-    // }
+    if ( this.defaultWorkflow !== undefined
+    && !this.isComponentWasDrawed ) {
+      this.re.draw(this.defaultWorkflow);
+      this.isComponentWasDrawed = !this.isComponentWasDrawed;
+    }
   }
 
   ngOnDestroy(): void {
