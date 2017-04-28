@@ -33,7 +33,7 @@ export class ToolModel {
         // Tool element container
         const pic = this.getPictureOfElement();
         const newDiv = document.createElement('div');
-        newDiv.classList.add('elt', pic);
+        newDiv.classList.add(ConfigApp.toolEltsClassName, pic);
         newDiv.id = ( this.id !== undefined ) ? this.id : JsPlumbSingleton.newId();
         newDiv.style.position = 'absolute';
         if ( this.xPosition ) {
@@ -44,7 +44,7 @@ export class ToolModel {
         }
         // Create image element
         const img = document.createElement('img');
-        img.src = 'assets/images/' + pic;
+        img.src = ConfigApp.pathImages + pic;
         // Create anchor element
         const anchor = document.createElement('div');
         anchor.classList.add('selector', 'anchor-out');
