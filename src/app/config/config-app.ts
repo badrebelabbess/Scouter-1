@@ -45,31 +45,28 @@ export class ConfigApp {
         Container: ConfigApp.dropContainerName
     };
 
+    static connectorStyle = {
+        stroke: '#0073CF',
+        strokeWidth: 2,
+        outlineStroke: 'transparent',
+        outlineWidth: 4
+    };
+
     static jsPlumbMakeSourceConfig = {
         filter: '.anchor-out',
         anchor: 'Continuous',
-        connectorStyle: {
-            stroke: '#0073CF',
-            strokeWidth: 2,
-            outlineStroke: 'transparent',
-            outlineWidth: 4
-        },
+        connectorStyle: ConfigApp.connectorStyle,
         connectionType: 'basic',
         connectorHoverStyle: {
             strokeWidth: 3,
             stroke: '#1e8151'
-        },
+        }
     };
 
     static jsPlumbMakeTargetConfig = {
         dropOptions: { hoverClass: 'dragHover' },
         anchor: 'Continuous',
-        connectorStyle: {
-            stroke: '#0073CF',
-            strokeWidth: 2,
-            outlineStroke: 'transparent',
-            outlineWidth: 4
-        },
+        connectorStyle: ConfigApp.connectorStyle,
         connectionType: 'basic',
         extract: {
             'action': 'the-action'

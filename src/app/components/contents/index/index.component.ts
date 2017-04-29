@@ -36,20 +36,26 @@ export class IndexComponent implements OnInit, OnDestroy {
   workspace = true;
   defaultWorkflow: any;
   errorMsg: string;
-  isComponentWasDrawed: boolean;
 
   constructor(
     private ls: LocalStorageService,
     private ws: WorkflowService,
     private re: RestoreElementService
-  ) { }
+  ) {
+      this.ws.getDefautWorkFlow()
+        .subscribe(
+          function(resData) {
+            re.draw(resData);
+          },
+          function(resError) {
+            this.resError = resError;
+          }
+        );
+        // .subscribe( resData  => this.defaultWorkflow = resData,
+        //             resError => this.errorMsg        = resError );
+   }
 
-  ngOnInit() {
-    this.ws.getDefautWorkFlow()
-        .subscribe( resData  => this.defaultWorkflow = resData,
-                    resError => this.errorMsg        = resError);
-    this.isComponentWasDrawed = false;
-  }
+  ngOnInit() {}
 
   // tslint:disable-next-line:use-life-cycle-interface
   ngAfterViewInit() {
@@ -71,15 +77,6 @@ export class IndexComponent implements OnInit, OnDestroy {
         JsPlumbSingleton.initNode(newDiv);
       }
     });
-  }
-
-  // tslint:disable-next-line:use-life-cycle-interface
-  ngAfterViewChecked(): void {
-    if ( this.defaultWorkflow !== undefined
-    && !this.isComponentWasDrawed ) {
-      this.re.draw(this.defaultWorkflow);
-      this.isComponentWasDrawed = !this.isComponentWasDrawed;
-    }
   }
 
   ngOnDestroy(): void {
