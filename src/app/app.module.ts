@@ -17,6 +17,8 @@ import { PageNotFoundComponent } from './components/pageElements/page-not-found/
 import { DbpediaFormComponent } from './components/contents/forms/dbpedia-form/dbpedia-form.component';
 import { MonitoringComponent } from './components/contents/monitoring/monitoring.component';
 import { TwitterFormComponent } from './components/contents/forms/twitter-form/twitter-form.component';
+import { FacebookFormComponent } from './components/contents/forms/facebook-form/facebook-form.component';
+import { OpenAgendaFormComponent } from './components/contents/forms/open-agenda-form/open-agenda-form.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { TwitterFormComponent } from './components/contents/forms/twitter-form/t
     PageNotFoundComponent,
     DbpediaFormComponent,
     MonitoringComponent,
-    TwitterFormComponent
+    TwitterFormComponent,
+    FacebookFormComponent,
+    OpenAgendaFormComponent
   ],
   imports: [
     BrowserModule,

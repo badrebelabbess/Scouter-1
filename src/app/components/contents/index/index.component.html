@@ -5,7 +5,9 @@ fxLayoutAlign="space-between center" fxLayoutAlign.xs="stretch" class="hundred">
         <div id="drop" fxLayout="row" (dblclick)="open($event)" *ngIf="workspace"></div>
         <div class="workspace" *ngIf="!workspace">
             <!--<app-dbpedia-form (notify)="reverse()"></app-dbpedia-form>-->
-            <app-twitter-form (notify)="reverse()"></app-twitter-form>
+            <!--<app-twitter-form (notify)="reverse()"></app-twitter-form>-->
+            <!--<app-facebook-form (notify)="reverse()"></app-facebook-form>-->
+            <app-open-agenda-form (notify)="reverse()"></app-open-agenda-form>
         </div>
     </div>
     <app-tools fxFlex="22" fxFlexAlign="start"></app-tools>
