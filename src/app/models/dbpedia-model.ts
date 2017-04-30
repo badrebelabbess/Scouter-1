@@ -1,4 +1,6 @@
-export class DBPediaModel {
+import { FormModel } from '../interfaces/form-model';
+
+export class DBPediaModel implements FormModel {
     private frequency: number;
     private startDate: Date;
     private query: string;

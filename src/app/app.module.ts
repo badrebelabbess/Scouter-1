@@ -16,6 +16,7 @@ import { HeaderComponent } from './components/pageElements/header/header.compone
 import { PageNotFoundComponent } from './components/pageElements/page-not-found/page-not-found.component';
 import { DbpediaFormComponent } from './components/contents/forms/dbpedia-form/dbpedia-form.component';
 import { MonitoringComponent } from './components/contents/monitoring/monitoring.component';
+import { TwitterFormComponent } from './components/contents/forms/twitter-form/twitter-form.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { MonitoringComponent } from './components/contents/monitoring/monitoring
     HeaderComponent,
     PageNotFoundComponent,
     DbpediaFormComponent,
-    MonitoringComponent
+    MonitoringComponent,
+    TwitterFormComponent
   ],
   imports: [
     BrowserModule,

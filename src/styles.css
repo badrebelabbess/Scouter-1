@@ -645,3 +645,8 @@ Assigned to tile images in a tiled background
     cursor: pointer;
     box-shadow: 0 0 2px black;
 }
+
+form {
+    width: 90%;
+    margin: auto;
+}

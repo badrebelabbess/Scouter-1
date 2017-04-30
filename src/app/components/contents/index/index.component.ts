@@ -123,7 +123,7 @@ export class IndexComponent implements OnInit, OnDestroy {
       confirmBtnClass: 'btn btn-default', // your class for styling the confirm button
       cancleBtnClass: 'btn btn-default', // you class for styling the cancel button
       animation: 'fadeInDown' // 'fadeInLeft', 'fadeInRight', 'fadeInUp', 'bounceIn','bounceInDown'
-  };
+    };
     this.popup.show();
   }
 

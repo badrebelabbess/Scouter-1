@@ -4,7 +4,8 @@ fxLayoutAlign="space-between center" fxLayoutAlign.xs="stretch" class="hundred">
         <h1>Scouter Démo</h1>
         <div id="drop" fxLayout="row" (dblclick)="open($event)" *ngIf="workspace"></div>
         <div class="workspace" *ngIf="!workspace">
-            <app-dbpedia-form (notify)="reverse()"></app-dbpedia-form>
+            <!--<app-dbpedia-form (notify)="reverse()"></app-dbpedia-form>-->
+            <app-twitter-form (notify)="reverse()"></app-twitter-form>
         </div>
     </div>
     <app-tools fxFlex="22" fxFlexAlign="start"></app-tools>
@@ -12,5 +13,5 @@ fxLayoutAlign="space-between center" fxLayoutAlign.xs="stretch" class="hundred">
 <a (click)="deleteAll()" href="#">delete all</a>
 
 <popup>
-    <app-dbpedia-form (notify)="reverse()"></app-dbpedia-form>
+    Add your custom html elements here
 </popup>

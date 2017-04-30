@@ -1,0 +1,11 @@
+<form [formGroup]="DBform" (ngSubmit)="save()">
+  <div class="form-group">
+    <label for="accountsIds">Accounts Ids :</label>
+    <textarea formControlName="accountsIds" class="form-control" id="accountsIds" rows="10"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="hashtags">Hashtags :</label>
+    <textarea formControlName="hashtags" class="form-control" id="hashtags" rows="10"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Save</button>
+</form>
