@@ -19,6 +19,7 @@ import { MonitoringComponent } from './components/contents/monitoring/monitoring
 import { TwitterFormComponent } from './components/contents/forms/twitter-form/twitter-form.component';
 import { FacebookFormComponent } from './components/contents/forms/facebook-form/facebook-form.component';
 import { OpenAgendaFormComponent } from './components/contents/forms/open-agenda-form/open-agenda-form.component';
+import { OwmFormComponent } from './components/contents/forms/owm-form/owm-form.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { OpenAgendaFormComponent } from './components/contents/forms/open-agenda
     MonitoringComponent,
     TwitterFormComponent,
     FacebookFormComponent,
-    OpenAgendaFormComponent
+    OpenAgendaFormComponent,
+    OwmFormComponent
   ],
   imports: [
     BrowserModule,
