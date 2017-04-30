@@ -14,6 +14,7 @@ import { IndexComponent } from './components/contents/index/index.component';
 import { HeaderComponent } from './components/pageElements/header/header.component';
 import { PageNotFoundComponent } from './components/pageElements/page-not-found/page-not-found.component';
 import { DbpediaFormComponent } from './components/contents/forms/dbpedia-form/dbpedia-form.component';
+import { MonitoringComponent } from './components/contents/monitoring/monitoring.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { DbpediaFormComponent } from './components/contents/forms/dbpedia-form/d
     IndexComponent,
     HeaderComponent,
     PageNotFoundComponent,
-    DbpediaFormComponent
+    DbpediaFormComponent,
+    MonitoringComponent
   ],
   imports: [
     BrowserModule,

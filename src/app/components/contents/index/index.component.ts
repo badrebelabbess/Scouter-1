@@ -105,4 +105,8 @@ export class IndexComponent implements OnInit, OnDestroy {
     this.workspace = !this.workspace;
   }
 
+  deleteAll(): void {
+    $(ConfigApp.dropContainer).html('');
+  }
+
 }
