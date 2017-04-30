@@ -29,7 +29,8 @@ export class WorkflowService {
       return this.http.get(this.sendingWorkflowUrl, {
         method: RequestMethod.Get,
         headers: headers,
-        body: JSON.stringify({a: 'b'}),
+        // body: JSON.stringify({a: 'b'}),
+        body: '{"a": "b"}',
         responseType: ResponseContentType.Json
       }).map((response: Response) => response.json())
         .catch(this.errorHandler);

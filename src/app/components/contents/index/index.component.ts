@@ -11,6 +11,8 @@ import { ToolModel } from '../../../models/tool-model';
 
 import { ConfigApp } from '../../../config/config-app';
 
+import { Popup } from 'ng2-opd-popup';
+
 // Import Jquery
 import $ from 'jquery/dist/jquery';
 // Import jQuery UI to drag and drop
@@ -40,7 +42,8 @@ export class IndexComponent implements OnInit, OnDestroy {
   constructor(
     private ls: LocalStorageService,
     private ws: WorkflowService,
-    private re: RestoreElementService
+    private re: RestoreElementService,
+    private popup: Popup
   ) {
       this.ws.getDefautWorkFlow()
       .subscribe( resData  => re.draw(resData),
@@ -51,10 +54,12 @@ export class IndexComponent implements OnInit, OnDestroy {
    }
 
   ngOnInit() {
+    console.log('init');
   }
 
   // tslint:disable-next-line:use-life-cycle-interface
   ngAfterViewInit() {
+    console.log('after view init');
     // JsPlumbSingleton.getInstance()
     // .registerConnectionType('basic', { anchor: 'Continuous', connector: 'StateMachine' });
     $(ConfigApp.draggableSelector).draggable({
@@ -76,7 +81,7 @@ export class IndexComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    console.log('dddddddddd');
+    console.log('destroy');
   }
 
   private moveHelper(): HTMLDivElement {
@@ -106,7 +111,20 @@ export class IndexComponent implements OnInit, OnDestroy {
   }
 
   deleteAll(): void {
-    $(ConfigApp.dropContainer).html('');
+    // $(ConfigApp.dropContainer).html('');
+    this.popup.options = {
+      header: 'Your custom header',
+      color: '#5cb85c', // red, blue....
+      widthProsentage: 40, // The with of the popou measured by browser width
+      animationDuration: 1, // in seconds, 0 = no animation
+      showButtons: true, // You can hide this in case you want to use custom buttons
+      confirmBtnContent: 'OK', // The text on your confirm button
+      cancleBtnContent: 'Cancel', // the text on your cancel button
+      confirmBtnClass: 'btn btn-default', // your class for styling the confirm button
+      cancleBtnClass: 'btn btn-default', // you class for styling the cancel button
+      animation: 'fadeInDown' // 'fadeInLeft', 'fadeInRight', 'fadeInUp', 'bounceIn','bounceInDown'
+  };
+    this.popup.show();
   }
 
 }

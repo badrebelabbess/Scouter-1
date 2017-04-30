@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { LocalStorageModule } from 'angular-2-local-storage';
+import { PopupModule } from 'ng2-opd-popup';
 
 import { RoutingModule } from './modules/routing/routing.module';
 
@@ -36,7 +37,8 @@ import { MonitoringComponent } from './components/contents/monitoring/monitoring
     LocalStorageModule.withConfig({
         prefix: 'app-root',
         storageType: 'localStorage'
-    })
+    }),
+    PopupModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

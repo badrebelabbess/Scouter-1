@@ -10,3 +10,7 @@ fxLayoutAlign="space-between center" fxLayoutAlign.xs="stretch" class="hundred">
     <app-tools fxFlex="22" fxFlexAlign="start"></app-tools>
 </div>
 <a (click)="deleteAll()" href="#">delete all</a>
+
+<popup>
+    <app-dbpedia-form (notify)="reverse()"></app-dbpedia-form>
+</popup>
