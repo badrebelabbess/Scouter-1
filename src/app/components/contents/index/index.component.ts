@@ -43,19 +43,15 @@ export class IndexComponent implements OnInit, OnDestroy {
     private re: RestoreElementService
   ) {
       this.ws.getDefautWorkFlow()
-        .subscribe(
-          function(resData) {
-            re.draw(resData);
-          },
-          function(resError) {
-            this.resError = resError;
-          }
-        );
-        // .subscribe( resData  => this.defaultWorkflow = resData,
-        //             resError => this.errorMsg        = resError );
+      .subscribe( resData  => re.draw(resData),
+                  resError => this.errorMsg = resError );
+      this.ws.sendWorkFlow()
+      .subscribe( resData  => console.log('d'),
+                  resError => this.errorMsg = resError );
    }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   // tslint:disable-next-line:use-life-cycle-interface
   ngAfterViewInit() {

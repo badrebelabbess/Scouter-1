@@ -19,7 +19,6 @@ export class JsPlumbSingleton {
 
     static configureNodes(className: string): void {
         const elts = document.querySelectorAll(className);
-        console.log(elts);
         JsPlumbSingleton.configureJsPlumbElements(elts);
     }
 
