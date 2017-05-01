@@ -14,6 +14,11 @@
           "glob": "**/*",
           "input": "../node_modules/leaflet/dist/images",
           "output": "./assets/"
+        },
+        {
+          "glob": "**/*",
+          "input": "../node_modules/leaflet-draw/dist/images",
+          "output": "./assets/"
         }
       ],
       "index": "index.html",

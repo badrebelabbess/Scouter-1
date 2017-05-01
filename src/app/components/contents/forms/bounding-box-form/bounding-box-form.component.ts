@@ -71,4 +71,12 @@ export class BoundingBoxFormComponent {
     duration: 1
   };
 
+  drawOptions = {
+      draw: {
+        polygon: false,
+        polyline: false,
+        marker: false,
+        circle: false
+      }
+  };
 }
