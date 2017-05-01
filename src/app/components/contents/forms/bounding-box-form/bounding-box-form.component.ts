@@ -77,6 +77,6 @@ export class BoundingBoxFormComponent {
         polyline: false,
         marker: false,
         circle: false
-      }
+      },
   };
 }
