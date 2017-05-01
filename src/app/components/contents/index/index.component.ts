@@ -54,12 +54,10 @@ export class IndexComponent implements OnInit, OnDestroy {
    }
 
   ngOnInit() {
-    console.log('init');
   }
 
   // tslint:disable-next-line:use-life-cycle-interface
   ngAfterViewInit() {
-    console.log('after view init');
     // JsPlumbSingleton.getInstance()
     // .registerConnectionType('basic', { anchor: 'Continuous', connector: 'StateMachine' });
     $(ConfigApp.draggableSelector).draggable({
@@ -81,7 +79,6 @@ export class IndexComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    console.log('destroy');
   }
 
   private moveHelper(): HTMLDivElement {

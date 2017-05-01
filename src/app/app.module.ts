@@ -6,6 +6,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { LocalStorageModule } from 'angular-2-local-storage';
 import { PopupModule } from 'ng2-opd-popup';
+import { LeafletModule } from '@asymmetrik/angular2-leaflet';
+import { LeafletDrawModule } from '@asymmetrik/angular2-leaflet-draw';
 
 import { RoutingModule } from './modules/routing/routing.module';
 
@@ -20,6 +22,7 @@ import { TwitterFormComponent } from './components/contents/forms/twitter-form/t
 import { FacebookFormComponent } from './components/contents/forms/facebook-form/facebook-form.component';
 import { OpenAgendaFormComponent } from './components/contents/forms/open-agenda-form/open-agenda-form.component';
 import { OwmFormComponent } from './components/contents/forms/owm-form/owm-form.component';
+import { BoundingBoxFormComponent } from './components/contents/forms/bounding-box-form/bounding-box-form.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,8 @@ import { OwmFormComponent } from './components/contents/forms/owm-form/owm-form.
     TwitterFormComponent,
     FacebookFormComponent,
     OpenAgendaFormComponent,
-    OwmFormComponent
+    OwmFormComponent,
+    BoundingBoxFormComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +50,9 @@ import { OwmFormComponent } from './components/contents/forms/owm-form/owm-form.
         prefix: 'app-root',
         storageType: 'localStorage'
     }),
-    PopupModule.forRoot()
+    PopupModule.forRoot(),
+    LeafletModule,
+    LeafletDrawModule
   ],
   providers: [],
   bootstrap: [AppComponent]
