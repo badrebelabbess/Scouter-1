@@ -31,7 +31,7 @@ export class BoundingBoxFormComponent {
     },
   ],
   zoom: 5,
-  center: [ 46.879966, -121.726909 ]
+  center: [ 48.8048649, 2.120355399999994 ]
   };
 
   zoom: number;
@@ -79,4 +79,28 @@ export class BoundingBoxFormComponent {
         circle: false
       },
   };
+
+  onMapReady(map: L.Map) {
+    console.log(map);
+    map.on('draw:created', function(e: any){
+      const bounds = e.layer._bounds;
+      const minLat = bounds._southWest.lat;
+      const maxLat = bounds._northEast.lat;
+      const minLng = bounds._southWest.lng;
+      const maxLng = bounds._northEast.lng;
+    });
+
+    map.on('draw:edited', function(e: any){
+      const key = Object.keys(e.layers._layers)[0];
+      const bounds = e.layers._layers[key]._bounds;
+      const minLat = bounds._southWest.lat;
+      const maxLat = bounds._northEast.lat;
+      const minLng = bounds._southWest.lng;
+      const maxLng = bounds._northEast.lng;
+    });
+
+    map.on('draw:deleted', function(e: any){
+      this.isObjectIsDrawn = !this.isObjectIsDrawn;
+    });
+  }
 }

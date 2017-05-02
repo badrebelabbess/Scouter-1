@@ -8,5 +8,6 @@
     [leafletFitBoundsOptions]="fitBoundsOptions"
     [leafletZoom]="zoom"
     [leafletCenter]="center"
-    [leafletDrawOptions]="drawOptions"> 
+    [leafletDrawOptions]="drawOptions"
+    (leafletMapReady)="onMapReady($event)"> 
 </div>
