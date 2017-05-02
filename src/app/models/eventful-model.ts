@@ -1,4 +1,4 @@
 import { EventModel } from '../models/event-model';
 
-export class OwmModel extends EventModel {
+export class EventfulModel extends EventModel {
 }
