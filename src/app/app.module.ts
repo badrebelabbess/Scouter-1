@@ -23,6 +23,11 @@ import { FacebookFormComponent } from './components/contents/forms/facebook-form
 import { OpenAgendaFormComponent } from './components/contents/forms/open-agenda-form/open-agenda-form.component';
 import { OwmFormComponent } from './components/contents/forms/owm-form/owm-form.component';
 import { BoundingBoxFormComponent } from './components/contents/forms/bounding-box-form/bounding-box-form.component';
+import { EventfulFormComponent } from './components/contents/forms/eventful-form/eventful-form.component';
+import { RssFormComponent } from './components/contents/forms/rss-form/rss-form.component';
+import { KeywordsFormComponent } from './components/contents/forms/keywords-form/keywords-form.component';
+import { OpenDataFormComponent } from './components/contents/forms/open-data-form/open-data-form.component';
+import { SocialNetworksFormComponent } from './components/contents/forms/social-networks-form/social-networks-form.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +42,12 @@ import { BoundingBoxFormComponent } from './components/contents/forms/bounding-b
     FacebookFormComponent,
     OpenAgendaFormComponent,
     OwmFormComponent,
-    BoundingBoxFormComponent
+    BoundingBoxFormComponent,
+    EventfulFormComponent,
+    RssFormComponent,
+    KeywordsFormComponent,
+    OpenDataFormComponent,
+    SocialNetworksFormComponent
   ],
   imports: [
     BrowserModule,

@@ -35,7 +35,6 @@ import 'jquery-ui/ui/widgets/droppable';
 })
 export class IndexComponent implements OnInit, OnDestroy {
 
-  workspace = true;
   defaultWorkflow: any;
   errorMsg: string;
 
@@ -51,6 +50,7 @@ export class IndexComponent implements OnInit, OnDestroy {
       this.ws.sendWorkFlow()
       .subscribe( resData  => console.log('d'),
                   resError => this.errorMsg = resError );
+      this.popup.options = ConfigApp.popupConfig;
    }
 
   ngOnInit() {
@@ -95,33 +95,17 @@ export class IndexComponent implements OnInit, OnDestroy {
         this.apply(evt);
       }
     }
+    this.popup.show();
   }
 
   private apply(evt: any): void {
     this.ls.set(ConfigApp.localStorage.id, evt.target.id);
     this.ls.set(ConfigApp.localStorage.type, evt.target.classList[1]);
-    this.reverse();
   }
 
-  reverse(): void {
-    this.workspace = !this.workspace;
-  }
 
   deleteAll(): void {
     // $(ConfigApp.dropContainer).html('');
-    this.popup.options = {
-      header: 'Your custom header',
-      color: '#5cb85c', // red, blue....
-      widthProsentage: 40, // The with of the popou measured by browser width
-      animationDuration: 1, // in seconds, 0 = no animation
-      showButtons: true, // You can hide this in case you want to use custom buttons
-      confirmBtnContent: 'OK', // The text on your confirm button
-      cancleBtnContent: 'Cancel', // the text on your cancel button
-      confirmBtnClass: 'btn btn-default', // your class for styling the confirm button
-      cancleBtnClass: 'btn btn-default', // you class for styling the cancel button
-      animation: 'fadeInDown' // 'fadeInLeft', 'fadeInRight', 'fadeInUp', 'bounceIn','bounceInDown'
-    };
-    this.popup.show();
   }
 
 }

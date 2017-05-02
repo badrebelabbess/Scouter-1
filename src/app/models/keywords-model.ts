@@ -1,6 +1,6 @@
 import { FormModel } from '../interfaces/form-model';
 
-export class KeywordsModel {
+export class KeywordsModel implements FormModel {
 
     private keywords: string;
 
@@ -10,6 +10,12 @@ export class KeywordsModel {
 
     setKeywords(keywords: string) {
         this.keywords = keywords;
+    }
+
+    getModel(): any {
+        return {
+            keywords: this.keywords
+        };
     }
 
 }

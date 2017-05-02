@@ -73,4 +73,17 @@ export class ConfigApp {
         },
         allowLoopback: false
     };
+
+    static popupConfig = {
+        header: 'Configure component',
+        color: '#0066A1',
+        widthProsentage: 80, // The width of the popup measured by browser width
+        animationDuration: 1, // in seconds, 0 = no animation
+        showButtons: false, // You can hide this in case you want to use custom buttons
+        // confirmBtnContent: 'OK', // The text on your confirm button
+        // cancleBtnContent: 'Cancel', // the text on your cancel button
+        // confirmBtnClass: 'btn btn-default', // your class for styling the confirm button
+        // cancleBtnClass: 'btn btn-default', // you class for styling the cancel button
+        animation: 'fadeInDown' // 'fadeInLeft', 'fadeInRight', 'fadeInUp', 'bounceIn','bounceInDown'
+    };
 }
