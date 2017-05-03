@@ -111,10 +111,15 @@ export class IndexComponent implements OnInit, OnDestroy {
       }
     }
     if ( this.componentChoosen !== 'sentimental-analysis.png'
-        && this.componentChoosen !== 'topic-extraction.png' ) {
+        && this.componentChoosen !== 'topic-extraction.png'
+        && this.componentChoosen !== 'silk.png' ) {
       this.modal.open();
     } else {
-      this.modal2.open();
+      if ( this.componentChoosen === 'silk.png' ) {
+        console.log('launch');
+      } else {
+        this.modal2.open();
+      }
     }
   }
 
