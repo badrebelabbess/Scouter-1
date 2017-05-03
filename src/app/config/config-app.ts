@@ -75,5 +75,4 @@ export class ConfigApp {
     };
 
     static separator = '_type_';
-
 }

@@ -42,20 +42,6 @@ export class IndexComponent implements OnInit, OnDestroy {
   modal2: ModalComponent;
   defaultWorkflow: any;
   errorMsg: string;
-  // private drawnComponent = [
-  //     'RSS Feed',
-  //     'Open Data' + ConfigApp.separator + 'dbpedia',
-  //     'Open Data' + ConfigApp.separator + 'eventful',
-  //     'Open Data' + ConfigApp.separator + 'open-agenda',
-  //     'Open Data' + ConfigApp.separator + 'owm',
-  //     'Social Networks' + ConfigApp.separator + 'fb',
-  //     'Social Networks' + ConfigApp.separator + 'tt',
-  //     'Geo Location',
-  //     'Keyword list',
-  //     'Ontology',
-  //     'Sentimental Analysis',
-  //     'Topic extraction'
-  // ];
 
   constructor(
     private ls: LocalStorageService,
@@ -100,21 +86,8 @@ export class IndexComponent implements OnInit, OnDestroy {
   }
 
   private moveHelper(): HTMLDivElement {
-    const drawnComponent = [
-      'RSS Feed',
-      'Open Data' + ConfigApp.separator + 'dbpedia',
-      'Open Data' + ConfigApp.separator + 'eventful',
-      'Open Data' + ConfigApp.separator + 'open-agenda',
-      'Open Data' + ConfigApp.separator + 'owm',
-      'Social Networks' + ConfigApp.separator + 'fb',
-      'Social Networks' + ConfigApp.separator + 'tt',
-      'Geo Location',
-      'Keyword list',
-      'Ontology',
-      'Sentimental Analysis',
-      'Topic extraction'
-    ];
-    if ( drawnComponent.indexOf($(this)[0].innerHTML) !== -1 ) {
+    if ( this.re.getDrawnComponents().indexOf($(this)[0].innerHTML) !== -1 ) {
+    // if ( this.re.drawnComponents.indexOf($(this)[0].innerHTML) !== -1 ) {
       return null;
     }
     return new ToolModel($(this)[0].innerHTML).getToolIstanceElement();
