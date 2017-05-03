@@ -1,12 +1,14 @@
-<h4>Open data elements</h4>
-<div fxLayoutAlign="space-around center" *ngIf="!isCatIsChoosen">
-    <button class="btn btn-primary" (click)="open('DBpedia')">DBpedia</button>
-    <button class="btn btn-primary" (click)="open('eventful')">eventful</button>
-    <button class="btn btn-primary" (click)="open('openAgenda')">open agenda</button>
-    <button class="btn btn-primary" (click)="open('OWM')">OWM</button>
-
-    <app-dbpedia-form (notify)="reverse()" *ngIf="choosenContent=='DBpedia'"></app-dbpedia-form>
-    <app-eventful-form (notify)="reverse()" *ngIf="choosenContent=='eventful'"></app-eventful-form>
-    <app-open-agenda-form (notify)="reverse()" *ngIf="choosenContent=='openAgenda'"></app-open-agenda-form>
-    <app-owm-form (notify)="reverse()" *ngIf="choosenContent=='OWM'"></app-owm-form>
+<div *ngIf="!isCatIsChoosen">
+    <h4>Open data elements</h4>
+    <div fxLayoutAlign="space-around center">
+        <button class="btn btn-primary" (click)="open('DBpedia')">DBpedia</button>
+        <button class="btn btn-primary" (click)="open('eventful')">eventful</button>
+        <button class="btn btn-primary" (click)="open('openAgenda')">open agenda</button>
+        <button class="btn btn-primary" (click)="open('OWM')">OWM</button>
+    </div>
 </div>
+
+<app-dbpedia-form (notify)="reverse()" *ngIf="choosenContent=='DBpedia'"></app-dbpedia-form>
+<app-eventful-form (notify)="reverse()" *ngIf="choosenContent=='eventful'"></app-eventful-form>
+<app-open-agenda-form (notify)="reverse()" *ngIf="choosenContent=='openAgenda'"></app-open-agenda-form>
+<app-owm-form (notify)="reverse()" *ngIf="choosenContent=='OWM'"></app-owm-form>
