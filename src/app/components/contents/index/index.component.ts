@@ -90,6 +90,7 @@ export class IndexComponent implements OnInit, OnDestroy {
   }
 
   open(evt: any): void {
+    console.log(evt);
     try {
       if ( evt.target.classList[1].endsWith(ConfigApp.imageType)) {
         this.apply(evt);
@@ -104,7 +105,6 @@ export class IndexComponent implements OnInit, OnDestroy {
       this.modal.open();
     } else {
       this.modal2.open();
-      $('.modal-body').css('height', '50px');
     }
   }
 
