@@ -8,20 +8,31 @@ fxLayoutAlign="space-between center" fxLayoutAlign.xs="stretch" class="hundred">
 </div>
 <a (click)="deleteAll()" href="#">delete all</a>
 
-<popup>
-    jklm
-    <!-- RSS Feed -->
-    <!--<app-rss-form (notify)="reverse()"></app-rss-form>-->
+<!--<div id="params">-->
     
-    <!-- Open Data -->
-    <!--<app-open-data-form (notify)="reverse()"></app-open-data-form>            -->
+<!--</div>-->
 
-    <!-- social networks -->
-    <!--<app-social-networks-form (notify)="reverse()"></app-social-networks-form>-->
+<modal #modal>
+    <modal-header [show-close]="true">
+        <h4 class="modal-title">Component parameters</h4>
+    </modal-header>
+    <modal-body>
+        <!-- RSS Feed -->
+        <!--<app-rss-form (notify)="notify()"></app-rss-form>-->
+        
+        <!-- Open Data -->
+        <app-open-data-form (notify)="notify()"></app-open-data-form>            
 
-    <!-- Geolocation -->
-    <!--<app-bounding-box-form (notify)="reverse()"></app-bounding-box-form>-->
+        <!-- social networks -->
+        <!--<app-social-networks-form (notify)="notify()"></app-social-networks-form>-->
 
-    <!-- Keywords -->
-    <!--<app-keywords-form (notify)="reverse()"></app-keywords-form>-->
-</popup>
+        <!-- Geolocation -->
+        <!--<app-bounding-box-form (notify)="notify()"></app-bounding-box-form>-->
+
+        <!-- Keywords -->
+        <!--<app-keywords-form (notify)="notify()"></app-keywords-form>-->
+    </modal-body>
+    <modal-footer [show-default-buttons]="false">
+        <button class="btn btn-primary" (click)="close()">Save</button>
+    </modal-footer>
+</modal>

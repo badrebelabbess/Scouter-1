@@ -5,9 +5,9 @@ import { HttpModule } from '@angular/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { LocalStorageModule } from 'angular-2-local-storage';
-import { PopupModule } from 'ng2-opd-popup';
 import { LeafletModule } from '@asymmetrik/angular2-leaflet';
 import { LeafletDrawModule } from '@asymmetrik/angular2-leaflet-draw';
+import { Ng2Bs3ModalModule } from 'ng2-bs3-modal/ng2-bs3-modal';
 
 import { RoutingModule } from './modules/routing/routing.module';
 
@@ -60,9 +60,9 @@ import { SocialNetworksFormComponent } from './components/contents/forms/social-
         prefix: 'app-root',
         storageType: 'localStorage'
     }),
-    PopupModule.forRoot(),
     LeafletModule,
-    LeafletDrawModule
+    LeafletDrawModule,
+    Ng2Bs3ModalModule
   ],
   providers: [],
   bootstrap: [AppComponent]

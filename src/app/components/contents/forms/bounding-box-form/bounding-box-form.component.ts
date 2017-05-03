@@ -81,7 +81,6 @@ export class BoundingBoxFormComponent {
   };
 
   onMapReady(map: L.Map) {
-    console.log(map);
     map.on('draw:created', function(e: any){
       const bounds = e.layer._bounds;
       const minLat = bounds._southWest.lat;

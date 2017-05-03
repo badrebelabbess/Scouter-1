@@ -650,3 +650,7 @@ form {
     width: 90%;
     margin: auto;
 }
+
+.modal-body {
+    height: 520px !important;
+}

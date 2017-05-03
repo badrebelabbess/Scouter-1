@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 
 import { LocalStorageService } from 'angular-2-local-storage';
 import { ILocalStorageServiceConfig } from 'angular-2-local-storage';
@@ -11,7 +11,7 @@ import { ToolModel } from '../../../models/tool-model';
 
 import { ConfigApp } from '../../../config/config-app';
 
-import { Popup } from 'ng2-opd-popup';
+import { ModalComponent } from 'ng2-bs3-modal/ng2-bs3-modal';
 
 // Import Jquery
 import $ from 'jquery/dist/jquery';
@@ -35,14 +35,15 @@ import 'jquery-ui/ui/widgets/droppable';
 })
 export class IndexComponent implements OnInit, OnDestroy {
 
+  @ViewChild('modal')
+  modal: ModalComponent;
   defaultWorkflow: any;
   errorMsg: string;
 
   constructor(
     private ls: LocalStorageService,
     private ws: WorkflowService,
-    private re: RestoreElementService,
-    private popup: Popup
+    private re: RestoreElementService
   ) {
       this.ws.getDefautWorkFlow()
       .subscribe( resData  => re.draw(resData),
@@ -50,7 +51,6 @@ export class IndexComponent implements OnInit, OnDestroy {
       this.ws.sendWorkFlow()
       .subscribe( resData  => console.log('d'),
                   resError => this.errorMsg = resError );
-      this.popup.options = ConfigApp.popupConfig;
    }
 
   ngOnInit() {
@@ -95,7 +95,6 @@ export class IndexComponent implements OnInit, OnDestroy {
         this.apply(evt);
       }
     }
-    this.popup.show();
   }
 
   private apply(evt: any): void {
@@ -103,9 +102,22 @@ export class IndexComponent implements OnInit, OnDestroy {
     this.ls.set(ConfigApp.localStorage.type, evt.target.classList[1]);
   }
 
+  notify(): void {
+    console.log('done');
+  }
+
 
   deleteAll(): void {
     // $(ConfigApp.dropContainer).html('');
+    this.modal.open();
+  }
+
+  close() {
+    this.modal.close();
+  }
+
+  openn() {
+    this.modal.open();
   }
 
 }
