@@ -35,6 +35,7 @@ import 'jquery-ui/ui/widgets/droppable';
 })
 export class IndexComponent implements OnInit, OnDestroy {
 
+  componentChosen: string;
   @ViewChild('modal')
   modal: ModalComponent;
   defaultWorkflow: any;
@@ -51,6 +52,7 @@ export class IndexComponent implements OnInit, OnDestroy {
       this.ws.sendWorkFlow()
       .subscribe( resData  => console.log('d'),
                   resError => this.errorMsg = resError );
+      this.componentChosen = '';
    }
 
   ngOnInit() {
@@ -95,11 +97,21 @@ export class IndexComponent implements OnInit, OnDestroy {
         this.apply(evt);
       }
     }
+    if ( this.componentChosen !== 'sentimental-analysis.png' && this.componentChosen !== 'topic-extraction.png' ){
+      this.modal.open();
+    }
   }
 
   private apply(evt: any): void {
-    this.ls.set(ConfigApp.localStorage.id, evt.target.id);
-    this.ls.set(ConfigApp.localStorage.type, evt.target.classList[1]);
+    if ( evt.target.classList[1] !== undefined ) {
+      this.ls.set(ConfigApp.localStorage.id, evt.target.id);
+      this.ls.set(ConfigApp.localStorage.type, evt.target.classList[1]);
+      this.componentChosen = evt.target.classList[1];
+    } else {
+      this.ls.set(ConfigApp.localStorage.id, evt.target.parentElement.id);
+      this.ls.set(ConfigApp.localStorage.type, evt.target.parentElement.classList[1]);
+      this.componentChosen = evt.target.parentElement.classList[1];
+    }
   }
 
   notify(): void {
@@ -113,10 +125,6 @@ export class IndexComponent implements OnInit, OnDestroy {
 
   close() {
     this.modal.close();
-  }
-
-  openn() {
-    this.modal.open();
   }
 
 }

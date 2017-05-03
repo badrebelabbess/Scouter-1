@@ -23,19 +23,19 @@ fxLayoutAlign="space-between center" fxLayoutAlign.xs="stretch" class="hundred">
     </modal-header>
     <modal-body>
         <!-- RSS Feed -->
-        <!--<app-rss-form (notify)="notify()"></app-rss-form>-->
+        <app-rss-form (notify)="notify()" *ngIf="componentChosen=='rss-feed.png'"></app-rss-form>
         
         <!-- Open Data -->
-        <app-open-data-form (notify)="notify()"></app-open-data-form>            
+        <app-open-data-form (notify)="notify()" *ngIf="componentChosen=='open-data.png'"></app-open-data-form>            
 
         <!-- social networks -->
-        <!--<app-social-networks-form (notify)="notify()"></app-social-networks-form>-->
+        <app-social-networks-form (notify)="notify()" *ngIf="componentChosen=='social-networks.png'"></app-social-networks-form>
 
         <!-- Geolocation -->
-        <!--<app-bounding-box-form (notify)="notify()"></app-bounding-box-form>-->
+        <app-bounding-box-form (notify)="notify()" *ngIf="componentChosen=='geo-location.png'"></app-bounding-box-form>
 
         <!-- Keywords -->
-        <!--<app-keywords-form (notify)="notify()"></app-keywords-form>-->
+        <app-keywords-form (notify)="notify()" *ngIf="componentChosen=='keyword-list.png' || componentChosen=='ontology.png'"></app-keywords-form>
     </modal-body>
     <modal-footer [show-default-buttons]="false">
         <button class="btn btn-primary" (click)="close()">Save</button>
