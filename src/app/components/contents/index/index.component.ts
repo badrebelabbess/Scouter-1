@@ -42,6 +42,7 @@ export class IndexComponent implements OnInit, OnDestroy {
   modal2: ModalComponent;
   defaultWorkflow: any;
   errorMsg: string;
+  drawnComponents: Array<string>;
 
   constructor(
     private ls: LocalStorageService,
@@ -49,7 +50,14 @@ export class IndexComponent implements OnInit, OnDestroy {
     private re: RestoreElementService
   ) {
       this.ws.getDefautWorkFlow()
-      .subscribe( resData  => re.draw(resData),
+      .subscribe( function(resData) {
+                    this.drawnComponents = [];
+                    this.defaultWorkflow = resData;
+                    re.draw(resData);
+                    for (const w of this.defaultWorkflow.workflow_components) {
+                      this.drawnComponents.push(w.component_type);
+                    }
+                  },
                   resError => this.errorMsg = resError );
       this.ws.sendWorkFlow()
       .subscribe( resData  => console.log('d'),
@@ -86,15 +94,13 @@ export class IndexComponent implements OnInit, OnDestroy {
   }
 
   private moveHelper(): HTMLDivElement {
-    if ( this.re.getDrawnComponents().indexOf($(this)[0].innerHTML) !== -1 ) {
-    // if ( this.re.drawnComponents.indexOf($(this)[0].innerHTML) !== -1 ) {
-      return null;
-    }
+    // if ( this.drawnComponents.indexOf($(this)[0].innerHTML) !== -1 ) {
+    //   return null;
+    // }
     return new ToolModel($(this)[0].innerHTML).getToolIstanceElement();
   }
 
   open(evt: any): void {
-    console.log(evt);
     try {
       if ( evt.target.classList[1].endsWith(ConfigApp.imageType)) {
         this.apply(evt);
