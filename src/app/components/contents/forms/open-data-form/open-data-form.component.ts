@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OpenDataFormComponent implements OnInit {
 
+  choosenContent: string;
+  isCatIsChoosen = false;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  open(elt: string): void {
+    this.isCatIsChoosen = !this.isCatIsChoosen;
+    this.choosenContent = elt;
   }
 
 }
