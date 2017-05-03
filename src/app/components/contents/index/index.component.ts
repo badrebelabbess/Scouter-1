@@ -108,8 +108,7 @@ export class IndexComponent implements OnInit, OnDestroy {
 
 
   deleteAll(): void {
-    // $(ConfigApp.dropContainer).html('');
-    this.modal.open();
+    $(ConfigApp.dropContainer).html('');
   }
 
   close() {
