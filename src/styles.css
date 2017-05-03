@@ -635,6 +635,10 @@ Assigned to tile images in a tiled background
     margin: auto;
 }
 
+.elt p {
+    text-align: center;
+}
+
 .selector {
     position: absolute;
     bottom: 50%;
