@@ -20,15 +20,10 @@ export class BoundingBoxFormComponent {
   } = {
   layers: [
     {
-      url: 'http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png',
-      maxZoom: 18,
-      attribution: 'Open Cycle Map'
-    },
-    {
       url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       maxZoom: 18,
       attribution: 'Open Street Map'
-    },
+    }
   ],
   zoom: 5,
   center: [ 48.8048649, 2.120355399999994 ]

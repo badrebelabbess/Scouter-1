@@ -653,4 +653,5 @@ form {
 
 .modal-body {
     height: 560px !important;
+    overflow: auto;
 }

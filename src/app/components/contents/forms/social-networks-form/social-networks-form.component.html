@@ -1,7 +1,9 @@
-<h3>Social networks elements</h3>
-<div fxLayoutAlign="space-around center">
-    <button class="btn btn-primary">Twitter</button>
-    <button class="btn btn-primary">Facebook</button>
+<div *ngIf="!isCatIsChoosen">
+    <h3>Social networks elements</h3>
+    <div fxLayoutAlign="space-around center">
+        <button class="btn btn-primary" (click)="open('tt')">Twitter</button>
+        <button class="btn btn-primary" (click)="open('fb')">Facebook</button>
+    </div>
 </div>
-<!--<app-twitter-form (notify)="reverse()"></app-twitter-form>-->
-<!--<app-facebook-form (notify)="reverse()"></app-facebook-form>-->
+<app-twitter-form (notify)="reverse()" *ngIf="choosenContent=='tt'"></app-twitter-form>
+<app-facebook-form (notify)="reverse()" *ngIf="choosenContent=='fb'"></app-facebook-form>

@@ -38,6 +38,8 @@ export class IndexComponent implements OnInit, OnDestroy {
   componentChosen: string;
   @ViewChild('modal')
   modal: ModalComponent;
+  @ViewChild('modal2')
+  modal2: ModalComponent;
   defaultWorkflow: any;
   errorMsg: string;
 
@@ -97,8 +99,12 @@ export class IndexComponent implements OnInit, OnDestroy {
         this.apply(evt);
       }
     }
-    if ( this.componentChosen !== 'sentimental-analysis.png' && this.componentChosen !== 'topic-extraction.png' ){
+    if ( this.componentChosen !== 'sentimental-analysis.png'
+        && this.componentChosen !== 'topic-extraction.png' ) {
       this.modal.open();
+    } else {
+      this.modal2.open();
+      $('.modal-body').css('height', '50px');
     }
   }
 
@@ -118,13 +124,19 @@ export class IndexComponent implements OnInit, OnDestroy {
     console.log('done');
   }
 
-
   deleteAll(): void {
     $(ConfigApp.dropContainer).html('');
   }
 
-  close() {
+  close(): void {
     this.modal.close();
+    this.modal2.close();
+  }
+
+  delete(): void {
+    $('#' + this.ls.get(ConfigApp.localStorage.id)).remove();
+    this.modal.close();
+    this.modal2.close();
   }
 
 }
