@@ -35,13 +35,27 @@ import 'jquery-ui/ui/widgets/droppable';
 })
 export class IndexComponent implements OnInit, OnDestroy {
 
-  componentChosen: string;
+  componentChoosen: string;
   @ViewChild('modal')
   modal: ModalComponent;
   @ViewChild('modal2')
   modal2: ModalComponent;
   defaultWorkflow: any;
   errorMsg: string;
+  // private drawnComponent = [
+  //     'RSS Feed',
+  //     'Open Data' + ConfigApp.separator + 'dbpedia',
+  //     'Open Data' + ConfigApp.separator + 'eventful',
+  //     'Open Data' + ConfigApp.separator + 'open-agenda',
+  //     'Open Data' + ConfigApp.separator + 'owm',
+  //     'Social Networks' + ConfigApp.separator + 'fb',
+  //     'Social Networks' + ConfigApp.separator + 'tt',
+  //     'Geo Location',
+  //     'Keyword list',
+  //     'Ontology',
+  //     'Sentimental Analysis',
+  //     'Topic extraction'
+  // ];
 
   constructor(
     private ls: LocalStorageService,
@@ -54,7 +68,7 @@ export class IndexComponent implements OnInit, OnDestroy {
       this.ws.sendWorkFlow()
       .subscribe( resData  => console.log('d'),
                   resError => this.errorMsg = resError );
-      this.componentChosen = '';
+      this.componentChoosen = '';
    }
 
   ngOnInit() {
@@ -86,6 +100,23 @@ export class IndexComponent implements OnInit, OnDestroy {
   }
 
   private moveHelper(): HTMLDivElement {
+    const drawnComponent = [
+      'RSS Feed',
+      'Open Data' + ConfigApp.separator + 'dbpedia',
+      'Open Data' + ConfigApp.separator + 'eventful',
+      'Open Data' + ConfigApp.separator + 'open-agenda',
+      'Open Data' + ConfigApp.separator + 'owm',
+      'Social Networks' + ConfigApp.separator + 'fb',
+      'Social Networks' + ConfigApp.separator + 'tt',
+      'Geo Location',
+      'Keyword list',
+      'Ontology',
+      'Sentimental Analysis',
+      'Topic extraction'
+    ];
+    if ( drawnComponent.indexOf($(this)[0].innerHTML) !== -1 ) {
+      return null;
+    }
     return new ToolModel($(this)[0].innerHTML).getToolIstanceElement();
   }
 
@@ -100,8 +131,8 @@ export class IndexComponent implements OnInit, OnDestroy {
         this.apply(evt);
       }
     }
-    if ( this.componentChosen !== 'sentimental-analysis.png'
-        && this.componentChosen !== 'topic-extraction.png' ) {
+    if ( this.componentChoosen !== 'sentimental-analysis.png'
+        && this.componentChoosen !== 'topic-extraction.png' ) {
       this.modal.open();
     } else {
       this.modal2.open();
@@ -112,16 +143,16 @@ export class IndexComponent implements OnInit, OnDestroy {
     if ( evt.target.classList[1] !== undefined ) {
       this.ls.set(ConfigApp.localStorage.id, evt.target.id);
       this.ls.set(ConfigApp.localStorage.type, evt.target.classList[1]);
-      this.componentChosen = evt.target.classList[1];
+      this.componentChoosen = evt.target.classList[1];
     } else {
       this.ls.set(ConfigApp.localStorage.id, evt.target.parentElement.id);
       this.ls.set(ConfigApp.localStorage.type, evt.target.parentElement.classList[1]);
-      this.componentChosen = evt.target.parentElement.classList[1];
+      this.componentChoosen = evt.target.parentElement.classList[1];
     }
   }
 
   notify(): void {
-    console.log('done');
+    this.modal.close();
   }
 
   deleteAll(): void {

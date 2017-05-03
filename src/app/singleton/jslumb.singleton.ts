@@ -23,7 +23,7 @@ export class JsPlumbSingleton {
     }
 
     static newId() {
-        return jsPlumbUtil.uuid();
+        return jsPlumbUtil.uuid().substring(0, 4);
     }
 
     private static configureJsPlumbElements(el: any) {

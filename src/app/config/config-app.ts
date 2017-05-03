@@ -74,4 +74,6 @@ export class ConfigApp {
         allowLoopback: false
     };
 
+    static separator = '_type_';
+
 }
