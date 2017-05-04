@@ -25,7 +25,45 @@ export class RestoreElementService {
       $(ConfigApp.dropContainer).append(o.getToolIstanceElement());
     }
     JsPlumbSingleton.configureNodes(ConfigApp.toolEltsClass);
+    this.connectDefaultWorkflow(workflow);
   }
+
+  private connectDefaultWorkflow( defaultWorkflow: any ) {
+    // Iterate each component
+    for( let i = 0 ; i < defaultWorkflow.workflow_components.length ; i++ ){
+      // Read the current component information from json
+      const currentComponent = defaultWorkflow.workflow_components[i];
+      const currentComponentId = currentComponent.id;
+      const sourceComponentType = currentComponent.component_type;
+      const linkComponentIds = currentComponent.links_to;
+      for ( let j = 0 ; j < linkComponentIds.length ; j++ ) {
+        // Get every link component information
+        const linkComponent = defaultWorkflow.workflow_components[ linkComponentIds[j] ];
+        const linkComponentType = linkComponent.component_type;
+
+        const sourceId = currentComponentId;
+        const targetId = linkComponentIds[j];
+        this.connectTwoComponents(sourceId, sourceComponentType, targetId, linkComponentType);
+      }
+    }
+  }
+
+private connectTwoComponents( sourceId: string, sourceType: string , targetId: string, targetType: string ){
+    JsPlumbSingleton.getInstance().connect({
+        source: sourceId,
+        target: targetId,
+        Endpoint: ConfigApp.jsPlumbInstanceConfig.Endpoint,
+        HoverPaintStyle: ConfigApp.jsPlumbInstanceConfig.HoverPaintStyle,
+        ConnectionOverlays: ConfigApp.jsPlumbInstanceConfig.ConnectionOverlays,
+        anchor: ConfigApp.jsPlumbMakeSourceConfig.anchor,
+        connectorStyle: ConfigApp.connectorStyle,
+        connectionType: ConfigApp.jsPlumbMakeSourceConfig.connectionType,
+        connectorHoverStyle: ConfigApp.jsPlumbMakeSourceConfig.connectorHoverStyle,
+        connector: ConfigApp.jsPlumbInstanceConfig.Connector,
+        endpointStyle: ConfigApp.jsPlumbInstanceConfig.Endpoint,
+        paintStyle: ConfigApp.connectorStyle
+    });
+}
 
   static getDrawnComponents(): Array<string> {
     return RestoreElementService.dc;

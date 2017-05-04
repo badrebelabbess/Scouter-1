@@ -88,15 +88,12 @@ export class IndexComponent implements OnInit, OnDestroy {
   }
 
   private moveHelper(): HTMLDivElement {
-    const a: string = $(this)[0].innerHTML;
-    console.log(a);
-    console.log(RestoreElementService.getDrawnComponents());
-    console.log(RestoreElementService.getDrawnComponents().indexOf(a) !== -1);
-    if ( RestoreElementService.getDrawnComponents().indexOf(a) !== -1 ) {
+    const elt: string = $(this)[0].innerHTML;
+    if ( RestoreElementService.getDrawnComponents().indexOf(elt) !== -1 ) {
       return null;
     }
-    RestoreElementService.addToDrawnComponents(a);
-    return new ToolModel(a).getToolIstanceElement();
+    RestoreElementService.addToDrawnComponents(elt);
+    return new ToolModel(elt).getToolIstanceElement();
   }
 
   open(evt: any): void {
@@ -141,6 +138,7 @@ export class IndexComponent implements OnInit, OnDestroy {
   deleteAll(): void {
     for (const e of $(ConfigApp.dropContainer).children()) {
       JsPlumbSingleton.getInstance().remove(e);
+      //TODO RestoreElementService
     }
   }
 
@@ -153,6 +151,7 @@ export class IndexComponent implements OnInit, OnDestroy {
     JsPlumbSingleton.getInstance().remove( $('#' + this.ls.get(ConfigApp.localStorage.id)) );
     this.modal.close();
     this.modal2.close();
+    // TODO RestoreElementService
     RestoreElementService.deleteFromDrawnComponents('Ontology');
   }
 

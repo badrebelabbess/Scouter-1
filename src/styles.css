@@ -627,16 +627,21 @@ Assigned to tile images in a tiled background
     background-color: #e1e4ea;
     padding: 5px;
     border: solid 1px;
+    width: 90px;
 }
 
 .elt img{
     display: block;
-    width: 46px;
-    margin: auto;
+    height: 50px;
+    /*margin: auto;*/
+    margin-left: 12px;
+    position: absolute;
 }
 
 .elt p {
     text-align: center;
+    /*padding-top: 46px;*/
+    padding-top: 50px;
 }
 
 .selector {

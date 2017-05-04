@@ -31,7 +31,7 @@ export class ConfigApp {
     static pathImages = 'assets/images/';
 
     static jsPlumbInstanceConfig = {
-        Endpoint: ['Dot', {radius: 5}],
+        Endpoint: ['Dot', {radius: 3}],
         Connector: 'StateMachine',
         HoverPaintStyle: {stroke: '#1e8151', strokeWidth: 2 },
         ConnectionOverlays: [
