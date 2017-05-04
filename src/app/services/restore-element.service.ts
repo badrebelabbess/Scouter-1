@@ -21,7 +21,8 @@ export class RestoreElementService {
     RestoreElementService.dc = new Array<string>();
     for (const w of workflow.workflow_components) {
       const o = new ToolModel(w.component_type, w.id, w.x_position, w.y_position);
-      RestoreElementService.dc.push(w.component_type);
+      RestoreElementService.dc.push(
+        w.component_type.toLowerCase());
       $(ConfigApp.dropContainer).append(o.getToolIstanceElement());
     }
     JsPlumbSingleton.configureNodes(ConfigApp.toolEltsClass);
@@ -30,7 +31,7 @@ export class RestoreElementService {
 
   private connectDefaultWorkflow( defaultWorkflow: any ) {
     // Iterate each component
-    for( let i = 0 ; i < defaultWorkflow.workflow_components.length ; i++ ){
+    for ( let i = 0 ; i < defaultWorkflow.workflow_components.length ; i++ ) {
       // Read the current component information from json
       const currentComponent = defaultWorkflow.workflow_components[i];
       const currentComponentId = currentComponent.id;
@@ -73,14 +74,19 @@ private connectTwoComponents( sourceId: string, sourceType: string , targetId: s
     RestoreElementService.dc.push(elt);
   }
 
-  static deleteFromDrawnComponents(elt: string) {
+  static deleteFromDrawnComponents(elt: any) {
+    elt = elt.replace(/-/g, ' ');
+    elt = elt.replace('.png', '');
+    console.log(RestoreElementService.dc);
     const index = RestoreElementService.dc.indexOf(elt);
     RestoreElementService.dc.splice(
-      index, index + 1 
+      index, 1 
     );
+    console.log(elt);
+    console.log(RestoreElementService.dc);
   }
 
-  static deleteAllDrawnComponents(elt: string) {
+  static deleteAllDrawnComponents() {
     RestoreElementService.dc.splice(0);
   }
 

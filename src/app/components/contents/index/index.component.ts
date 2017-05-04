@@ -88,7 +88,8 @@ export class IndexComponent implements OnInit, OnDestroy {
   }
 
   private moveHelper(): HTMLDivElement {
-    const elt: string = $(this)[0].innerHTML;
+    let elt: string = $(this)[0].innerHTML;
+    elt = elt.toLowerCase();
     if ( RestoreElementService.getDrawnComponents().indexOf(elt) !== -1 ) {
       return null;
     }
@@ -138,7 +139,7 @@ export class IndexComponent implements OnInit, OnDestroy {
   deleteAll(): void {
     for (const e of $(ConfigApp.dropContainer).children()) {
       JsPlumbSingleton.getInstance().remove(e);
-      //TODO RestoreElementService
+      RestoreElementService.deleteAllDrawnComponents();
     }
   }
 
@@ -151,8 +152,9 @@ export class IndexComponent implements OnInit, OnDestroy {
     JsPlumbSingleton.getInstance().remove( $('#' + this.ls.get(ConfigApp.localStorage.id)) );
     this.modal.close();
     this.modal2.close();
-    // TODO RestoreElementService
-    RestoreElementService.deleteFromDrawnComponents('Ontology');
+    RestoreElementService.deleteFromDrawnComponents(
+      this.ls.get(ConfigApp.localStorage.type)
+    );
   }
 
 }
