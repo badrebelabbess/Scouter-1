@@ -42,7 +42,6 @@ export class IndexComponent implements OnInit, OnDestroy {
   modal2: ModalComponent;
   defaultWorkflow: any;
   errorMsg: string;
-  drawnComponents: Array<string>;
 
   constructor(
     private ls: LocalStorageService,
@@ -51,12 +50,9 @@ export class IndexComponent implements OnInit, OnDestroy {
   ) {
       this.ws.getDefautWorkFlow()
       .subscribe( function(resData) {
-                    this.drawnComponents = [];
                     this.defaultWorkflow = resData;
+                    console.log(this.defaultWorkflow);
                     re.draw(resData);
-                    for (const w of this.defaultWorkflow.workflow_components) {
-                      this.drawnComponents.push(w.component_type);
-                    }
                   },
                   resError => this.errorMsg = resError );
       this.ws.sendWorkFlow()
@@ -70,8 +66,6 @@ export class IndexComponent implements OnInit, OnDestroy {
 
   // tslint:disable-next-line:use-life-cycle-interface
   ngAfterViewInit() {
-    // JsPlumbSingleton.getInstance()
-    // .registerConnectionType('basic', { anchor: 'Continuous', connector: 'StateMachine' });
     $(ConfigApp.draggableSelector).draggable({
       cursor: ConfigApp.draggableConfig.cursor,
       delay: ConfigApp.draggableConfig.delay,
@@ -94,10 +88,15 @@ export class IndexComponent implements OnInit, OnDestroy {
   }
 
   private moveHelper(): HTMLDivElement {
-    // if ( this.drawnComponents.indexOf($(this)[0].innerHTML) !== -1 ) {
-    //   return null;
-    // }
-    return new ToolModel($(this)[0].innerHTML).getToolIstanceElement();
+    const a: string = $(this)[0].innerHTML;
+    console.log(a);
+    console.log(RestoreElementService.getDrawnComponents());
+    console.log(RestoreElementService.getDrawnComponents().indexOf(a) !== -1);
+    if ( RestoreElementService.getDrawnComponents().indexOf(a) !== -1 ) {
+      return null;
+    }
+    RestoreElementService.addToDrawnComponents(a);
+    return new ToolModel(a).getToolIstanceElement();
   }
 
   open(evt: any): void {
@@ -140,7 +139,9 @@ export class IndexComponent implements OnInit, OnDestroy {
   }
 
   deleteAll(): void {
-    $(ConfigApp.dropContainer).html('');
+    for (const e of $(ConfigApp.dropContainer).children()) {
+      JsPlumbSingleton.getInstance().remove(e);
+    }
   }
 
   close(): void {
@@ -149,9 +150,10 @@ export class IndexComponent implements OnInit, OnDestroy {
   }
 
   delete(): void {
-    $('#' + this.ls.get(ConfigApp.localStorage.id)).remove();
+    JsPlumbSingleton.getInstance().remove( $('#' + this.ls.get(ConfigApp.localStorage.id)) );
     this.modal.close();
     this.modal2.close();
+    RestoreElementService.deleteFromDrawnComponents('Ontology');
   }
 
 }
