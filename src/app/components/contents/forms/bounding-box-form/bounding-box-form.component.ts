@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+
+import { LocalStorageService } from 'angular-2-local-storage';
+
+import { ConfigApp } from '../../../../config/config-app';
+
+import { BoundingBoxModel } from '../../../../models/bounding-box-model';
 
 import * as L from 'leaflet';
 
@@ -8,6 +14,15 @@ import * as L from 'leaflet';
   styleUrls: ['./bounding-box-form.component.scss']
 })
 export class BoundingBoxFormComponent {
+
+  private bounds: BoundingBoxModel = new BoundingBoxModel();
+
+  @Output()
+  notify = new EventEmitter();
+
+  constructor(
+    private ls: LocalStorageService
+  ) { }
 
   /*
 	 * This is a specification of the leaflet options
@@ -35,7 +50,6 @@ export class BoundingBoxFormComponent {
 	/*
 	 * This are the leaflet map options that we're going to use for input binding
 	 */
-
   options = {
     layers: this.optionsSpec.layers.map((l) => {
       return L.tileLayer(l.url, { maxZoom: l.maxZoom, attribution: l.attribution });
@@ -76,25 +90,41 @@ export class BoundingBoxFormComponent {
   };
 
   onMapReady(map: L.Map) {
+    let l = this.ls;
+    let b = new BoundingBoxModel();
     map.on('draw:created', function(e: any){
-      const bounds = e.layer._bounds;
-      const minLat = bounds._southWest.lat;
-      const maxLat = bounds._northEast.lat;
-      const minLng = bounds._southWest.lng;
-      const maxLng = bounds._northEast.lng;
+      try {
+        const bounds = e.layer._bounds;
+        b.setMinLat(bounds._southWest.lat);
+        b.setMaxLat(bounds._northEast.lat);
+        b.setMinLong(bounds._southWest.lng);
+        b.setMaxLong(bounds._northEast.lng);
+        const id = l.get(ConfigApp.localStorage.id);
+        const type = l.get(ConfigApp.localStorage.type);
+        l.set(id + ConfigApp.separator + type, b.getModel());
+      } catch ( ex ) { }
     });
 
     map.on('draw:edited', function(e: any){
-      const key = Object.keys(e.layers._layers)[0];
-      const bounds = e.layers._layers[key]._bounds;
-      const minLat = bounds._southWest.lat;
-      const maxLat = bounds._northEast.lat;
-      const minLng = bounds._southWest.lng;
-      const maxLng = bounds._northEast.lng;
+      try {
+        const key = Object.keys(e.layers._layers)[0];
+        const bounds = e.layers._layers[key]._bounds;
+        b.setMinLat(bounds._southWest.lat);
+        b.setMaxLat(bounds._northEast.lat);
+        b.setMinLong(bounds._southWest.lng);
+        b.setMaxLong(bounds._northEast.lng);
+        const id = l.get(ConfigApp.localStorage.id);
+        const type = l.get(ConfigApp.localStorage.type);
+        l.set(id + ConfigApp.separator + type, b.getModel());
+      } catch ( ex ) { }
     });
 
     map.on('draw:deleted', function(e: any){
-      this.isObjectIsDrawn = !this.isObjectIsDrawn;
     });
   }
+
+  save(f: any) {
+    this.notify.emit();
+  }
+
 }

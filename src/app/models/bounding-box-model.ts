@@ -1,6 +1,6 @@
 import { FormModel } from '../interfaces/form-model';
 
-export class BoundingBoxModel {
+export class BoundingBoxModel implements FormModel {
     private minLat: string;
     private maxLat: string;
     private minLong: string;
@@ -36,6 +36,15 @@ export class BoundingBoxModel {
 
     public setMaxLong(maxLong: string): void {
         this.maxLong = maxLong;
+    }
+
+    getModel() {
+        return {
+            minLat: this.minLat,
+            maxLat: this.maxLat,
+            minLong: this.minLong,
+            maxLong: this.maxLong
+        };
     }
 
 }

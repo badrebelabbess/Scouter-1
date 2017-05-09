@@ -51,7 +51,6 @@ export class IndexComponent implements OnInit, OnDestroy {
       this.ws.getDefautWorkFlow()
       .subscribe( function(resData) {
                     this.defaultWorkflow = resData;
-                    console.log(this.defaultWorkflow);
                     re.draw(resData);
                   },
                   resError => this.errorMsg = resError );
