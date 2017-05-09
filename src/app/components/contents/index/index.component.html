@@ -25,10 +25,16 @@ fxLayoutAlign="space-between center" fxLayoutAlign.xs="stretch" class="hundred">
         <app-rss-form (notify)="notify()" *ngIf="componentChoosen=='rss-feed.png'"></app-rss-form>
         
         <!-- Open Data -->
-        <app-open-data-form (notify)="notify()" *ngIf="componentChoosen=='open-data.png'"></app-open-data-form>            
+        <!--<app-open-data-form (notify)="notify()" *ngIf="componentChoosen=='open-data.png'"></app-open-data-form>            -->
+        <app-dbpedia-form (notify)="notify()" *ngIf="componentChoosen=='dbpedia.png'"></app-dbpedia-form>            
+        <app-eventful-form (notify)="notify()" *ngIf="componentChoosen=='eventful.png'"></app-eventful-form>            
+        <app-owm-form (notify)="notify()" *ngIf="componentChoosen=='owm.png'"></app-owm-form>            
+        <app-open-agenda-form (notify)="notify()" *ngIf="componentChoosen=='open-agenda.png'"></app-open-agenda-form>            
 
         <!-- social networks -->
-        <app-social-networks-form (notify)="notify()" *ngIf="componentChoosen=='social-networks.png'"></app-social-networks-form>
+        <!--<app-social-networks-form (notify)="notify()" *ngIf="componentChoosen=='social-networks.png'"></app-social-networks-form>-->
+        <app-facebook-form (notify)="notify()" *ngIf="componentChoosen=='facebook.png'"></app-facebook-form>
+        <app-twitter-form (notify)="notify()" *ngIf="componentChoosen=='twitter.png'"></app-twitter-form>
 
         <!-- Geolocation -->
         <app-bounding-box-form (notify)="notify()" *ngIf="componentChoosen=='geo-location.png'"></app-bounding-box-form>
