@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { LocalStorageService } from 'angular-2-local-storage';
 
 import { RssModel } from '../../../../models/rss-model';
+
+import { ConfigApp } from '../../../../config/config-app';
 
 @Component({
   selector: 'app-rss-form',
@@ -14,6 +16,7 @@ import { RssModel } from '../../../../models/rss-model';
 })
 export class RssFormComponent implements OnInit {
 
+  @Output() notify = new EventEmitter();
   RSSForm: FormGroup;
 
   constructor(
@@ -25,4 +28,10 @@ export class RssFormComponent implements OnInit {
     this.RSSForm = this.formBuilder.group(new RssModel().getModel());
   }
 
+  save(f: any) {
+    const id = this.ls.get(ConfigApp.localStorage.id);
+    const type = this.ls.get(ConfigApp.localStorage.type);
+    this.ls.set(id + ConfigApp.separator + type, f.RSSForm._value);
+    this.notify.emit();
+  }
 }

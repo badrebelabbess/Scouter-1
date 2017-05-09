@@ -1,9 +1,12 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { LocalStorageService } from 'angular-2-local-storage';
 
 import { DBPediaModel } from '../../../../models/dbpedia-model';
+
+import { ConfigApp } from '../../../../config/config-app';
 
 @Component({
   selector: 'app-dbpedia-form',
@@ -14,7 +17,6 @@ import { DBPediaModel } from '../../../../models/dbpedia-model';
 export class DbpediaFormComponent implements OnInit {
 
   @Output() notify = new EventEmitter();
-
   DBform: FormGroup;
 
   constructor(
@@ -26,8 +28,11 @@ export class DbpediaFormComponent implements OnInit {
     this.DBform = this.formBuilder.group(new DBPediaModel().getModel());
   }
 
-  save(): void {
-    this.ls.set(this.ls.get('id') + '.' + this.ls.get('type'), this.DBform.value);
+  save(f: any) {
+    const id = this.ls.get(ConfigApp.localStorage.id);
+    const type = this.ls.get(ConfigApp.localStorage.type);
+    console.log(f);
+    this.ls.set(id + ConfigApp.separator + type, f.DBform._value);
     this.notify.emit();
   }
 

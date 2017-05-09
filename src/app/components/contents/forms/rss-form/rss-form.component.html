@@ -1,5 +1,6 @@
 <h4>RSS feed elements</h4>
-<form [formGroup]="RSSForm" (ngSubmit)="save()">
+<!--<form [formGroup]="RSSForm" (ngSubmit)="save()">-->
+<form [formGroup]="RSSForm">
   <div class="form-group">
     <label for="frequency">Frequency :</label>
     <input type="number" formControlName="frequency" id="frequency" class="form-control"/>
@@ -8,5 +9,5 @@
     <label for="sources">Sources :</label>
     <textarea formControlName="sources" class="form-control" id="sources" rows="10"></textarea>
   </div>
-  <button type="submit" class="btn btn-primary">Save</button>
+  <button class="btn btn-primary" (click)="save(this)">Save</button>
 </form>

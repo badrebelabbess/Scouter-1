@@ -1,8 +1,9 @@
 <h4>OWM parameter</h4>
-<form [formGroup]="owmForm" (ngSubmit)="save()">
+<!--<form [formGroup]="owmForm" (ngSubmit)="save()">-->
+<form [formGroup]="owmForm">
   <div class="form-group">
     <label for="frequency">Frequency :</label>
     <input type="number" formControlName="frequency" id="frequency" class="form-control"/>
   </div>
-  <button type="submit" class="btn btn-primary">Save</button>
+  <button class="btn btn-primary" (click)="save(this)">Save</button>
 </form>

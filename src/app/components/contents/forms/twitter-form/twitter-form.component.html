@@ -1,5 +1,6 @@
 <h4>Twitter parameters</h4>
-<form [formGroup]="twitterForm" (ngSubmit)="save()">
+<!--<form [formGroup]="twitterForm" (ngSubmit)="save()">-->
+<form [formGroup]="twitterForm">
   <div class="form-group">
     <label for="accountsIds">Accounts Ids :</label>
     <textarea formControlName="accountsIds" class="form-control" id="accountsIds" rows="10"></textarea>
@@ -8,5 +9,5 @@
     <label for="hashtags">Hashtags :</label>
     <textarea formControlName="hashtags" class="form-control" id="hashtags" rows="10"></textarea>
   </div>
-  <button type="submit" class="btn btn-primary">Save</button>
+  <button class="btn btn-primary" (click)="save(this)">Save</button>
 </form>

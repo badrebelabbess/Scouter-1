@@ -1,5 +1,6 @@
 <h4>Open agenda parameters</h4>
-<form [formGroup]="openAgendaForm" (ngSubmit)="save()">
+<!--<form [formGroup]="openAgendaForm" (ngSubmit)="save()">-->
+<form [formGroup]="openAgendaForm">
   <div class="form-group">
     <label for="startDate">Start date :</label>
     <input type="date" formControlName="startDate" id="startDate" class="form-control"/>
@@ -8,5 +9,5 @@
     <label for="frequency">Frequency :</label>
     <input type="number" formControlName="frequency" id="frequency" class="form-control"/>
   </div>
-  <button type="submit" class="btn btn-primary">Save</button>
+  <button class="btn btn-primary" (click)="save(this)">Save</button>
 </form>

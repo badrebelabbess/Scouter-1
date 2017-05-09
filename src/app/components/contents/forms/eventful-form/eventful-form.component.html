@@ -1,8 +1,9 @@
 <h4>Eventful parameter</h4>
-<form [formGroup]="eventFulForm" (ngSubmit)="save()">
+<form [formGroup]="eventFulForm">
+<!--<form [formGroup]="eventFulForm" (ngSubmit)="save()">-->
   <div class="form-group">
     <label for="frequency">Frequency :</label>
     <input type="number" formControlName="frequency" id="frequency" class="form-control"/>
   </div>
-  <button type="submit" class="btn btn-primary">Save</button>
+  <button class="btn btn-primary" (click)="save(this)">Save</button>
 </form>

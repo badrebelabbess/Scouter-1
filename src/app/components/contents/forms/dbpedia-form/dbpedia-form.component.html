@@ -1,5 +1,6 @@
 <h4>DBPedia parameters</h4>
-<form [formGroup]="DBform" (ngSubmit)="save()">
+<form [formGroup]="DBform">
+<!--<form [formGroup]="DBform" (ngSubmit)="save()">-->
   <div class="form-group">
     <label for="frequency">Frequency :</label>
     <input type="number" formControlName="frequency" id="frequency" class="form-control"/>
@@ -12,5 +13,5 @@
     <label for="query">Query :</label>
     <textarea formControlName="query" class="form-control" id="query" rows="10"></textarea>
   </div>
-  <button type="submit" class="btn btn-primary">Save</button>
+  <button class="btn btn-primary" (click)="save(this)">Save</button>
 </form>
