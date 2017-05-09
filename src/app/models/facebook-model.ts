@@ -84,10 +84,32 @@ export class FacebookModel implements FormModel {
 
     getModel() {
         return {
-            pagesIds: this.pagesIds.toString(),
-            pagesNames: this.pagesNames.toString(),
-            pagesFrequency: this.pagesFrequency,
-            eventsfrequency: this.eventsfrequency
+            pagesIds: [
+                this.pagesIds,
+                [
+                    Validators.required,
+                    Validators.pattern('[^,\s]|[^\,]|[^,\s]*')
+                ]
+            ],
+            pagesNames: [
+                this.pagesNames,
+                [
+                    Validators.required,
+                    Validators.pattern('[^,\s]|[^\,]|[^,\s]*')
+                ]
+            ],
+            pagesFrequency: [
+                this.pagesFrequency,
+                [
+                    Validators.required
+                ]
+            ],
+            eventsfrequency: [
+                this.eventsfrequency,
+                [
+                    Validators.required
+                ]
+            ]
         };
     }
 
