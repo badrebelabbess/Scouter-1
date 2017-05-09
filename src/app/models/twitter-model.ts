@@ -1,5 +1,7 @@
 import { FormModel } from '../interfaces/form-model';
 
+import { Validators } from '@angular/forms';
+
 export class TwitterModel implements FormModel {
     private accountsIds: string;
     // private accountsIds: Array<string>;

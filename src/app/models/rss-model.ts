@@ -2,6 +2,8 @@ import { RssSourceModel } from './rss-source-model';
 
 import { FormModel } from '../interfaces/form-model';
 
+import { Validators } from '@angular/forms';
+
 export class RssModel implements FormModel {
 
     private frequency: number;

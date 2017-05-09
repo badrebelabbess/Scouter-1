@@ -13,7 +13,7 @@
   <div class="form-group">
     <label for="startDate">Start date :</label>
     <input type="date" formControlName="startDate"
-    #refDate
+    #refDate [ngModel]="startDate"
     id="startDate" class="form-control"/>
   </div>
   <div *ngIf="DBform.controls['startDate'].hasError('required')" class="alert alert-danger">

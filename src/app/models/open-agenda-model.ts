@@ -1,5 +1,7 @@
 import { FormModel } from '../interfaces/form-model';
 
+import { Validators } from '@angular/forms';
+
 export class OpenAgendaModel implements FormModel {
 
     private startDate: Date;
@@ -23,9 +25,13 @@ export class OpenAgendaModel implements FormModel {
 
     getModel() {
         return {
-            startDate: this.startDate,
-            frequency: this.frequency
-        }
+            startDate: [this.startDate, [
+                Validators.required
+            ]],
+            frequency: [this.frequency, [
+                Validators.required
+            ]]
+        };
     }
 
 }
