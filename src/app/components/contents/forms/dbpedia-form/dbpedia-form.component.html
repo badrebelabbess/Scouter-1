@@ -13,6 +13,7 @@
   <div class="form-group">
     <label for="startDate">Start date :</label>
     <input type="date" formControlName="startDate"
+    #refDate
     id="startDate" class="form-control"/>
   </div>
   <div *ngIf="DBform.controls['startDate'].hasError('required')" class="alert alert-danger">
@@ -21,7 +22,7 @@
   <div class="form-group">
     <label for="query">Query :</label>
     <textarea formControlName="query" class="form-control"
-    id="query" rows="10"></textarea>
+    #refQuery id="query" rows="10"></textarea>
   </div>
   <div *ngIf="DBform.controls['query'].hasError('required')" class="alert alert-danger">
       Query is required

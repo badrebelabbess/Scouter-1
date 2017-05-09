@@ -3,7 +3,11 @@
 <form [formGroup]="owmForm">
   <div class="form-group">
     <label for="frequency">Frequency :</label>
-    <input type="number" formControlName="frequency" id="frequency" class="form-control"/>
+    <input type="number" formControlName="frequency"
+    #refFrequency id="frequency" class="form-control"/>
+  </div>
+  <div *ngIf="owmForm.controls['frequency'].hasError('required')" class="alert alert-danger">
+      Frequency is required
   </div>
   <button class="btn btn-primary" (click)="save(this)">Save</button>
 </form>
