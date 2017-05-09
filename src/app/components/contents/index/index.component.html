@@ -21,7 +21,6 @@ fxLayoutAlign="space-between center" fxLayoutAlign.xs="stretch" class="hundred">
         <h4 class="modal-title">Component parameters</h4>
     </modal-header>
     <modal-body>
-        {{componentChoosen}}
         <!-- RSS Feed -->
         <app-rss-form (notify)="notify()" *ngIf="componentChoosen=='rss-feed.png'"></app-rss-form>
         

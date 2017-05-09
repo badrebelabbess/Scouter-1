@@ -3,15 +3,31 @@
 <!--<form [formGroup]="DBform" (ngSubmit)="save()">-->
   <div class="form-group">
     <label for="frequency">Frequency :</label>
-    <input type="number" formControlName="frequency" id="frequency" class="form-control"/>
+    <input type="number" formControlName="frequency"
+    #refFrequency
+    id="frequency" class="form-control"/>
+  </div>
+  <div *ngIf="DBform.controls['frequency'].hasError('required')" class="alert alert-danger">
+      Frequency is required
   </div>
   <div class="form-group">
     <label for="startDate">Start date :</label>
-    <input type="date" formControlName="startDate" id="startDate" class="form-control"/>
+    <input type="date" formControlName="startDate"
+    id="startDate" class="form-control"/>
+  </div>
+  <div *ngIf="DBform.controls['startDate'].hasError('required')" class="alert alert-danger">
+      Start date is required
   </div>
   <div class="form-group">
     <label for="query">Query :</label>
-    <textarea formControlName="query" class="form-control" id="query" rows="10"></textarea>
+    <textarea formControlName="query" class="form-control"
+    id="query" rows="10"></textarea>
+  </div>
+  <div *ngIf="DBform.controls['query'].hasError('required')" class="alert alert-danger">
+      Query is required
+  </div>
+  <div *ngIf="DBform.controls['query'].hasError('pattern')" class="alert alert-danger">
+      Syntax of the sparql request is not correct
   </div>
   <button class="btn btn-primary" (click)="save(this)">Save</button>
 </form>

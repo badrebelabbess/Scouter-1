@@ -31,7 +31,6 @@ export class DbpediaFormComponent implements OnInit {
   save(f: any) {
     const id = this.ls.get(ConfigApp.localStorage.id);
     const type = this.ls.get(ConfigApp.localStorage.type);
-    console.log(f);
     this.ls.set(id + ConfigApp.separator + type, f.DBform._value);
     this.notify.emit();
   }

@@ -1,5 +1,7 @@
 import { FormModel } from '../interfaces/form-model';
 
+import { Validators } from '@angular/forms';
+
 export class DBPediaModel implements FormModel {
     private frequency: number;
     private startDate: Date;
@@ -12,7 +14,11 @@ export class DBPediaModel implements FormModel {
         } else {
             this.startDate = new Date();
         }
-        this.query = query || '';
+        this.query = query ||
+        `select * where {
+    ?s ?p ?o .
+}
+        `;
     }
 
     getFrequency() {
@@ -41,9 +47,15 @@ export class DBPediaModel implements FormModel {
 
     getModel() {
         return {
-            frequency: this.frequency,
-            startDate: this.startDate,
-            query: this.query
+            frequency: [this.frequency, [
+                Validators.required
+            ]],
+            startDate: [this.startDate, [
+                Validators.required
+            ]],
+            query: [this.query, [
+                Validators.required
+            ]]
         };
     }
 
