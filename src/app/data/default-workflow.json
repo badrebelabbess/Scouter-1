@@ -2,74 +2,47 @@
    "workflow_components":[  
       {  
          "id":"0",
-         "component_type":"RSS Feed",
-         "x_position":"132px",
-         "y_position":"250px",
+         "component_type":"Geo Location",
+         "x_position":"84px",
+         "y_position":"99px",
          "links_to":[  
-            "1"
+            "2"
          ]
       },
       {  
          "id":"1",
-         "component_type":"Open Data",
-         "x_position":"99px",
-         "y_position":"69px",
+         "component_type":"Eventful",
+         "x_position":"86px",
+         "y_position":"347px",
          "links_to":[  
             "2"
          ]
       },
       {  
          "id":"2",
-         "component_type":"Social Networks",
-         "x_position":"333px",
-         "y_position":"68px",
+         "component_type":"Keyword List",
+         "x_position":"270px",
+         "y_position":"194px",
          "links_to":[  
             "3"
          ]
       },
       {  
          "id":"3",
-         "component_type":"Geo Location",
-         "x_position":"384px",
-         "y_position":"244px",
+         "component_type":"Sentimental Analysis",
+         "x_position":"484px",
+         "y_position":"193px",
          "links_to":[  
             "4"
          ]
       },
       {  
          "id":"4",
-         "component_type":"Keyword List",
-         "x_position":"615px",
-         "y_position":"50px",
-         "links_to":[  
-            "5"
-         ]
-      },
-      {  
-         "id":"5",
-         "component_type":"Ontology",
-         "x_position":"744px",
-         "y_position":"217px",
+         "component_type":"Silk",
+         "x_position":"734px",
+         "y_position":"204px",
          "links_to":[  
             
-         ]
-      },
-      {  
-         "id":"6",
-         "component_type":"Sentimental Analysis",
-         "x_position":"642px",
-         "y_position":"427px",
-         "links_to":[  
-            "5"
-         ]
-      },
-      {  
-         "id":"7",
-         "component_type":"Topic extraction",
-         "x_position":"232px",
-         "y_position":"439px",
-         "links_to":[  
-            "3"
          ]
       }
    ]
