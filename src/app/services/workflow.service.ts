@@ -21,7 +21,7 @@ export class WorkflowService {
           .catch(this.errorHandler);
   }
 
-  sendWorkFlow() {
+  sendWorkFlow(json: any) {
       const headers = new Headers({
         'Content-Type': 'application/json',
         'Accept': 'application/json'
@@ -29,8 +29,7 @@ export class WorkflowService {
       return this.http.get(this.sendingWorkflowUrl, {
         method: RequestMethod.Get,
         headers: headers,
-        // body: JSON.stringify({a: 'b'}),
-        body: '{"a": "b"}',
+        body: JSON.stringify(json),
         responseType: ResponseContentType.Json
       }).map((response: Response) => response.json())
         .catch(this.errorHandler);

@@ -83,7 +83,7 @@ export class ConfigApp {
         'open-agenda',
         'owm',
         'rss-feed',
-        'eventful',
+        'eventful'
     ]
 
     static boundingBox = 'geo-location';

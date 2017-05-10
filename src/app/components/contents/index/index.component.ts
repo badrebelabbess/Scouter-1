@@ -57,9 +57,6 @@ export class IndexComponent implements OnInit, OnDestroy {
                     re.draw(resData);
                   },
                   resError => this.errorMsg = resError );
-      // this.ws.sendWorkFlow()
-      // .subscribe( resData  => console.log('d'),
-      //             resError => this.errorMsg = resError );
       this.componentChoosen = '';
    }
 
@@ -115,7 +112,9 @@ export class IndexComponent implements OnInit, OnDestroy {
       this.modal.open();
     } else {
       if ( this.componentChoosen === 'silk.png' ) {
-        this.jb.launch();
+        this.ws.sendWorkFlow(this.jb.constructJson())
+        .subscribe( resData  => console.log('d'),
+                  resError => this.errorMsg = resError );
       } else {
         this.modal2.open();
       }

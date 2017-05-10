@@ -10,7 +10,7 @@ export class JsonBuilderService {
 
   constructor() { }
 
-  launch(): void {
+  constructJson(): any {
     let json = {};
     const ls = new LocalStorageService({
       prefix: 'app-root',
@@ -39,7 +39,7 @@ export class JsonBuilderService {
       dataSources['RSS'] = ls.get(ConfigApp.dataSources[5]);
     }
     json['dataSources'] = dataSources;
-    console.log(json);
+    return json;
   }
 
 }
