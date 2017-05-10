@@ -29,9 +29,12 @@ export class TwitterFormComponent implements OnInit {
   }
 
   save(f: any) {
-    const id = this.ls.get(ConfigApp.localStorage.id);
-    const type = this.ls.get(ConfigApp.localStorage.type);
-    this.ls.set(id + ConfigApp.separator + type, f.twitterForm._value);
+    // const id = this.ls.get(ConfigApp.localStorage.id);
+    // const type = this.ls.get(ConfigApp.localStorage.type);
+    let type = this.ls.get(ConfigApp.localStorage.type) + '';
+    type = type.replace(ConfigApp.imageType, '');
+    // this.ls.set(id + ConfigApp.separator + type, f.twitterForm._value);
+    this.ls.set(type, f.twitterForm._value);
     this.notify.emit();
   }
 

@@ -140,6 +140,9 @@ export class IndexComponent implements OnInit, OnDestroy {
       JsPlumbSingleton.getInstance().remove(e);
       RestoreElementService.deleteAllDrawnComponents();
     }
+    for (const e of this.ls.keys()) {
+      this.ls.remove(e);
+    }
   }
 
   close(): void {
@@ -149,6 +152,9 @@ export class IndexComponent implements OnInit, OnDestroy {
 
   delete(): void {
     JsPlumbSingleton.getInstance().remove( $('#' + this.ls.get(ConfigApp.localStorage.id)) );
+    let type = this.ls.get(ConfigApp.localStorage.type) + '';
+    type = type.replace(ConfigApp.imageType, '');
+    this.ls.remove(type);
     this.modal.close();
     this.modal2.close();
     RestoreElementService.deleteFromDrawnComponents(

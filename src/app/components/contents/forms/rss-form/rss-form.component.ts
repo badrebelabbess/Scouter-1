@@ -29,9 +29,12 @@ export class RssFormComponent implements OnInit {
   }
 
   save(f: any) {
-    const id = this.ls.get(ConfigApp.localStorage.id);
-    const type = this.ls.get(ConfigApp.localStorage.type);
-    this.ls.set(id + ConfigApp.separator + type, f.RSSForm._value);
+    // const id = this.ls.get(ConfigApp.localStorage.id);
+    // const type = this.ls.get(ConfigApp.localStorage.type);
+    let type = this.ls.get(ConfigApp.localStorage.type) + '';
+    type = type.replace(ConfigApp.imageType, '');
+    // this.ls.set(id + ConfigApp.separator + type, f.RSSForm._value);
+    this.ls.set(type, f.RSSForm._value);
     this.notify.emit();
   }
 }

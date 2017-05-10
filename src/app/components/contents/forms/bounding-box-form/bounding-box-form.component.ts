@@ -99,9 +99,12 @@ export class BoundingBoxFormComponent {
         b.setMaxLat(bounds._northEast.lat);
         b.setMinLong(bounds._southWest.lng);
         b.setMaxLong(bounds._northEast.lng);
-        const id = l.get(ConfigApp.localStorage.id);
-        const type = l.get(ConfigApp.localStorage.type);
-        l.set(id + ConfigApp.separator + type, b.getModel());
+        // const id = l.get(ConfigApp.localStorage.id);
+        // const type = l.get(ConfigApp.localStorage.type);
+        let type = l.get(ConfigApp.localStorage.type) + '';
+        type = type.replace(ConfigApp.imageType, '');
+        // l.set(id + ConfigApp.separator + type, b.getModel());
+        l.set(type, b.getModel());
       } catch ( ex ) { }
     });
 
@@ -113,9 +116,12 @@ export class BoundingBoxFormComponent {
         b.setMaxLat(bounds._northEast.lat);
         b.setMinLong(bounds._southWest.lng);
         b.setMaxLong(bounds._northEast.lng);
-        const id = l.get(ConfigApp.localStorage.id);
-        const type = l.get(ConfigApp.localStorage.type);
-        l.set(id + ConfigApp.separator + type, b.getModel());
+        // const id = l.get(ConfigApp.localStorage.id);
+        // const type = l.get(ConfigApp.localStorage.type);
+        let type = l.get(ConfigApp.localStorage.type) + '';
+        type = type.replace(ConfigApp.imageType, '');
+        // l.set(id + ConfigApp.separator + type, b.getModel());
+        l.set(type, b.getModel());
       } catch ( ex ) { }
     });
 

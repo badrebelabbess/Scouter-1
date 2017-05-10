@@ -29,10 +29,14 @@ export class FacebookFormComponent implements OnInit {
   }
 
   save(f: any) {
-    const id = this.ls.get(ConfigApp.localStorage.id);
-    const type = this.ls.get(ConfigApp.localStorage.type);
-    console.log(f);
-    this.ls.set(id + ConfigApp.separator + type, f.facebookForm._value);
+    // const id = this.ls.get(ConfigApp.localStorage.id);
+    // const type = this.ls.get(ConfigApp.localStorage.type);
+    let type = this.ls.get(ConfigApp.localStorage.type) + '';
+    type = type.replace(ConfigApp.imageType, '');
+    let form = f.facebookForm._value;
+    console.log(form);
+    // this.ls.set(id + ConfigApp.separator + type, f.facebookForm._value);
+    this.ls.set(type, f.facebookForm._value);
     this.notify.emit();
   }
 }
