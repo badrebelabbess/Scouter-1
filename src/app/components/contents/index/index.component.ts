@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 
+import { JsonBuilderService } from '../../../services/json-builder.service';
 import { LocalStorageService } from 'angular-2-local-storage';
 import { ILocalStorageServiceConfig } from 'angular-2-local-storage';
 import { WorkflowService } from '../../../services/workflow.service';
@@ -28,6 +29,7 @@ import 'jquery-ui/ui/widgets/droppable';
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.scss'],
   providers: [
+    JsonBuilderService,
     LocalStorageService,
     WorkflowService,
     RestoreElementService
@@ -44,6 +46,7 @@ export class IndexComponent implements OnInit, OnDestroy {
   errorMsg: string;
 
   constructor(
+    private jb: JsonBuilderService,
     private ls: LocalStorageService,
     private ws: WorkflowService,
     private re: RestoreElementService
@@ -54,9 +57,9 @@ export class IndexComponent implements OnInit, OnDestroy {
                     re.draw(resData);
                   },
                   resError => this.errorMsg = resError );
-      this.ws.sendWorkFlow()
-      .subscribe( resData  => console.log('d'),
-                  resError => this.errorMsg = resError );
+      // this.ws.sendWorkFlow()
+      // .subscribe( resData  => console.log('d'),
+      //             resError => this.errorMsg = resError );
       this.componentChoosen = '';
    }
 
@@ -112,7 +115,7 @@ export class IndexComponent implements OnInit, OnDestroy {
       this.modal.open();
     } else {
       if ( this.componentChoosen === 'silk.png' ) {
-        console.log('launch');
+        this.jb.launch();
       } else {
         this.modal2.open();
       }
