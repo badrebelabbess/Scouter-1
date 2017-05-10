@@ -34,7 +34,10 @@ export class TwitterFormComponent implements OnInit {
     let type = this.ls.get(ConfigApp.localStorage.type) + '';
     type = type.replace(ConfigApp.imageType, '');
     // this.ls.set(id + ConfigApp.separator + type, f.twitterForm._value);
-    this.ls.set(type, f.twitterForm._value);
+    const form = f.twitterForm._value;
+    form['accountsIds'] = form['accountsIds'].replace(/ /g, '').split(',');
+    form['hashtags'] = form['hashtags'].replace(/ /g, '').split(',');
+    this.ls.set(type, form);
     this.notify.emit();
   }
 

@@ -14,9 +14,6 @@ export class RssModel implements FormModel {
         this.sources = `Arts:http://feeds.reuters.com/news/artsculture,
 Business: http://feeds.reuters.com/reuters/businessNews
         `;
-        const r = new RegExp('^([a-zA-Z]+:\s*(http:\/\/.*),*)$', 'igm');
-        console.log(r.test(this.sources));
-        console.log(r.exec(this.sources));
     }
 
     getFrequency() {

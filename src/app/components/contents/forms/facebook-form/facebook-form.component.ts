@@ -33,8 +33,9 @@ export class FacebookFormComponent implements OnInit {
     // const type = this.ls.get(ConfigApp.localStorage.type);
     let type = this.ls.get(ConfigApp.localStorage.type) + '';
     type = type.replace(ConfigApp.imageType, '');
-    let form = f.facebookForm._value;
-    console.log(form);
+    const form = f.facebookForm._value;
+    form['pagesIds'] = form['pagesIds'].replace(/ /g, '').split(',');
+    form['pagesNames'] = form['pagesNames'].replace(/ /g, '').split(',');
     // this.ls.set(id + ConfigApp.separator + type, f.facebookForm._value);
     this.ls.set(type, f.facebookForm._value);
     this.notify.emit();

@@ -54,7 +54,7 @@ export class FacebookModel implements FormModel {
                 this.pagesIds,
                 [
                     Validators.required,
-                    Validators.pattern(new RegExp('[a-zA-Z]+[^;]\s*,*\s*', 'g'))
+                    Validators.pattern(new RegExp('[0-9]+[^;]\s*,*\s*', 'g'))
                 ]
             ],
             pagesNames: [
