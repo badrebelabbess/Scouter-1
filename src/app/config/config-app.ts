@@ -75,4 +75,16 @@ export class ConfigApp {
     };
 
     static separator = '_type_';
+
+    static confTools = [
+        'rss-feed',
+        'dbpedia',
+        'eventful',
+        'open-agenda',
+        'owm',
+        'facebook',
+        'twitter',
+        'geo-location',
+        'keyword-list'
+    ]
 }

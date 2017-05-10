@@ -39,15 +39,22 @@ export class RssFormComponent implements OnInit {
   }
 
   private formatSources(form): any {
-    form['sources'] = form['sources'].replace(/ |\n/g, '').split(',');
     let arr = [];
-    for (const e of form['sources']) {
-      arr.push({
-        'name': e.substr(0, e.indexOf(':')),
-        'source': e.substr(e.indexOf(':') + 1)
-      });
+    try {
+      form['sources'] = form['sources'].replace(/ |\n/g, '').split(',');
+      for (const e of form['sources']) {
+        if ( e.substr(e.indexOf(':') + 1 ).startsWith('http') ) {
+          arr.push({
+            'name': e.substr(0, e.indexOf(':')),
+            'source': e.substr(e.indexOf(':') + 1)
+          });
+        }
+      }
+      form['sources'] = arr;
+      return form;
+    } catch (e) {
+      form['sources'] = arr;
+      return form;
     }
-    form['sources'] = arr;
-    return form;
   }
 }
