@@ -8,7 +8,16 @@ export class RssModel implements FormModel {
 
     private frequency: number;
     private sources: string;
-    // private sources: Array<RssSourceModel>;
+
+    constructor() {
+        this.frequency = 0;
+        this.sources = `Arts:http://feeds.reuters.com/news/artsculture,
+Business: http://feeds.reuters.com/reuters/businessNews
+        `;
+        const r = new RegExp('^([a-zA-Z]+:\s*(http:\/\/.*),*)$', 'igm');
+        console.log(r.test(this.sources));
+        console.log(r.exec(this.sources));
+    }
 
     getFrequency() {
         return this.frequency;
@@ -18,20 +27,21 @@ export class RssModel implements FormModel {
         this.frequency = frequency;
     }
 
-    // addToSources(source: RssSourceModel): void {
-    //     this.sources.push(source);
-    // }
-
-    // removeFromSources(source: RssSourceModel): void {
-    // }
-
     getModel(): any {
         return {
-            frequency: this.frequency,
-            sources: this.sources
-            // sources: this.sources.forEach(element => {
-            //     element.getModel();
-            // })
+            frequency: [
+                this.frequency,
+                [
+                    Validators.required
+                ]
+            ],
+            sources: [
+                this.sources,
+                [
+                    Validators.required,
+                    Validators.pattern(new RegExp('^([a-zA-Z]+:\s*(http:\/\/.*),*)$', 'igm'))
+                ]
+            ]
         };
     }
 }

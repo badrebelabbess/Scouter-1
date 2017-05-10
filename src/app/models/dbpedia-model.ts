@@ -17,7 +17,7 @@ export class DBPediaModel implements FormModel {
         this.query = query ||
         `select * where {
     ?s ?p ?o .
-}
+} limit 10
         `;
     }
 

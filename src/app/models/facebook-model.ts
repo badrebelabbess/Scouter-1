@@ -5,43 +5,9 @@ import { Validators } from '@angular/forms';
 export class FacebookModel implements FormModel {
 
     private pagesIds: string;
-    // private pagesIds: Array<string>;
     private pagesNames: string;
-    // private pagesNames: Array<string>;
     private pagesFrequency: number;
     private eventsfrequency: number;
-
-    // getPagesIds(): Array<string> {
-    //     return this.pagesIds;
-    // }
-
-    // getPagesNames(): Array<string> {
-    //     return this.pagesNames;
-    // }
-
-    // addToPagesIds(pagesIds: string): void {
-    //     this.pagesIds.push(pagesIds);
-    // }
-
-    // addToPagesNames(pagesNames: string): void {
-    //     this.pagesNames.push(pagesNames);
-    // }
-
-    // removeFromAccountIds(pageId: string): void {
-    //     const index = this.pagesIds.indexOf(pageId);
-    //     this.pagesIds.splice(
-    //         index,
-    //         index + 1
-    //     );
-    // }
-
-    // removeFromPagesNames(pageName: string): void {
-    //     const index = this.pagesNames.indexOf(pageName);
-    //     this.pagesNames.splice(
-    //         index,
-    //         index + 1
-    //     );
-    // }
 
     constructor() {
         this.pagesIds = '';
@@ -88,14 +54,14 @@ export class FacebookModel implements FormModel {
                 this.pagesIds,
                 [
                     Validators.required,
-                    Validators.pattern('[^,\s]|[^\,]|[^,\s]*')
+                    Validators.pattern(new RegExp('[a-zA-Z]+[^;]\s*,*\s*', 'g'))
                 ]
             ],
             pagesNames: [
                 this.pagesNames,
                 [
                     Validators.required,
-                    Validators.pattern('[^,\s]|[^\,]|[^,\s]*')
+                    Validators.pattern(new RegExp('[a-zA-Z]+[^;]\s*,*\s*', 'g'))
                 ]
             ],
             pagesFrequency: [

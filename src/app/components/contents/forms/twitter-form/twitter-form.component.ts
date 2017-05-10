@@ -34,5 +34,5 @@ export class TwitterFormComponent implements OnInit {
     this.ls.set(id + ConfigApp.separator + type, f.twitterForm._value);
     this.notify.emit();
   }
-  
+
 }

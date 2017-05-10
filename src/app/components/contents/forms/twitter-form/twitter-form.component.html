@@ -5,9 +5,21 @@
     <label for="accountsIds">Accounts Ids :</label>
     <textarea formControlName="accountsIds" class="form-control" id="accountsIds" rows="10"></textarea>
   </div>
+  <div *ngIf="twitterForm.controls['accountsIds'].hasError('required')" class="alert alert-danger">
+      Accounts ids is required
+  </div>
+  <div *ngIf="twitterForm.controls['accountsIds'].hasError('pattern')" class="alert alert-danger">
+      Invalid format
+  </div>
   <div class="form-group">
     <label for="hashtags">Hashtags :</label>
     <textarea formControlName="hashtags" class="form-control" id="hashtags" rows="10"></textarea>
+  </div>
+  <div *ngIf="twitterForm.controls['hashtags'].hasError('required')" class="alert alert-danger">
+      Hashtags ids is required
+  </div>
+  <div *ngIf="twitterForm.controls['hashtags'].hasError('pattern')" class="alert alert-danger">
+      Invalid format
   </div>
   <button class="btn btn-primary" (click)="save(this)">Save</button>
 </form>

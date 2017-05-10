@@ -87,7 +87,8 @@ export class IndexComponent implements OnInit, OnDestroy {
   }
 
   private moveHelper(): HTMLDivElement {
-    let elt: string = $(this)[0].innerHTML;
+    const elt: string = $(this)[0].innerHTML;
+    console.log(RestoreElementService.getDrawnComponents());
     if ( RestoreElementService.getDrawnComponents().indexOf(elt.toLowerCase()) !== -1 ) {
       return null;
     }
