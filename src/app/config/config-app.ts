@@ -76,15 +76,18 @@ export class ConfigApp {
 
     static separator = '_type_';
 
-    static confTools = [
-        'rss-feed',
+    static dataSources = [
         'dbpedia',
-        'eventful',
+        'twitter',
+        'facebook',
         'open-agenda',
         'owm',
-        'facebook',
-        'twitter',
-        'geo-location',
-        'keyword-list'
+        'rss-feed',
+        'eventful',
     ]
+
+    static boundingBox = 'geo-location';
+
+    static keywords = 'keyword-list';
+
 }
