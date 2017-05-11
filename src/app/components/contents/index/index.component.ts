@@ -37,7 +37,7 @@ import 'jquery-ui/ui/widgets/droppable';
 })
 export class IndexComponent implements OnInit, OnDestroy {
 
-  componentChoosen: string;
+  componentChoosen = '';
   @ViewChild('modal')
   modal: ModalComponent;
   @ViewChild('modal2')
@@ -57,7 +57,6 @@ export class IndexComponent implements OnInit, OnDestroy {
                     re.draw(resData);
                   },
                   resError => this.errorMsg = resError );
-      this.componentChoosen = '';
    }
 
   ngOnInit() {
@@ -97,12 +96,15 @@ export class IndexComponent implements OnInit, OnDestroy {
   }
 
   open(evt: any): void {
+    // console.log(evt.target);
+    // console.log(evt.target.tagName);
+    // console.log(evt.target.childNodes[0]);
     try {
       if ( evt.target.classList[1].endsWith(ConfigApp.imageType)) {
         this.apply(evt);
       }
     } catch (e) {
-      if ( evt.path[1].classList[1].endsWith(ConfigApp.imageType)) {
+      if ( evt.target.parentElement.classList[1].endsWith(ConfigApp.imageType)) {
         this.apply(evt);
       }
     }

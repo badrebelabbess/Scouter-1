@@ -17,6 +17,7 @@ import { ConfigApp } from '../../../../config/config-app';
 export class OpenAgendaFormComponent implements OnInit {
 
   @Output() notify = new EventEmitter();
+  startDate: string;
   openAgendaForm: FormGroup;
 
   constructor(

@@ -28,6 +28,8 @@ import { RssFormComponent } from './components/contents/forms/rss-form/rss-form.
 import { KeywordsFormComponent } from './components/contents/forms/keywords-form/keywords-form.component';
 import { OpenDataFormComponent } from './components/contents/forms/open-data-form/open-data-form.component';
 import { SocialNetworksFormComponent } from './components/contents/forms/social-networks-form/social-networks-form.component';
+import { AccordionComponent } from './components/pageElements/accordion/accordion.component';
+import { AccordionGroupComponent } from './components/pageElements/accordion-group/accordion-group.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { SocialNetworksFormComponent } from './components/contents/forms/social-
     RssFormComponent,
     KeywordsFormComponent,
     OpenDataFormComponent,
-    SocialNetworksFormComponent
+    SocialNetworksFormComponent,
+    AccordionComponent,
+    AccordionGroupComponent
   ],
   imports: [
     BrowserModule,

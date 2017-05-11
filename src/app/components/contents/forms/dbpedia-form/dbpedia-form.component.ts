@@ -17,6 +17,7 @@ import { ConfigApp } from '../../../../config/config-app';
 export class DbpediaFormComponent implements OnInit {
 
   @Output() notify = new EventEmitter();
+  startDate: string;
   DBform: FormGroup;
 
   constructor(

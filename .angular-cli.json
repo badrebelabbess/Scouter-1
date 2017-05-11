@@ -9,17 +9,7 @@
       "outDir": "dist",
       "assets": [
         "assets",
-        "favicon.ico",
-        {
-          "glob": "**/*",
-          "input": "../node_modules/leaflet/dist/images",
-          "output": "./assets/"
-        },
-        {
-          "glob": "**/*",
-          "input": "../node_modules/leaflet-draw/dist/images",
-          "output": "./assets/"
-        }
+        "favicon.ico"
       ],
       "index": "index.html",
       "main": "main.ts",

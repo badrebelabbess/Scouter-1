@@ -11,7 +11,7 @@ export class WorkflowService {
 
   private defaultWorkflowUrl = 'src/app/data/default-workflow.json';
 
-  private sendingWorkflowUrl = 'config';
+  private sendingWorkflowUrl = 'http://localhost:8081/config';
 
   constructor(private http: Http) { }
 
@@ -26,8 +26,9 @@ export class WorkflowService {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       });
-      return this.http.get(this.sendingWorkflowUrl, {
-        method: RequestMethod.Get,
+      return this.http.post(this.sendingWorkflowUrl, JSON.stringify(json), {
+        method: RequestMethod.Post,
+        // url: this.sendingWorkflowUrl,
         headers: headers,
         body: JSON.stringify(json),
         responseType: ResponseContentType.Json

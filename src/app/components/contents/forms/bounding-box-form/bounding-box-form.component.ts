@@ -129,7 +129,7 @@ export class BoundingBoxFormComponent {
     });
   }
 
-  save(f: any) {
+  save() {
     this.notify.emit();
   }
 
