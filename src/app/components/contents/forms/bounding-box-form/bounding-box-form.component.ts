@@ -35,9 +35,12 @@ export class BoundingBoxFormComponent {
   } = {
   layers: [
     {
-      url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-      maxZoom: 18,
-      attribution: 'Open Street Map'
+      // url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+      url: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
+      // url: 'http://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png',
+      // url: 'http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png',
+      maxZoom: 19,
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }
   ],
   zoom: 5,

@@ -38,7 +38,7 @@
       },
       {  
          "id":"4",
-         "component_type":"Silk",
+         "component_type":"Sink",
          "x_position":"734px",
          "y_position":"204px",
          "links_to":[  

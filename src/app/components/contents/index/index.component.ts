@@ -87,18 +87,17 @@ export class IndexComponent implements OnInit, OnDestroy {
 
   private moveHelper(): HTMLDivElement {
     const elt: string = $(this)[0].innerHTML;
+    console.log(elt);
     console.log(RestoreElementService.getDrawnComponents());
     if ( RestoreElementService.getDrawnComponents().indexOf(elt.toLowerCase()) !== -1 ) {
       return null;
     }
     RestoreElementService.addToDrawnComponents(elt.toLowerCase());
+    console.log(new ToolModel(elt).getToolIstanceElement());
     return new ToolModel(elt).getToolIstanceElement();
   }
 
   open(evt: any): void {
-    // console.log(evt.target);
-    // console.log(evt.target.tagName);
-    // console.log(evt.target.childNodes[0]);
     try {
       if ( evt.target.classList[1].endsWith(ConfigApp.imageType)) {
         this.apply(evt);
@@ -110,10 +109,10 @@ export class IndexComponent implements OnInit, OnDestroy {
     }
     if ( this.componentChoosen !== 'sentimental-analysis.png'
         && this.componentChoosen !== 'topic-extraction.png'
-        && this.componentChoosen !== 'silk.png' ) {
+        && this.componentChoosen !== 'sink.png' ) {
       this.modal.open();
     } else {
-      if ( this.componentChoosen === 'silk.png' ) {
+      if ( this.componentChoosen === 'sink.png' ) {
         this.ws.sendWorkFlow(this.jb.constructJson())
         .subscribe( resData  => console.log('d'),
                   resError => this.errorMsg = resError );
