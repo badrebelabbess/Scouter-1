@@ -13,8 +13,8 @@ export class WorkflowService {
 
   private defaultWorkflowUrl = 'src/app/data/default-workflow.json';
 
-  // private sendingWorkflowUrl = 'http://localhost:8081/config';
-  private sendingWorkflowUrl = 'http://localhost:9091/rmes/concepts/config';
+  private sendingWorkflowUrl = 'http://localhost:8081/config';
+  // private sendingWorkflowUrl = 'http://localhost:9091/rmes/concepts/config';
 
   constructor(private http: Http) { }
 
