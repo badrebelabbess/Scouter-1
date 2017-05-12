@@ -33,7 +33,9 @@ export class TwitterModel implements FormModel {
                 this.accountsIds,
                 [
                     Validators.required,
-                    Validators.pattern(new RegExp('[0-9]+[^;]\s*,*\s*', 'g'))
+                    // Validators.pattern(new RegExp('[0-9]+[^;]\s*,*\s*', 'g'))
+                    // Validators.pattern(new RegExp('([0-9]){8,}([^;|:])*', 'g'))
+                    Validators.pattern(new RegExp('([0-9]){8,}([^a-zA-Z|;|:])*', 'g'))
                 ]
             ],
             hashtags: [

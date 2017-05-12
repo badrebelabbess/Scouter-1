@@ -11,9 +11,9 @@ export class RssModel implements FormModel {
 
     constructor() {
         this.frequency = 0;
-        this.sources = `Arts:http://feeds.reuters.com/news/artsculture,
-Business: http://feeds.reuters.com/reuters/businessNews
-        `;
+        this.sources = `sourceName1:http://example.com/rss1,
+sourceName2:http://example.com/rss2
+ `;
     }
 
     getFrequency() {
@@ -36,7 +36,8 @@ Business: http://feeds.reuters.com/reuters/businessNews
                 this.sources,
                 [
                     Validators.required,
-                    Validators.pattern(new RegExp('^([a-zA-Z]+:\s*(http:\/\/.*),*)$', 'igm'))
+                    // Validators.pattern(new RegExp('^([a-zA-Z]+:\s*(http:\/\/.*),*)$', 'igm'))
+                    Validators.pattern(new RegExp('^([a-zA-Z0-9]+:\s*(http:\/\/.*))[\n|,]+$', 'igm'))
                 ]
             ]
         };
