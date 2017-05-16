@@ -2,11 +2,24 @@ import { Component } from '@angular/core';
 
 import { DataService } from '../../../../services/data.service';
 
+import {HighchartsStatic} from 'angular2-highcharts/dist/HighchartsService';
+import {ChartModule} from 'angular2-highcharts';
+
+export function highchartsFactory() {
+  return require('highcharts');
+}
+
 @Component({
   selector: 'app-line-chart',
   templateUrl: './line-chart.component.html',
   styleUrls: ['./line-chart.component.scss'],
-  providers: [DataService]
+  providers: [
+    {
+      provide: HighchartsStatic,
+      useFactory: highchartsFactory
+    },
+    DataService
+  ]
 })
 export class LineChartComponent {
 
