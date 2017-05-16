@@ -8,8 +8,8 @@ import { LocalStorageModule } from 'angular-2-local-storage';
 import { LeafletModule } from '@asymmetrik/angular2-leaflet';
 import { LeafletDrawModule } from '@asymmetrik/angular2-leaflet-draw';
 import { Ng2Bs3ModalModule } from 'ng2-bs3-modal/ng2-bs3-modal';
-
 import { RoutingModule } from './modules/routing/routing.module';
+import { ChartModule } from 'angular2-highcharts';
 
 import { AppComponent } from './app.component';
 import { ToolsComponent } from './components/pageElements/tools/tools.component';
@@ -30,6 +30,9 @@ import { OpenDataFormComponent } from './components/contents/forms/open-data-for
 import { SocialNetworksFormComponent } from './components/contents/forms/social-networks-form/social-networks-form.component';
 import { AccordionComponent } from './components/pageElements/accordion/accordion.component';
 import { AccordionGroupComponent } from './components/pageElements/accordion-group/accordion-group.component';
+import { LineChartComponent } from './components/contents/visualizations/line-chart/line-chart.component';
+
+declare const require: any;
 
 @NgModule({
   declarations: [
@@ -51,7 +54,8 @@ import { AccordionGroupComponent } from './components/pageElements/accordion-gro
     OpenDataFormComponent,
     SocialNetworksFormComponent,
     AccordionComponent,
-    AccordionGroupComponent
+    AccordionGroupComponent,
+    LineChartComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +70,8 @@ import { AccordionGroupComponent } from './components/pageElements/accordion-gro
     }),
     LeafletModule,
     LeafletDrawModule,
-    Ng2Bs3ModalModule
+    Ng2Bs3ModalModule,
+    ChartModule.forRoot(require('highcharts'))
   ],
   providers: [],
   bootstrap: [AppComponent]
