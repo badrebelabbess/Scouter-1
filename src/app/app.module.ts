@@ -32,8 +32,6 @@ import { AccordionComponent } from './components/pageElements/accordion/accordio
 import { AccordionGroupComponent } from './components/pageElements/accordion-group/accordion-group.component';
 import { LineChartComponent } from './components/contents/visualizations/line-chart/line-chart.component';
 
-// declare const require: any;
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,9 +70,6 @@ import { LineChartComponent } from './components/contents/visualizations/line-ch
     LeafletDrawModule,
     Ng2Bs3ModalModule,
     ChartModule
-    // ChartModule.forRoot(
-    //   require('highcharts')
-    // )
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 import { DataService } from '../../../../services/data.service';
 
 import {HighchartsStatic} from 'angular2-highcharts/dist/HighchartsService';
-import {ChartModule} from 'angular2-highcharts';
 
 export function highchartsFactory() {
   return require('highcharts');
@@ -29,13 +28,17 @@ export class LineChartComponent {
   constructor(private ds: DataService) {
     const date = new Date();
     this.options = {
+        chart: {
+          // width: '100%',
+          height: '100%'
+        },
         title : { text : 'simple chart' },
         xAxis: {
           type: 'datetime',
         },
         series: [{
             // data: [29.9, 71.5, 106.4, 129.2],
-            data: [29.9],
+            data: [],
             pointStart: Date.UTC(date.getUTCFullYear(),
                                 date.getUTCMonth(),
                                 date.getUTCDay(),
