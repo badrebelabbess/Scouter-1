@@ -11,7 +11,7 @@ import $ from 'jquery/dist/jquery';
 @Injectable()
 export class WorkflowService {
 
-  private defaultWorkflowUrl = 'src/app/data/default-workflow.json';
+  private defaultWorkflowUrl = 'assets/data/default-workflow.json';
 
   private sendingWorkflowUrl = 'http://localhost:8081/config';
   // private sendingWorkflowUrl = 'http://localhost:9091/rmes/concepts/config';
