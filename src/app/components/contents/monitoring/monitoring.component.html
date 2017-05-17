@@ -7,10 +7,10 @@
 <section>
   <ul *ngFor="let categorie of categories" id="categories">
     <li fxLayout="row" fxLayoutAlign="space-between center"
-    (click)="open(categorie)">
+    (click)="open(categorie)" class="accordion-title">
       {{categorie.title}}
-      <i class="fa fa-plus" *ngIf="!categorie.value"></i>
-      <i class="fa fa-minus" *ngIf="categorie.value"></i>
+      <!--<i class="fa fa-plus" *ngIf="!categorie.value"></i>
+      <i class="fa fa-minus" *ngIf="categorie.value"></i>-->
     </li>
     <div 
       [ngClass]="{hide:!categorie.value}"
