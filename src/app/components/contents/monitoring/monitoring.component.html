@@ -1,8 +1,8 @@
 <!--<svg width="960" height="600"></svg>-->
 <!--<app-line-chart></app-line-chart>-->
-<!--<app-column-chart></app-column-chart>
-<app-multiline-chart></app-multiline-chart>
-<app-pie-chart></app-pie-chart>-->
+<!--<app-column-chart></app-column-chart>-->
+<!--<app-multiline-chart></app-multiline-chart>-->
+<!--<app-pie-chart></app-pie-chart>-->
 
 <section>
   <ul *ngFor="let categorie of categories" id="categories">
@@ -12,8 +12,12 @@
       <!--<i class="fa fa-plus" *ngIf="!categorie.value"></i>
       <i class="fa fa-minus" *ngIf="categorie.value"></i>-->
     </li>
-    <div 
-      [ngClass]="{hide:!categorie.value}"
-    >tttttttttttttttttttt</div>
+    <div [ngClass]="{hide:!categorie.value}">
+      tttttttttttttttttttt
+      <app-line-chart *ngIf="categorie.title === 'Mongodb'"></app-line-chart>
+      <!--<app-column-chart></app-column-chart>
+      <app-multiline-chart></app-multiline-chart>
+      <app-pie-chart></app-pie-chart>-->
+    </div>
   </ul>
 </section>
