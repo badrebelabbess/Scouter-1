@@ -31,6 +31,9 @@ import { SocialNetworksFormComponent } from './components/contents/forms/social-
 import { AccordionComponent } from './components/pageElements/accordion/accordion.component';
 import { AccordionGroupComponent } from './components/pageElements/accordion-group/accordion-group.component';
 import { LineChartComponent } from './components/contents/visualizations/line-chart/line-chart.component';
+import { MultilineChartComponent } from './components/contents/visualizations/multiline-chart/multiline-chart.component';
+import { PieChartComponent } from './components/contents/visualizations/pie-chart/pie-chart.component';
+import { ColumnChartComponent } from './components/contents/visualizations/column-chart/column-chart.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +56,10 @@ import { LineChartComponent } from './components/contents/visualizations/line-ch
     SocialNetworksFormComponent,
     AccordionComponent,
     AccordionGroupComponent,
-    LineChartComponent
+    LineChartComponent,
+    MultilineChartComponent,
+    PieChartComponent,
+    ColumnChartComponent
   ],
   imports: [
     BrowserModule,
