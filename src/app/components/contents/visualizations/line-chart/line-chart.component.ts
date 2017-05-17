@@ -39,7 +39,6 @@ export class LineChartComponent {
           type: 'datetime',
         },
         series: [{
-            // data: [],
             data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             pointStart: Date.UTC(date.getUTCFullYear(),
                                 date.getUTCMonth(),
@@ -54,6 +53,7 @@ export class LineChartComponent {
     // setInterval(() => this.chart.series[0].addPoint(this.ds.getPoint(), true, true), 1000);
     function updateDate() {
         this.ds.getDefautWorkFlow().subscribe( function(resData) {
+            console.log(resData.value);
             this.chart.series[0].addPoint(parseFloat(resData.value), true, true);
           },
           resError => this.errorMsg = resError

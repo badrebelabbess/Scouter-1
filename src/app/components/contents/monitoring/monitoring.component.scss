@@ -1,0 +1,18 @@
+$borderColor: #F7F7F0;
+
+section {
+    border: 1px solid $borderColor;
+    margin: 15px;
+    ul {
+        list-style-type: none;
+        padding: 0px 20px;
+        color: #696763;
+    }
+    #categories {
+        font-size: 16px;
+    }
+}
+
+.hide {
+    display: none;
+}
