@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, Response, RequestMethod, ResponseContentType, URLSearchParams } from '@angular/http';
+import { Http, Headers, Response, RequestMethod, ResponseContentType } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/add/operator/map';
@@ -27,22 +27,22 @@ export class WorkflowService {
   sendWorkFlow(json: any) {
       const headers = new Headers({
         // 'Content-Type': 'application/json',
-        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+        // 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
         'Accept': 'application/json'
       });
 
-      const params = new URLSearchParams();
-      params.set('jsonData', JSON.stringify(json));
+      // const params = new URLSearchParams();
+      // params.set('jsonData', JSON.stringify(json));
 
       return this.http.post(this.sendingWorkflowUrl, json, {
         method: RequestMethod.Post,
         url: this.sendingWorkflowUrl,
         headers: headers,
         body: JSON.stringify(json),
-        responseType: ResponseContentType.Json,
-        params: params
+        responseType: ResponseContentType.Json
       }).map((response: Response) => response.json())
         .catch(this.errorHandler);
+
   }
 
   errorHandler(error: Response) {

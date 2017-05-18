@@ -24,14 +24,14 @@
       Invalid format
   </div>
   <div class="form-group">
-    <label for="pagesFrequency">pages frequency :</label>
+    <label for="pagesFrequency">Pages frequency :</label>
     <input type="number" formControlName="pagesFrequency" id="pagesFrequency" class="form-control"/>
   </div>
   <div *ngIf="facebookForm.controls['pagesFrequency'].hasError('required')" class="alert alert-danger">
       Pages frequency is required
   </div>
   <div class="form-group">
-    <label for="eventsfrequency">Events frequency :</label>
+    <label for="eventsfrequency">Events frequency (ms) :</label>
     <input type="number" formControlName="eventsfrequency" id="eventsfrequency" class="form-control"/>
   </div>
   <div *ngIf="facebookForm.controls['eventsfrequency'].hasError('required')" class="alert alert-danger">

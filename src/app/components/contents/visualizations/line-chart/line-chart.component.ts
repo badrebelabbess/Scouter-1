@@ -25,10 +25,10 @@ export class LineChartComponent {
   options: any;
   chart: any;
   errorMsg: string;
+  private value: number;
 
   constructor(private ds: DataService) {
     const date = new Date();
-    let value: number;
     this.options = {
         chart: {
           // width: '100%',
@@ -50,16 +50,19 @@ export class LineChartComponent {
             pointInterval: 1000
         }]
     };
-    // setInterval(() => this.chart.series[0].addPoint(this.ds.getPoint(), true, true), 1000);
-    function updateDate() {
-        this.ds.getDefautWorkFlow().subscribe( function(resData) {
-            console.log(resData.value);
-            this.chart.series[0].addPoint(parseFloat(resData.value), true, true);
-          },
-          resError => this.errorMsg = resError
-        );
-    };
-    setInterval(updateDate, 1000);
+    // Actualize getting data
+    setInterval(() => {
+      this.ds.getDefautWorkFlow().subscribe( (resData) => {
+        this.value = parseFloat(resData.value);
+        this.chart.series[0].addPoint(resData.value * 10, true, true);
+      },
+      resError => this.errorMsg = resError);
+    }, 1000);
+
+    function update() {
+      this.chart.series[0].addPoint(this.value, true, true);
+    }
+
   }
 
   saveInstance(chartInstance) {

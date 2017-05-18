@@ -11,7 +11,7 @@
       },
       {  
          "id":"1",
-         "component_type":"Eventful",
+         "component_type":"OWM",
          "x_position":"86px",
          "y_position":"347px",
          "links_to":[  
