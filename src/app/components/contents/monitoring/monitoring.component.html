@@ -3,21 +3,18 @@
 <!--<app-column-chart></app-column-chart>-->
 <!--<app-multiline-chart></app-multiline-chart>-->
 <!--<app-pie-chart></app-pie-chart>-->
-<app-gauge></app-gauge>
+<!--<app-gauge></app-gauge>-->
 
 <section>
   <ul *ngFor="let categorie of categories" id="categories">
     <li fxLayout="row" fxLayoutAlign="space-between center"
     (click)="open(categorie)" class="accordion-title">
       {{categorie.title}}
-      <!--<i class="fa fa-plus" *ngIf="!categorie.value"></i>
-      <i class="fa fa-minus" *ngIf="categorie.value"></i>-->
+      <i class="fa fa-caret-up" *ngIf="!categorie.value"></i>
+      <i class="fa fa-caret-down" *ngIf="categorie.value"></i>
     </li>
     <div [ngClass]="{hide:!categorie.value}">
-      <!--<app-line-chart *ngIf="categorie.title === 'Mongodb'"></app-line-chart>-->
-      <!--<app-column-chart></app-column-chart>-->
-      <!--<app-multiline-chart></app-multiline-chart>-->
-      <!--<app-pie-chart></app-pie-chart>-->
+      <app-line-chart *ngIf="categorie.title === 'Mongodb'"></app-line-chart>
     </div>
   </ul>
 </section>

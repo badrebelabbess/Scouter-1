@@ -1,5 +1,5 @@
 [
+    { "title": "Analytics", "value": false},
     { "title": "Mongodb", "value": false},
-    { "title": "Kafka", "value": false},
-    { "title": "Analytics", "value": false}
+    { "title": "Kafka", "value": false}
 ]
