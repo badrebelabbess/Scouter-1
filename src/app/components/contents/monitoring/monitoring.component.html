@@ -3,6 +3,7 @@
 <!--<app-column-chart></app-column-chart>-->
 <!--<app-multiline-chart></app-multiline-chart>-->
 <!--<app-pie-chart></app-pie-chart>-->
+<app-gauge></app-gauge>
 
 <section>
   <ul *ngFor="let categorie of categories" id="categories">
@@ -13,11 +14,10 @@
       <i class="fa fa-minus" *ngIf="categorie.value"></i>-->
     </li>
     <div [ngClass]="{hide:!categorie.value}">
-      tttttttttttttttttttt
-      <app-line-chart *ngIf="categorie.title === 'Mongodb'"></app-line-chart>
-      <!--<app-column-chart></app-column-chart>
-      <app-multiline-chart></app-multiline-chart>
-      <app-pie-chart></app-pie-chart>-->
+      <!--<app-line-chart *ngIf="categorie.title === 'Mongodb'"></app-line-chart>-->
+      <!--<app-column-chart></app-column-chart>-->
+      <!--<app-multiline-chart></app-multiline-chart>-->
+      <!--<app-pie-chart></app-pie-chart>-->
     </div>
   </ul>
 </section>

@@ -59,10 +59,6 @@ export class LineChartComponent {
       resError => this.errorMsg = resError);
     }, 1000);
 
-    function update() {
-      this.chart.series[0].addPoint(this.value, true, true);
-    }
-
   }
 
   saveInstance(chartInstance) {

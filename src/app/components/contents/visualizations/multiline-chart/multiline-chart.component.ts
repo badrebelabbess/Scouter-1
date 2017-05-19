@@ -24,6 +24,7 @@ export class MultilineChartComponent {
 
   options: any;
   chart: any;
+  errorMsg: string;
 
   constructor(private ds: DataService) {
     const date = new Date();
@@ -50,23 +51,36 @@ export class MultilineChartComponent {
             }
         },
         series: [{
-            name: '1',
+            name: 'DBpedia',
             data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-          },{
-            name: '2',
+          }, {
+            name: 'Facebook',
+            data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0]
+          }, {
+            name: 'Open Agenda',
+            data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0]
+          }, {
+            name: 'OWM',
+            data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0]
+          }, {
+            name: 'RSS',
             data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0]
           }
         ]
     };
-    setInterval(() => this.chart.series[0].addPoint(this.ds.getPoint(), true, false), 1000);
-    // function updateDate() {
-    //     this.ds.getDefautWorkFlow().subscribe( function(resData) {
-    //         this.chart.series[0].addPoint(parseFloat(resData.value), true, true);
-    //       },
-    //       resError => this.errorMsg = resError
-    //     );
-    // };
-    // setInterval(updateDate, 1000);
+
+    // Actualize getting data
+    setInterval(() => {
+      this.ds.getDefautWorkFlow().subscribe( (resData) => {
+        this.chart.series[0].addPoint(resData.value * 10, true, true);
+        this.chart.series[1].addPoint(resData.value * 1, true, true);
+        this.chart.series[2].addPoint(resData.value * 2, true, true);
+        this.chart.series[3].addPoint(resData.value * 4, true, true);
+        this.chart.series[4].addPoint(resData.value * 5, true, true);
+      },
+      resError => this.errorMsg = resError);
+    }, 1000);
+
   }
 
   saveInstance(chartInstance) {

@@ -34,6 +34,7 @@ import { LineChartComponent } from './components/contents/visualizations/line-ch
 import { MultilineChartComponent } from './components/contents/visualizations/multiline-chart/multiline-chart.component';
 import { PieChartComponent } from './components/contents/visualizations/pie-chart/pie-chart.component';
 import { ColumnChartComponent } from './components/contents/visualizations/column-chart/column-chart.component';
+import { GaugeComponent } from './components/contents/visualizations/gauge/gauge.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { ColumnChartComponent } from './components/contents/visualizations/colum
     LineChartComponent,
     MultilineChartComponent,
     PieChartComponent,
-    ColumnChartComponent
+    ColumnChartComponent,
+    GaugeComponent
   ],
   imports: [
     BrowserModule,

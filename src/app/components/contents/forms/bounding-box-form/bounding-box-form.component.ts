@@ -95,7 +95,7 @@ export class BoundingBoxFormComponent {
   onMapReady(map: L.Map) {
     let l = this.ls;
     let b = new BoundingBoxModel();
-    map.on('draw:created', function(e: any){
+    map.on('draw:created', (e: any) => {
       try {
         const bounds = e.layer._bounds;
         b.setMinLat(bounds._southWest.lat);
@@ -111,7 +111,7 @@ export class BoundingBoxFormComponent {
       } catch ( ex ) { }
     });
 
-    map.on('draw:edited', function(e: any){
+    map.on('draw:edited', (e: any) => {
       try {
         const key = Object.keys(e.layers._layers)[0];
         const bounds = e.layers._layers[key]._bounds;
