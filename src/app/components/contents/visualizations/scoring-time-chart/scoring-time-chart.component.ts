@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { DataService } from '../../../../services/data.service';
 
@@ -22,6 +22,7 @@ export function highchartsFactory() {
 })
 export class ScoringTimeChartComponent {
 
+  @Input() json: any;
   options: any;
   chart: any;
   errorMsg: string;
@@ -65,13 +66,16 @@ export class ScoringTimeChartComponent {
 
     // Actualize getting data
     setInterval(() => {
-      this.ds.getDefautWorkFlow().subscribe( (resData) => {
-        this.chart.series[0].addPoint(resData.processing_metrics.last_scoring_time_opendata, true, true);
-        this.chart.series[1].addPoint(resData.processing_metrics.last_scoring_time_rss, true, true);
-        this.chart.series[2].addPoint(resData.processing_metrics.last_scoring_time_social, true, true);
-      },
-      resError => this.errorMsg = resError);
-    }, 1000);
+      this.chart.series[0].addPoint(this.json.processing_metrics.last_scoring_time_opendata, true, true);
+      this.chart.series[1].addPoint(this.json.processing_metrics.last_scoring_time_rss, true, true);
+      this.chart.series[2].addPoint(this.json.processing_metrics.last_scoring_time_social, true, true);
+      // this.ds.getData().subscribe( (resData) => {
+      //   this.chart.series[0].addPoint(resData.processing_metrics.last_scoring_time_opendata, true, true);
+      //   this.chart.series[1].addPoint(resData.processing_metrics.last_scoring_time_rss, true, true);
+      //   this.chart.series[2].addPoint(resData.processing_metrics.last_scoring_time_social, true, true);
+      // },
+      // resError => this.errorMsg = resError);
+    }, 3000);
 
   }
 

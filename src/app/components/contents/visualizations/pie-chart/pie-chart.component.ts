@@ -79,7 +79,7 @@ export class PieChartComponent {
     };
     // setInterval(() => this.chart.series[0].addPoint(this.ds.getPoint(), true, false), 1000);
     // function updateDate() {
-    //     this.ds.getDefautWorkFlow().subscribe( function(resData) {
+    //     this.ds.getData().subscribe( function(resData) {
     //         this.chart.series[0].addPoint(parseFloat(resData.value), true, true);
     //       },
     //       resError => this.errorMsg = resError

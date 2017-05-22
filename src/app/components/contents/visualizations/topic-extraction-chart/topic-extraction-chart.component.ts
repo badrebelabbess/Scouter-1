@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { DataService } from '../../../../services/data.service';
 
@@ -12,16 +12,18 @@ import { DataService } from '../../../../services/data.service';
 })
 export class TopicExtractionChartComponent {
 
+  @Input() json: any;
   last_topic_extraction_training_time: number;
   errorMsg: string;
 
   constructor(private ds: DataService) {
     setInterval(() => {
-      this.ds.getDefautWorkFlow().subscribe( (resData) => {
-        this.last_topic_extraction_training_time = resData.processing_metrics.last_topic_extraction_training_time;
-      },
-      resError => this.errorMsg = resError);
-    }, 1000);
+      this.last_topic_extraction_training_time = this.json.processing_metrics.last_topic_extraction_training_time;
+      // this.ds.getData().subscribe( (resData) => {
+      //   this.last_topic_extraction_training_time = resData.processing_metrics.last_topic_extraction_training_time;
+      // },
+      // resError => this.errorMsg = resError);
+    }, 3000);
 
   }
 

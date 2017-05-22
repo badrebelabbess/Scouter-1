@@ -13,12 +13,6 @@ export class DataService {
     return Math.random() * 10;
   }
 
-  getDefautWorkFlow() {
-      return this.http.get(this.result)
-          .map((response: Response) => response.json())
-          .catch(this.errorHandler);
-  }
-
   getData() {
       return this.http.get(this.result)
           .map((response: Response) => response.json())

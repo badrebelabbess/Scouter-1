@@ -52,7 +52,7 @@ export class LineChartComponent {
     };
     // Actualize getting data
     setInterval(() => {
-      this.ds.getDefautWorkFlow().subscribe( (resData) => {
+      this.ds.getData().subscribe( (resData) => {
         this.value = parseFloat(resData.value);
         this.chart.series[0].addPoint(resData.value * 10, true, true);
       },

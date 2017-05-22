@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { DataService } from '../../../../services/data.service';
 
@@ -12,16 +12,18 @@ import { DataService } from '../../../../services/data.service';
 })
 export class KafkaUptimeChartComponent {
 
+  @Input() json: any;
   uptime: number;
   errorMsg: string;
 
   constructor(private ds: DataService) {
     setInterval(() => {
-      this.ds.getData().subscribe( (resData) => {
-        this.uptime = resData.kafka_metrics.uptime;
-      },
-      resError => this.errorMsg = resError);
-    }, 1000);
+      this.uptime = this.json.kafka_metrics.uptime;
+      // this.ds.getData().subscribe( (resData) => {
+      //   this.uptime = resData.kafka_metrics.uptime;
+      // },
+      // resError => this.errorMsg = resError);
+    }, 3000);
   }
 
 }

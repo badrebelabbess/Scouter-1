@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { DataService } from '../../../../services/data.service';
 
@@ -12,16 +12,18 @@ import { DataService } from '../../../../services/data.service';
 })
 export class KafkaTopicsChartComponent {
 
+  @Input() json: any;
   topics_count: number;
   errorMsg: string;
 
   constructor(private ds: DataService) {
     setInterval(() => {
-      this.ds.getDefautWorkFlow().subscribe( (resData) => {
-        this.topics_count = resData.kafka_metrics.topics_count;
-      },
-      resError => this.errorMsg = resError);
-    }, 1000);
+      this.topics_count = this.json.kafka_metrics.topics_count;
+      // this.ds.getData().subscribe( (resData) => {
+      //   this.topics_count = resData.kafka_metrics.topics_count;
+      // },
+      // resError => this.errorMsg = resError);
+    }, 3000);
   }
 
 }

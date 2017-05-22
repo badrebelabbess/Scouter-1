@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { DataService } from '../../../../services/data.service';
 
@@ -25,6 +25,7 @@ export class QueryTimeChartComponent {
   options: any;
   chart: any;
   errorMsg: string;
+  @Input() json: any;
 
   constructor(private ds: DataService) {
     const date = new Date();
@@ -71,15 +72,20 @@ export class QueryTimeChartComponent {
 
     // Actualize getting data
     setInterval(() => {
-      this.ds.getDefautWorkFlow().subscribe( (resData) => {
-        this.chart.series[0].addPoint(resData.processing_metrics.last_query_time_dbpedia, true, true);
-        this.chart.series[1].addPoint(resData.processing_metrics.last_query_time_facebook, true, true);
-        this.chart.series[2].addPoint(resData.processing_metrics.last_query_time_openagenda, true, true);
-        this.chart.series[3].addPoint(resData.processing_metrics.last_query_time_owm, true, true);
-        this.chart.series[4].addPoint(resData.processing_metrics.last_query_time_rss, true, true);
-      },
-      resError => this.errorMsg = resError);
-    }, 1000);
+      this.chart.series[0].addPoint(this.json.processing_metrics.last_query_time_dbpedia, true, true);
+      this.chart.series[1].addPoint(this.json.processing_metrics.last_query_time_facebook, true, true);
+      this.chart.series[2].addPoint(this.json.processing_metrics.last_query_time_openagenda, true, true);
+      this.chart.series[3].addPoint(this.json.processing_metrics.last_query_time_owm, true, true);
+      this.chart.series[4].addPoint(this.json.processing_metrics.last_query_time_rss, true, true);
+      // this.ds.getData().subscribe( (resData) => {
+      //   this.chart.series[0].addPoint(resData.processing_metrics.last_query_time_dbpedia, true, true);
+      //   this.chart.series[1].addPoint(resData.processing_metrics.last_query_time_facebook, true, true);
+      //   this.chart.series[2].addPoint(resData.processing_metrics.last_query_time_openagenda, true, true);
+      //   this.chart.series[3].addPoint(resData.processing_metrics.last_query_time_owm, true, true);
+      //   this.chart.series[4].addPoint(resData.processing_metrics.last_query_time_rss, true, true);
+      // },
+      // resError => this.errorMsg = resError);
+    }, 3000);
 
   }
 

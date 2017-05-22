@@ -71,7 +71,7 @@ export class MultilineChartComponent {
 
     // Actualize getting data
     setInterval(() => {
-      this.ds.getDefautWorkFlow().subscribe( (resData) => {
+      this.ds.getData().subscribe( (resData) => {
         this.chart.series[0].addPoint(resData.value * 10, true, true);
         this.chart.series[1].addPoint(resData.value * 1, true, true);
         this.chart.series[2].addPoint(resData.value * 2, true, true);

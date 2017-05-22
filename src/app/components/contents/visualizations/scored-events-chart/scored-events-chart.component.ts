@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { DataService } from '../../../../services/data.service';
 
@@ -12,16 +12,18 @@ import { DataService } from '../../../../services/data.service';
 })
 export class ScoredEventsChartComponent {
 
+  @Input() json: any;
   last_scored_events: number;
   errorMsg: string;
 
   constructor(private ds: DataService) {
     setInterval(() => {
-      this.ds.getDefautWorkFlow().subscribe( (resData) => {
-        this.last_scored_events = resData.processing_metrics.last_scored_events_count;
-      },
-      resError => this.errorMsg = resError);
-    }, 1000);
+      this.last_scored_events = this.json.processing_metrics.last_scored_events_count;
+      // this.ds.getData().subscribe( (resData) => {
+      //   this.last_scored_events = resData.processing_metrics.last_scored_events_count;
+      // },
+      // resError => this.errorMsg = resError);
+    }, 3000);
 
   }
 

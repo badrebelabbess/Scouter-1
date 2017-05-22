@@ -15,20 +15,20 @@
       <i class="fa fa-caret-down" *ngIf="categorie.value"></i>
     </li>
     <div [ngClass]="{hide:!categorie.value}">
-      <app-query-time-chart *ngIf="categorie.title === 'Analytics'"></app-query-time-chart>
-      <app-scored-events-chart *ngIf="categorie.title === 'Analytics'"></app-scored-events-chart>
-      <app-scoring-time-chart *ngIf="categorie.title === 'Analytics'"></app-scoring-time-chart>
-      <app-topic-extraction-chart *ngIf="categorie.title === 'Analytics'"></app-topic-extraction-chart>
+      <app-query-time-chart [json]="json" *ngIf="categorie.title === 'Analytics'"></app-query-time-chart>
+      <app-scored-events-chart [json]="json" *ngIf="categorie.title === 'Analytics'"></app-scored-events-chart>
+      <app-scoring-time-chart [json]="json" *ngIf="categorie.title === 'Analytics'"></app-scoring-time-chart>
+      <app-topic-extraction-chart [json]="json" *ngIf="categorie.title === 'Analytics'"></app-topic-extraction-chart>
 
-      <app-last-bytes-in-chart *ngIf="categorie.title === 'Mongodb'"></app-last-bytes-in-chart>
-      <app-last-bytes-out-chart *ngIf="categorie.title === 'Mongodb'"></app-last-bytes-out-chart>
-      <app-documents-chart *ngIf="categorie.title === 'Mongodb'"></app-documents-chart>
-      <app-last-uptime-chart *ngIf="categorie.title === 'Mongodb'"></app-last-uptime-chart>
+      <app-last-bytes-in-chart [json]="json" *ngIf="categorie.title === 'Mongodb'"></app-last-bytes-in-chart>
+      <app-last-bytes-out-chart [json]="json" *ngIf="categorie.title === 'Mongodb'"></app-last-bytes-out-chart>
+      <app-documents-chart [json]="json" *ngIf="categorie.title === 'Mongodb'"></app-documents-chart>
+      <app-last-uptime-chart [json]="json" *ngIf="categorie.title === 'Mongodb'"></app-last-uptime-chart>
 
-      <app-kafka-topics-chart *ngIf="categorie.title === 'Kafka'"></app-kafka-topics-chart>
-      <app-memory-usage-chart *ngIf="categorie.title === 'Kafka'"></app-memory-usage-chart>
-      <app-memory-non-usage-chart *ngIf="categorie.title === 'Kafka'"></app-memory-non-usage-chart>
-      <app-kafka-uptime-chart *ngIf="categorie.title === 'Kafka'"></app-kafka-uptime-chart>
+      <app-kafka-topics-chart [json]="json" *ngIf="categorie.title === 'Kafka'"></app-kafka-topics-chart>
+      <app-memory-usage-chart [json]="json" *ngIf="categorie.title === 'Kafka'"></app-memory-usage-chart>
+      <app-memory-non-usage-chart [json]="json" *ngIf="categorie.title === 'Kafka'"></app-memory-non-usage-chart>
+      <app-kafka-uptime-chart [json]="json" *ngIf="categorie.title === 'Kafka'"></app-kafka-uptime-chart>
     </div>
   </ul>
 </section>

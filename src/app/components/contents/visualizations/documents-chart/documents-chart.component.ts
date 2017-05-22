@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { DataService } from '../../../../services/data.service';
 
@@ -22,6 +22,7 @@ export function highchartsFactory() {
 })
 export class DocumentsChartComponent {
 
+  @Input() json: any;
   options: any;
   chart: any;
   errorMsg: string;
@@ -68,14 +69,18 @@ export class DocumentsChartComponent {
 
     // Actualize getting data
     setInterval(() => {
-      this.ds.getDefautWorkFlow().subscribe( (resData) => {
-        this.chart.series[0].addPoint(resData.mongodb_metrics.last_deleted_documents * 10, true, true);
-        this.chart.series[1].addPoint(resData.mongodb_metrics.last_inserted_documents * 10, true, true);
-        this.chart.series[2].addPoint(resData.mongodb_metrics.last_returned_documents * 10, true, true);
-        this.chart.series[3].addPoint(resData.mongodb_metrics.last_updated_documents * 10, true, true);
-      },
-      resError => this.errorMsg = resError);
-    }, 1000);
+      this.chart.series[0].addPoint(this.json.mongodb_metrics.last_deleted_documents * 10, true, true);
+      this.chart.series[1].addPoint(this.json.mongodb_metrics.last_inserted_documents * 10, true, true);
+      this.chart.series[2].addPoint(this.json.mongodb_metrics.last_returned_documents * 10, true, true);
+      this.chart.series[3].addPoint(this.json.mongodb_metrics.last_updated_documents * 10, true, true);
+      // this.ds.getData().subscribe( (resData) => {
+      //   this.chart.series[0].addPoint(resData.mongodb_metrics.last_deleted_documents * 10, true, true);
+      //   this.chart.series[1].addPoint(resData.mongodb_metrics.last_inserted_documents * 10, true, true);
+      //   this.chart.series[2].addPoint(resData.mongodb_metrics.last_returned_documents * 10, true, true);
+      //   this.chart.series[3].addPoint(resData.mongodb_metrics.last_updated_documents * 10, true, true);
+      // },
+      // resError => this.errorMsg = resError);
+    }, 3000);
 
   }
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { HighchartsStatic } from 'angular2-highcharts/dist/HighchartsService';
 
@@ -34,6 +34,7 @@ Highcharts.setOptions({
 })
 export class MemoryUsageChartComponent {
 
+  @Input() json: any;
   chart: any;
   options: any;
   errorMsg: string;
@@ -115,19 +116,26 @@ export class MemoryUsageChartComponent {
 
     // Actualize getting data
     setInterval(() => {
-      this.ds.getDefautWorkFlow().subscribe( (resData) => {
         let point,
-          newVal,
-          inc;
+            inc;
 
         if (this.chart) {
             point = this.chart.series[0].points[0];
-            inc = Math.round(resData.mongodb_metrics.last_bytesIn);
+            inc = Math.round(this.json.kafka_metrics.memory_heap_usage);
             point.update(inc);
         }
-      },
-      resError => this.errorMsg = resError);
-    }, 1000);
+    //   this.ds.getData().subscribe( (resData) => {
+    //     let point,
+    //       inc;
+
+    //     if (this.chart) {
+    //         point = this.chart.series[0].points[0];
+    //         inc = Math.round(resData.mongodb_metrics.last_bytesIn);
+    //         point.update(inc);
+    //     }
+    //   },
+    //   resError => this.errorMsg = resError);
+    }, 3000);
   }
 
   saveInstance(chartInstance) {

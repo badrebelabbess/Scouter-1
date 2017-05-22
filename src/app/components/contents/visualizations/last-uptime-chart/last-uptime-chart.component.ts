@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { DataService } from '../../../../services/data.service';
 
@@ -12,16 +12,18 @@ import { DataService } from '../../../../services/data.service';
 })
 export class LastUptimeChartComponent {
 
+  @Input() json: any;
   last_uptime: number;
   errorMsg: string;
 
   constructor(private ds: DataService) {
     setInterval(() => {
-      this.ds.getData().subscribe( (resData) => {
-        this.last_uptime = resData.mongodb_metrics.last_uptime;
-      },
-      resError => this.errorMsg = resError);
-    }, 1000);
+      this.last_uptime = this.json.mongodb_metrics.last_uptime;
+      // this.ds.getData().subscribe( (resData) => {
+      //   this.last_uptime = resData.mongodb_metrics.last_uptime;
+      // },
+      // resError => this.errorMsg = resError);
+    }, 3000);
 
   }
 
