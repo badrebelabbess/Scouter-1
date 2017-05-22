@@ -35,6 +35,18 @@ import { MultilineChartComponent } from './components/contents/visualizations/mu
 import { PieChartComponent } from './components/contents/visualizations/pie-chart/pie-chart.component';
 import { ColumnChartComponent } from './components/contents/visualizations/column-chart/column-chart.component';
 import { GaugeComponent } from './components/contents/visualizations/gauge/gauge.component';
+import { QueryTimeChartComponent } from './components/contents/visualizations/query-time-chart/query-time-chart.component';
+import { ScoredEventsChartComponent } from './components/contents/visualizations/scored-events-chart/scored-events-chart.component';
+import { ScoringTimeChartComponent } from './components/contents/visualizations/scoring-time-chart/scoring-time-chart.component';
+import { TopicExtractionChartComponent } from './components/contents/visualizations/topic-extraction-chart/topic-extraction-chart.component';
+import { LastBytesInChartComponent } from './components/contents/visualizations/last-bytes-in-chart/last-bytes-in-chart.component';
+import { LastBytesOutChartComponent } from './components/contents/visualizations/last-bytes-out-chart/last-bytes-out-chart.component';
+import { DocumentsChartComponent } from './components/contents/visualizations/documents-chart/documents-chart.component';
+import { LastUptimeChartComponent } from './components/contents/visualizations/last-uptime-chart/last-uptime-chart.component';
+import { KafkaTopicsChartComponent } from './components/contents/visualizations/kafka-topics-chart/kafka-topics-chart.component';
+import { MemoryUsageChartComponent } from './components/contents/visualizations/memory-usage-chart/memory-usage-chart.component';
+import { MemoryNonUsageChartComponent } from './components/contents/visualizations/memory-non-usage-chart/memory-non-usage-chart.component';
+import { KafkaUptimeChartComponent } from './components/contents/visualizations/kafka-uptime-chart/kafka-uptime-chart.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +73,19 @@ import { GaugeComponent } from './components/contents/visualizations/gauge/gauge
     MultilineChartComponent,
     PieChartComponent,
     ColumnChartComponent,
-    GaugeComponent
+    GaugeComponent,
+    QueryTimeChartComponent,
+    ScoredEventsChartComponent,
+    ScoringTimeChartComponent,
+    TopicExtractionChartComponent,
+    LastBytesInChartComponent,
+    LastBytesOutChartComponent,
+    DocumentsChartComponent,
+    LastUptimeChartComponent,
+    KafkaTopicsChartComponent,
+    MemoryUsageChartComponent,
+    MemoryNonUsageChartComponent,
+    KafkaUptimeChartComponent
   ],
   imports: [
     BrowserModule,

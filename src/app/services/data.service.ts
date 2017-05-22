@@ -19,6 +19,12 @@ export class DataService {
           .catch(this.errorHandler);
   }
 
+  getData() {
+      return this.http.get(this.result)
+          .map((response: Response) => response.json())
+          .catch(this.errorHandler);
+  }
+
   errorHandler(error: Response) {
       console.error(error);
       return Observable.throw(error || 'Server Error');
