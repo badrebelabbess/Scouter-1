@@ -25,9 +25,9 @@ import 'jquery-ui/ui/widgets/draggable';
 import 'jquery-ui/ui/widgets/droppable';
 
 @Component({
-  selector: 'app-index',
-  templateUrl: './index.component.html',
-  styleUrls: ['./index.component.scss'],
+  selector: 'app-workflow',
+  templateUrl: './workflow.component.html',
+  styleUrls: ['./workflow.component.scss'],
   providers: [
     JsonBuilderService,
     LocalStorageService,
@@ -35,7 +35,7 @@ import 'jquery-ui/ui/widgets/droppable';
     RestoreElementService
   ]
 })
-export class IndexComponent implements OnInit, OnDestroy {
+export class WorkflowComponent implements OnInit, OnDestroy {
 
   componentChoosen = '';
   @ViewChild('modal')

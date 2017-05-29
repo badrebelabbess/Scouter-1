@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { AccordionService } from '../../../services/accordion.service';
 import { DataService } from '../../../services/data.service';
@@ -16,7 +16,7 @@ export class MonitoringComponent implements OnInit {
 
   categories = [];
   errorMsg: string;
-  json: any;
+  @Input() json: any;
 
   constructor(private as: AccordionService,
               private ds: DataService) {

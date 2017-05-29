@@ -3,8 +3,8 @@
       {  
          "id":"0",
          "component_type":"Geo Location",
-         "x_position":"84px",
-         "y_position":"99px",
+         "x_position":"41px",
+         "y_position":"19px",
          "links_to":[  
             "2"
          ]
@@ -12,8 +12,8 @@
       {  
          "id":"1",
          "component_type":"OWM",
-         "x_position":"86px",
-         "y_position":"347px",
+         "x_position":"36px",
+         "y_position":"227px",
          "links_to":[  
             "2"
          ]
@@ -21,8 +21,8 @@
       {  
          "id":"2",
          "component_type":"Keyword List",
-         "x_position":"270px",
-         "y_position":"194px",
+         "x_position":"244px",
+         "y_position":"104px",
          "links_to":[  
             "3"
          ]
@@ -30,17 +30,17 @@
       {  
          "id":"3",
          "component_type":"Sentimental Analysis",
-         "x_position":"484px",
-         "y_position":"193px",
+         "x_position":"420px",
+         "y_position":"105px",
          "links_to":[  
             "4"
          ]
       },
       {  
          "id":"4",
-         "component_type":"Sink",
-         "x_position":"734px",
-         "y_position":"204px",
+         "component_type":"Console sink",
+         "x_position":"594px",
+         "y_position":"116px",
          "links_to":[  
             
          ]

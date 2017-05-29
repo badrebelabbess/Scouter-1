@@ -1,21 +1,22 @@
+<!--fxLayoutAlign="space-between center" fxLayoutAlign.xs="stretch" class="hundred">-->
 <div fxLayout="row" fxLayout.xs="column"
-fxLayoutAlign="space-between center" fxLayoutAlign.xs="stretch" class="hundred">
-    <div fxFlexAlign="start" fxFlex="stretch" class="hundred">
-        <h1 fxLayoutAlign="space-between center">
-            <span>Scouter Démo</span>
-
-            <div>
-                <img src="assets/images/delete-all.png"
-                title="Delete all" (click)="deleteAll()"/>
-            </div>
-        </h1>
-        
+fxLayoutAlign="space-between center" fxLayoutAlign.xs="stretch">
+    <div fxFlexAlign="start" fxFlex="86 stretch" class="hundred workspace">
         <div id="drop" fxLayout="row" (dblclick)="open($event)">
         </div>
+        <div id="console" fxLayout="row">
+            >
+        </div>
     </div>
-    <app-tools fxFlex="22" fxFlexAlign="start"></app-tools>
+    <app-tools fxFlex="14" fxFlexAlign="start"></app-tools>
 </div>
+            <!--<div>
+                <img src="assets/images/delete-all.png"
+                title="Delete all" (click)="deleteAll()"/>
+            </div>-->
 
+
+<!-- Modals -->
 <modal #modal>
     <modal-header [show-close]="true">
         <h4 class="modal-title">Component parameters</h4>

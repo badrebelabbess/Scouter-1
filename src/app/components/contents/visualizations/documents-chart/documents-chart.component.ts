@@ -35,7 +35,7 @@ export class DocumentsChartComponent {
           // width: '100%',
           height: '50%'
         },
-        title : { text : 'multiline chart' },
+        title : { text : 'Documents' },
         xAxis: {
           type: 'datetime',
         },

@@ -10,14 +10,27 @@ export class ToolsComponent implements OnInit {
   isOpenData = true;
   isOpenKeywords = true;
   isOpenAnalytics = true;
+  isOpenResults = true;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  reverse(val: boolean): void {
-    val = !val;
+  reverseOpenData(): void {
+    this.isOpenData = !this.isOpenData;
+  }
+
+  reverseOpenKeywords(): void {
+    this.isOpenKeywords = !this.isOpenKeywords;
+  }
+
+  reverseOpenAnalytics(): void {
+    this.isOpenAnalytics = !this.isOpenAnalytics;
+  }
+
+  reverseResults(): void {
+    this.isOpenResults = !this.isOpenResults;
   }
 
 }

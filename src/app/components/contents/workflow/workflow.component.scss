@@ -1,0 +1,20 @@
+#drop {
+    border: solid 1px;
+    width:99%;
+    min-height: 400px;
+    position: relative;
+    background-image: url('../../../../assets/images/grid.png');
+    background-repeat: repeat;
+}
+#console {
+  font-family:Courier;
+  color: #CCCCCC;
+  background: #000000;
+  border: 3px double #CCCCCC;
+  padding: 10px;
+  width:99%;
+  min-height: 250px;
+}
+.workspace {
+  border-right: 3px solid #CCCCCC;
+}

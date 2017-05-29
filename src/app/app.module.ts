@@ -13,7 +13,7 @@ import { ChartModule } from 'angular2-highcharts';
 
 import { AppComponent } from './app.component';
 import { ToolsComponent } from './components/pageElements/tools/tools.component';
-import { IndexComponent } from './components/contents/index/index.component';
+import { WorkflowComponent } from './components/contents/workflow/workflow.component';
 import { HeaderComponent } from './components/pageElements/header/header.component';
 import { PageNotFoundComponent } from './components/pageElements/page-not-found/page-not-found.component';
 import { DbpediaFormComponent } from './components/contents/forms/dbpedia-form/dbpedia-form.component';
@@ -47,12 +47,13 @@ import { KafkaTopicsChartComponent } from './components/contents/visualizations/
 import { MemoryUsageChartComponent } from './components/contents/visualizations/memory-usage-chart/memory-usage-chart.component';
 import { MemoryNonUsageChartComponent } from './components/contents/visualizations/memory-non-usage-chart/memory-non-usage-chart.component';
 import { KafkaUptimeChartComponent } from './components/contents/visualizations/kafka-uptime-chart/kafka-uptime-chart.component';
+import { HomeComponent } from './components/contents/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ToolsComponent,
-    IndexComponent,
+    WorkflowComponent,
     HeaderComponent,
     PageNotFoundComponent,
     DbpediaFormComponent,
@@ -85,7 +86,8 @@ import { KafkaUptimeChartComponent } from './components/contents/visualizations/
     KafkaTopicsChartComponent,
     MemoryUsageChartComponent,
     MemoryNonUsageChartComponent,
-    KafkaUptimeChartComponent
+    KafkaUptimeChartComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
