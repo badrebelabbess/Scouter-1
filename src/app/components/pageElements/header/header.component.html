@@ -1,19 +1,19 @@
 <header fxLayout="row" fxLayoutAlign="space-between center">
-  <div>
-    <a target="_blank" href="http://atos.net/">
-      <img src="./assets/images/logoAtos.jpg" title="Atos" class="logo"/>
-    </a>
-    <a routerLink="/home" class="nav">
-      Home
-    </a>
-    <a routerLink="/workflow" class="nav">
-      Workflow
-    </a>
-    <a routerLink="/monitoring" class="nav">
-      Monitoring
-    </a>
-  </div>
-  <div class="version">
-    version 1.0.0
+  <img src="./assets/images/home/scouter_logo.png" title="Scouter" class="logo"/>
+  <span class="title">
+    Scouter 1 V1.0 IS RELEASED ! 
+    <a href="https://github.com" target="_blank">DOWNLOAD NOW !</a></span>
+  <div class="box">
+    <div class="container-1">
+        <span class="icon"><i class="fa fa-search"></i></span>
+        <input type="search" id="search" placeholder="Search..." />
+    </div>
   </div>
 </header>
+<div fxLayout="row" fxLayoutAlign="end center" >
+  <ul class="nav nav-tabs">
+    <li><a routerLink="/home">Home</a></li>
+    <li><a routerLink="/workflow">Workflow</a></li>
+    <li><a routerLink="/monitoring">Monitoring</a></li>
+  </ul>
+</div>

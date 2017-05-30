@@ -48,6 +48,7 @@ import { MemoryUsageChartComponent } from './components/contents/visualizations/
 import { MemoryNonUsageChartComponent } from './components/contents/visualizations/memory-non-usage-chart/memory-non-usage-chart.component';
 import { KafkaUptimeChartComponent } from './components/contents/visualizations/kafka-uptime-chart/kafka-uptime-chart.component';
 import { HomeComponent } from './components/contents/home/home.component';
+import { FooterComponent } from './components/pageElements/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -87,7 +88,8 @@ import { HomeComponent } from './components/contents/home/home.component';
     MemoryUsageChartComponent,
     MemoryNonUsageChartComponent,
     KafkaUptimeChartComponent,
-    HomeComponent
+    HomeComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
