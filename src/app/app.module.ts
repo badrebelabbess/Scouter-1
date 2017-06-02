@@ -49,6 +49,7 @@ import { MemoryNonUsageChartComponent } from './components/contents/visualizatio
 import { KafkaUptimeChartComponent } from './components/contents/visualizations/kafka-uptime-chart/kafka-uptime-chart.component';
 import { HomeComponent } from './components/contents/home/home.component';
 import { FooterComponent } from './components/pageElements/footer/footer.component';
+import { ConsoleResultComponent } from './components/pageElements/console-result/console-result.component';
 
 @NgModule({
   declarations: [
@@ -89,7 +90,8 @@ import { FooterComponent } from './components/pageElements/footer/footer.compone
     MemoryNonUsageChartComponent,
     KafkaUptimeChartComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
+    ConsoleResultComponent
   ],
   imports: [
     BrowserModule,
