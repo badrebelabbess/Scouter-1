@@ -1,3 +1,5 @@
+$blue: #5596F3;
+
 .logo {
     width: 125px;
 }
@@ -34,7 +36,7 @@
 }
 .title {
   padding: 6px;
-  background-color: #33C9DD;
+  background-color: $blue;
   border: solid 2px black;
   color: white;
   font-size: 20px;

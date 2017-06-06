@@ -7,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToolsComponent implements OnInit {
 
-  isOpenData = true;
-  isOpenKeywords = true;
-  isOpenAnalytics = true;
-  isOpenResults = true;
+  isOpenData = false;
+  isOpenKeywords = false;
+  isOpenAnalytics = false;
+  isOpenResults = false;
 
   constructor() { }
 

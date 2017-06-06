@@ -1,3 +1,5 @@
+$blue: #5596F3;
+
 .logo {
     width: 100px;
 }
@@ -17,7 +19,7 @@
     text-align: center;
     padding: 10px;
     font-size: 35px;
-    color: #00BCD4;
+    color: $blue;
 }
 h3 {
     text-align: center;
@@ -32,11 +34,11 @@ h3 {
     margin: auto;
 }
 .techno {
-    height: 117px;
+    height: 60px;
 }
 .border {
-    border-right: solid #80DEEA 2px;
-    padding-right: 10px;
+    height: 55px;
+    border-right: solid $blue 2px;
 }
 .carouselImg {
   width: auto;
@@ -47,7 +49,7 @@ h3 {
     margin: 12px;
 }
 .explainBlock {
-  border: solid 2px #00BCD4;
+  border: solid 2px #5596F3;
   padding: 10px;
 }
 .explainImg {

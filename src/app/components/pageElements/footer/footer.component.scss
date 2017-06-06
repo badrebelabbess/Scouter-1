@@ -1,16 +1,17 @@
+$blue: #5596F3;
 .footer {
-    background-color: #BDBDBD;
+    background-color: #404040;
     padding: 10px0;
     h3 {
         text-align: left;
-        color: #00BCD4;
+        color: $blue;
     }
 }
 .white {
     color: white;
 }
 .caption {
-    color: #27BCD3;
+    color: $blue;
 }
 .separator {
     width: 20%;
@@ -37,5 +38,5 @@
 }
 .contactUs {
     font-size: 26px;
-    color: #00BCD4;
+    color: $blue;
 }
