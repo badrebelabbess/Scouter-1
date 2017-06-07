@@ -1,6 +1,14 @@
 $color: #F0F0F0;
-h3 {
-    text-align: center;
+h4 {
+    margin: 1px;
+    background-color: $color;
+    font-weight: 600;
+    width: 100%;
+    text-align: left;
+}
+.accordionContainer {
+    width: 96%;
+    margin-left: 4%;
 }
 span {
     margin: 1px;
@@ -8,6 +16,6 @@ span {
     font-weight: 600;
 }
 .content {
-    width: 96%;
+    width: 80%;
     float: right;
 }

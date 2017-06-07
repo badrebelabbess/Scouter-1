@@ -624,29 +624,38 @@ Assigned to tile images in a tiled background
 }
 
 .elt{
-    background-color: white;/*#e1e4ea;*/
-    padding: 5px;
+    /*background-color: white;*/
+    background-color: #5596F3;
+    padding: 1px;
     border: solid 1px;
-    width: 90px;
+    /*width: 68px;*/
+    width: 62px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
 }
 
 .elt img{
     display: block;
-    height: 50px;
-    /*margin: auto;*/
-    margin-left: 12px;
+    height: 30px;
+    width: 30px;
+    /*margin-left: 16px;*/
+    margin-left: 14px;
     position: absolute;
 }
 
 .elt p {
     text-align: center;
-    /*padding-top: 46px;*/
-    padding-top: 50px;
+    padding-top: 30px;
+    /*font-size: 11px;*/
+    font-size: 10px;
+    font-weight: bold;
+    color: white;
 }
 
 .selector {
     position: absolute;
-    bottom: 50%;
+    bottom: 5%;
     right: 5px;
     width: 0.5em;
     height: 0.5em;

@@ -28,8 +28,6 @@ import { RssFormComponent } from './components/contents/forms/rss-form/rss-form.
 import { KeywordsFormComponent } from './components/contents/forms/keywords-form/keywords-form.component';
 import { OpenDataFormComponent } from './components/contents/forms/open-data-form/open-data-form.component';
 import { SocialNetworksFormComponent } from './components/contents/forms/social-networks-form/social-networks-form.component';
-import { AccordionComponent } from './components/pageElements/accordion/accordion.component';
-import { AccordionGroupComponent } from './components/pageElements/accordion-group/accordion-group.component';
 import { LineChartComponent } from './components/contents/visualizations/line-chart/line-chart.component';
 import { MultilineChartComponent } from './components/contents/visualizations/multiline-chart/multiline-chart.component';
 import { PieChartComponent } from './components/contents/visualizations/pie-chart/pie-chart.component';
@@ -70,8 +68,6 @@ import { ConsoleResultComponent } from './components/pageElements/console-result
     KeywordsFormComponent,
     OpenDataFormComponent,
     SocialNetworksFormComponent,
-    AccordionComponent,
-    AccordionGroupComponent,
     LineChartComponent,
     MultilineChartComponent,
     PieChartComponent,

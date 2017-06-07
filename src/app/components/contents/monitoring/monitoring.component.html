@@ -1,14 +1,12 @@
-<!--{{json | json}}-->
-
 <section>
   <ul *ngFor="let categorie of categories" id="categories">
     <li fxLayout="row" fxLayoutAlign="space-between center"
     (click)="open(categorie)" class="accordion-title">
       {{categorie.title}}
-      <i class="fa fa-caret-up" *ngIf="!categorie.value"></i>
-      <i class="fa fa-caret-down" *ngIf="categorie.value"></i>
+      <i class="fa fa-caret-down" *ngIf="!categorie.value"></i>
+      <i class="fa fa-caret-up" *ngIf="categorie.value"></i>
     </li>
-    <div [ngClass]="{hide:!categorie.value}">
+    <div [ngClass]="{hide:!categorie.value}" fxLayout="row" fxLayoutAlign="space-between center">
       <app-query-time-chart [json]="json" *ngIf="categorie.title === 'Analytics'"></app-query-time-chart>
       <app-scored-events-chart [json]="json" *ngIf="categorie.title === 'Analytics'"></app-scored-events-chart>
       <app-scoring-time-chart [json]="json" *ngIf="categorie.title === 'Analytics'"></app-scoring-time-chart>

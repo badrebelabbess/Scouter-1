@@ -1,12 +1,14 @@
-<!--fxLayoutAlign="space-between center" fxLayoutAlign.xs="stretch" class="hundred">-->
-<div fxLayout="row" fxLayout.xs="column"
-fxLayoutAlign="space-between center" fxLayoutAlign.xs="stretch">
-    <div fxFlexAlign="start" fxFlex="86 stretch" class="hundred workspace">
-        <div id="drop" fxLayout="row" (dblclick)="open($event)">
+<div class="workflow">
+    <h4>Workflow</h4>
+    <!--fxLayoutAlign="space-between center" fxLayoutAlign.xs="stretch" class="hundred">-->
+    <div fxLayout="row" fxLayout.xs="column"
+    fxLayoutAlign="space-between center" fxLayoutAlign.xs="stretch">
+        <div fxFlex="80 stretch" class="hundred workspace">
+            <div id="drop" fxLayout="row" (dblclick)="open($event)"></div>
+            <app-console-result></app-console-result>
         </div>
-        <app-console-result></app-console-result>
+        <app-tools fxFlex="20" fxFlexAlign="start"></app-tools>
     </div>
-    <app-tools fxFlex="14" fxFlexAlign="start"></app-tools>
 </div>
             <!--<div>
                 <img src="assets/images/delete-all.png"

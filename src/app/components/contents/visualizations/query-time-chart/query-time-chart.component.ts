@@ -32,8 +32,10 @@ export class QueryTimeChartComponent {
     let value: number;
     this.options = {
         chart: {
-          // width: '100%',
-          height: '50%'
+          width: 500,
+          height: '45%',
+          borderColor: '#000',
+          borderWidth: 1
         },
         title : { text : 'Last query time' },
         xAxis: {

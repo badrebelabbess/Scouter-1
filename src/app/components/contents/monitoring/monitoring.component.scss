@@ -18,7 +18,10 @@ section {
 }
 
 .accordion-title {
-    background-color: #F0F0F0;
+    background-color: #5596F3;
+    color: white;
     padding: 5px;
-    border: solid 1px ;
+    border: solid 1px black;
+    width: 10%;
+    cursor: pointer;
 }

@@ -43,14 +43,18 @@ export class MemoryNonUsageChartComponent {
   constructor(private ds: DataService) {
     this.options = {
       chart: {
-          type: 'solidgauge'
+          type: 'solidgauge',
+        //   borderColor: '#000',
+        //   borderWidth: 1,
+          width: 280,
+          height: '50%',
       },
 
       title: 'Memory non heap usage',
 
       pane: {
           center: ['50%', '85%'],
-          size: '140%',
+          size: '180%',
           startAngle: -90,
           endAngle: 90,
           background: {

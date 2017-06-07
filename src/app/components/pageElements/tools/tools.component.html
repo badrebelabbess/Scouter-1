@@ -1,35 +1,61 @@
 <div class="content">
-  <h4 (dblclick)="reverseOpenData()">Data</h4>
-  <div fxLayout="column" *ngIf="isOpenData">
+  <h4 class="btn"
+  fxLayoutAlign="space-between center"
+  (click)="reverseOpenData()">
+    Data
+    <i class="fa fa-caret-up" *ngIf="isOpenData"></i>
+    <i class="fa fa-caret-down" *ngIf="!isOpenData"></i>
+  </h4>
+  <div fxLayout="column" *ngIf="isOpenData"
+  class="accordionContainer">
     <span class="btn">RSS Feed</span>
-    <!--<span class="btn">Open Data</span>-->
     <span class="btn">DBpedia</span>
     <!--<span class="btn">Eventful</span>-->
     <span class="btn">Open Agenda</span>
     <span class="btn">OWM</span>
-    <!--<span class="btn">Social Networks</span>-->
     <span class="btn">Facebook</span>
     <span class="btn">Twitter</span>
     <span class="btn">Geo Location</span>
   </div>
   <hr/>
 
-  <h4 (dblclick)="reverseOpenKeywords()">Keywords</h4>
-  <div fxLayout="column" *ngIf="isOpenKeywords">
+  <h4 class="btn"
+  fxLayoutAlign="space-between center"
+  (click)="reverseOpenKeywords()">
+    Keywords
+    <i class="fa fa-caret-up" *ngIf="isOpenData"></i>
+    <i class="fa fa-caret-down" *ngIf="!isOpenData"></i>
+  </h4>
+  <div fxLayout="column" *ngIf="isOpenKeywords"
+  class="accordionContainer">
     <span class="btn">Keyword List</span>
     <!--<span class="btn">Ontology</span>-->
   </div>
   <hr/>
 
-  <h4 (dblclick)="reverseOpenAnalytics()">Analytics</h4>
-  <div fxLayout="column" *ngIf="isOpenAnalytics">
+  <h4 class="btn"
+  fxLayoutAlign="space-between center"
+  (click)="reverseOpenAnalytics()">
+    Analytics
+    <i class="fa fa-caret-up" *ngIf="isOpenData"></i>
+    <i class="fa fa-caret-down" *ngIf="!isOpenData"></i>
+  </h4>
+  <div fxLayout="column" *ngIf="isOpenAnalytics"
+  class="accordionContainer">
     <span class="btn">Sentimental Analysis</span>
     <span class="btn">Topic extraction</span>
   </div>
   <hr/>
 
-  <h4 (dblclick)="reverseResults()">Results</h4>
-  <div fxLayout="column" *ngIf="isOpenResults">
+  <h4 class="btn"
+  fxLayoutAlign="space-between center"
+  (click)="reverseResults()">
+    Results
+    <i class="fa fa-caret-up" *ngIf="isOpenData"></i>
+    <i class="fa fa-caret-down" *ngIf="!isOpenData"></i>
+  </h4>
+  <div fxLayout="column" *ngIf="isOpenResults"
+  class="accordionContainer">
     <span class="btn">MongoDB sink</span>
     <span class="btn">Console sink</span>
   </div>
