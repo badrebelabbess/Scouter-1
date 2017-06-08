@@ -50,3 +50,19 @@ $blue: #5596F3;
   font-weight: bold;
   font-size: 14px;
 }
+.menu {
+  background-color: $blue;
+  li {
+    display: inline-block;
+    a {
+      color: white;
+    }
+    a:hover, a:focus {
+      color: #337ab7;
+    }
+  }
+}
+.active {
+    background-color: #EEEEEE;
+    color: #337ab7 !important;
+}

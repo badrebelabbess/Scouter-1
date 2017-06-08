@@ -996,15 +996,6 @@ form {
     border: 1px solid #999;
 }
 
-/* ================================================================== */
-/* Active menu
-/* ================================================================== */
-.active {
-    background-color: #EEEEEE;
-    color: #4542f4;
-    font: 50px;
-}
-
 /* Nav style modification */
 .nav-tabs>li>a {
     background-color: #5596F3;
