@@ -3,9 +3,6 @@ import { ConfigApp } from '../config/config-app';
 declare var jsPlumb: any;
 declare var jsPlumbUtil: any;
 
-// Import Jquery
-import $ from 'jquery/dist/jquery';
-
 export class JsPlumbSingleton {
 
     private static instance: any = jsPlumb.getInstance(

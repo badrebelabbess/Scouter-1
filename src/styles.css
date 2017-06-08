@@ -1001,10 +1001,25 @@ form {
 /* ================================================================== */
 .active {
     background-color: #EEEEEE;
+    color: #4542f4;
+    font: 50px;
 }
 
 /* Nav style modification */
 .nav-tabs>li>a {
+    background-color: #5596F3;
+    color: white;
+    margin-right: 2px;
+    line-height: 1.42857143;
+    border: 1px solid transparent;
+    border-radius: 4px 4px 0 0;
+    border: solid 1px;
+}
+.nav-tabs>li>a:hover {
+    /*color: #4542f4;
+    background-color: #EEEEEE;*/
+    background-color: #5596F3;
+    color: white;
     margin-right: 2px;
     line-height: 1.42857143;
     border: 1px solid transparent;

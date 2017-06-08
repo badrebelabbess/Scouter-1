@@ -1,10 +1,16 @@
 <div class="workflow">
-    <h4>Workflow</h4>
     <!--fxLayoutAlign="space-between center" fxLayoutAlign.xs="stretch" class="hundred">-->
     <div fxLayout="row" fxLayout.xs="column"
     fxLayoutAlign="space-between center" fxLayoutAlign.xs="stretch">
         <div fxFlex="80 stretch" class="hundred workspace">
+            <ul class="nav nav-tabs">
+                <li><a>Workflow</a></li>
+            </ul>
             <div id="drop" fxLayout="row" (dblclick)="open($event)"></div>
+            <hr class="separator"/>
+            <ul class="nav nav-tabs">
+                <li><a>Console Result</a></li>
+            </ul>
             <app-console-result></app-console-result>
         </div>
         <app-tools fxFlex="20" fxFlexAlign="start"></app-tools>
