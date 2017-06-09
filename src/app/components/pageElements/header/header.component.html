@@ -1,20 +1,18 @@
 <header fxLayout="row" fxLayoutAlign="space-between center">
+  <a href="/home">
+    <img src="./assets/images/home/scouter_logo.png" title="Scouter" class="logo"/>
+  </a>
+  <span class="title">
+    Scouter 1 V1.0 IS RELEASED ! 
+    <a href="https://github.com" target="_blank">DOWNLOAD NOW !</a>
+  </span>
   <span>
-    <a href="/home">
-      <img src="./assets/images/home/scouter_logo.png" title="Scouter" class="logo"/>
+    <a href="http://waves-rsp.org/" target="_blank">
+      <img src="./assets/images/waves-logo.png" title="Waves project" class="logo"/>
     </a>
     <br/>
     <span class="slogan">Funded by Waves project</span>
   </span>
-  <span class="title">
-    Scouter 1 V1.0 IS RELEASED ! 
-    <a href="https://github.com" target="_blank">DOWNLOAD NOW !</a></span>
-  <div class="box">
-    <div class="container-1">
-        <span class="icon"><i class="fa fa-search"></i></span>
-        <input type="search" id="search" placeholder="Search..." />
-    </div>
-  </div>
 </header>
 <!--<div fxLayout="row" fxLayoutAlign="end center" >
   <ul class="nav nav-tabs">
@@ -25,10 +23,16 @@
     <li><a routerLink="/monitoring" routerLinkActive="active">Monitoring</a></li>
   </ul>
 </div>-->
-<div class="menu">
+<div class="menu" fxLayout="row" fxLayoutAlign="space-between center">
   <ul class="nav">
     <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
     <li><a routerLink="/workflow" routerLinkActive="active">Application</a></li>
     <li><a routerLink="/monitoring" routerLinkActive="active">Monitoring</a></li>
   </ul>
+  <div class="box">
+    <div class="container-1">
+        <span class="icon"><i class="fa fa-search"></i></span>
+        <input type="search" id="search" placeholder="Search..." />
+    </div>
+  </div>
 </div>

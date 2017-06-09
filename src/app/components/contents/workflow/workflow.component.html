@@ -1,18 +1,21 @@
 <div class="workflow">
-    <!--fxLayoutAlign="space-between center" fxLayoutAlign.xs="stretch" class="hundred">-->
     <div fxLayout="row" fxLayout.xs="column"
     fxLayoutAlign="space-between center" fxLayoutAlign.xs="stretch">
+        <!-- Application content -->
         <div fxFlex="80 stretch" class="hundred workspace">
-            <ul class="nav nav-tabs">
+            <ul class="nav nav-tabs workflowNav">
                 <li><a>Workflow</a></li>
             </ul>
             <div id="drop" fxLayout="row" (dblclick)="open($event)"></div>
+            
             <hr class="separator"/>
-            <ul class="nav nav-tabs">
+
+            <ul class="nav nav-tabs consoleNav">
                 <li><a>Console Result</a></li>
             </ul>
             <app-console-result></app-console-result>
         </div>
+        <!-- Tools menu content -->
         <app-tools fxFlex="20" fxFlexAlign="start"></app-tools>
     </div>
 </div>

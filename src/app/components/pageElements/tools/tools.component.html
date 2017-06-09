@@ -1,4 +1,6 @@
 <div class="content">
+  <h3>Tools</h3>
+  <hr class="separator"/>
   <h4 class="btn"
   fxLayoutAlign="space-between center"
   (click)="reverseOpenData()">
@@ -8,14 +10,14 @@
   </h4>
   <div fxLayout="column" *ngIf="isOpenData"
   class="accordionContainer">
-    <span class="btn">RSS Feed</span>
-    <span class="btn">DBpedia</span>
+    <span class="btn"><img src="./assets/images/rss-feed.png" class="icon"/> RSS Feed</span>
+    <span class="btn"><img src="./assets/images/dbpedia.png" class="icon"/> DBpedia</span>
     <!--<span class="btn">Eventful</span>-->
-    <span class="btn">Open Agenda</span>
-    <span class="btn">OWM</span>
-    <span class="btn">Facebook</span>
-    <span class="btn">Twitter</span>
-    <span class="btn">Geo Location</span>
+    <span class="btn"><img src="./assets/images/open-agenda.png" class="icon"/> Open Agenda</span>
+    <span class="btn"><img src="./assets/images/owm.png" class="icon"/> OWM</span>
+    <span class="btn"><img src="./assets/images/facebook.png" class="icon"/> Facebook</span>
+    <span class="btn"><img src="./assets/images/twitter.png" class="icon"/> Twitter</span>
+    <span class="btn"><img src="./assets/images/geo-location.png" class="icon"/> Geo Location</span>
   </div>
   <hr/>
 
@@ -28,7 +30,7 @@
   </h4>
   <div fxLayout="column" *ngIf="isOpenKeywords"
   class="accordionContainer">
-    <span class="btn">Keyword List</span>
+    <span class="btn"><img src="./assets/images/keyword-list.png" class="icon"/> Keyword List</span>
     <!--<span class="btn">Ontology</span>-->
   </div>
   <hr/>
@@ -42,8 +44,8 @@
   </h4>
   <div fxLayout="column" *ngIf="isOpenAnalytics"
   class="accordionContainer">
-    <span class="btn">Sentimental Analysis</span>
-    <span class="btn">Topic extraction</span>
+    <span class="btn"><img src="./assets/images/sentimental-analysis.png" class="icon"/> Sentimental Analysis</span>
+    <span class="btn"><img src="./assets/images/topic-extraction.png" class="icon"/> Topic extraction</span>
   </div>
   <hr/>
 
@@ -56,7 +58,7 @@
   </h4>
   <div fxLayout="column" *ngIf="isOpenResults"
   class="accordionContainer">
-    <span class="btn">MongoDB sink</span>
-    <span class="btn">Console sink</span>
+    <span class="btn"><img src="./assets/images/mongodb-sink.png" class="icon"/> MongoDB sink</span>
+    <span class="btn"><img src="./assets/images/console-sink.png" class="icon"/> Console sink</span>
   </div>
 </div>

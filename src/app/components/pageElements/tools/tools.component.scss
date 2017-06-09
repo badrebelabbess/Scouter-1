@@ -1,4 +1,10 @@
 $color: #F0F0F0;
+h3 {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 5px 0px 0px 0px;
+}
 h4 {
     margin: 1px;
     background-color: $color;
@@ -18,4 +24,10 @@ span {
 .content {
     width: 80%;
     float: right;
+}
+.separator {
+    border-top: solid 1.5px blue;
+}
+.icon {
+    width: 15px;
 }

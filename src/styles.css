@@ -1004,7 +1004,9 @@ form {
     line-height: 1.42857143;
     border: 1px solid transparent;
     border-radius: 4px 4px 0 0;
-    border: solid 1px;
+    font-size: 14px;
+    padding: 5px;
+    /*border: solid 1px;*/
 }
 .nav-tabs>li>a:hover {
     /*color: #4542f4;
