@@ -140,11 +140,14 @@ export class WorkflowComponent implements OnInit, OnDestroy {
 
   deleteAll(): void {
     for (const e of $(ConfigApp.dropContainer).children()) {
-      JsPlumbSingleton.getInstance().remove(e);
-      RestoreElementService.deleteAllDrawnComponents();
+      if(e.classList[0] == 'elt') {
+        JsPlumbSingleton.getInstance().remove(e);
+        RestoreElementService.deleteFromDrawnComponents(e);
+        // RestoreElementService.deleteAllDrawnComponents();
+      }
     }
     for (const e of this.ls.keys()) {
-      this.ls.remove(e);
+      // this.ls.remove(e);
     }
   }
 

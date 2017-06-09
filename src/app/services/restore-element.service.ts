@@ -75,8 +75,13 @@ private connectTwoComponents( sourceId: string, sourceType: string , targetId: s
   }
 
   static deleteFromDrawnComponents(elt: any) {
-    elt = elt.replace(/-/g, ' ');
-    elt = elt.replace('.png', '');
+    console.log(elt);
+    try {
+      elt = elt.replace(/-/g, ' ');
+    } catch (e) {}
+    try {
+      elt = elt.replace('.png', '');
+    } catch (e) {}
     const index = RestoreElementService.dc.indexOf(elt);
     RestoreElementService.dc.splice(
       index, 1 

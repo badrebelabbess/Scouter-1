@@ -6,7 +6,12 @@
             <ul class="nav nav-tabs workflowNav">
                 <li><a>Workflow</a></li>
             </ul>
-            <div id="drop" fxLayout="row" (dblclick)="open($event)"></div>
+            <div id="drop" fxLayout="row" (dblclick)="open($event)">
+                <div>
+                    <img src="assets/images/delete-all.png"
+                    title="Delete all" (click)="deleteAll()"/>
+                </div>
+            </div>
             
             <hr class="separator"/>
 
@@ -19,11 +24,6 @@
         <app-tools fxFlex="20" fxFlexAlign="start"></app-tools>
     </div>
 </div>
-            <!--<div>
-                <img src="assets/images/delete-all.png"
-                title="Delete all" (click)="deleteAll()"/>
-            </div>-->
-
 
 <!-- Modals -->
 <modal #modal>
