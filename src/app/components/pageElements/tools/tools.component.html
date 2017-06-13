@@ -25,8 +25,8 @@
   fxLayoutAlign="space-between center"
   (click)="reverseOpenKeywords()">
     Keywords
-    <i class="fa fa-caret-up" *ngIf="isOpenData"></i>
-    <i class="fa fa-caret-down" *ngIf="!isOpenData"></i>
+    <i class="fa fa-caret-up" *ngIf="isOpenKeywords"></i>
+    <i class="fa fa-caret-down" *ngIf="!isOpenKeywords"></i>
   </h4>
   <div fxLayout="column" *ngIf="isOpenKeywords"
   class="accordionContainer">
@@ -39,8 +39,8 @@
   fxLayoutAlign="space-between center"
   (click)="reverseOpenAnalytics()">
     Analytics
-    <i class="fa fa-caret-up" *ngIf="isOpenData"></i>
-    <i class="fa fa-caret-down" *ngIf="!isOpenData"></i>
+    <i class="fa fa-caret-up" *ngIf="isOpenAnalytics"></i>
+    <i class="fa fa-caret-down" *ngIf="!isOpenAnalytics"></i>
   </h4>
   <div fxLayout="column" *ngIf="isOpenAnalytics"
   class="accordionContainer">
@@ -53,8 +53,8 @@
   fxLayoutAlign="space-between center"
   (click)="reverseResults()">
     Results
-    <i class="fa fa-caret-up" *ngIf="isOpenData"></i>
-    <i class="fa fa-caret-down" *ngIf="!isOpenData"></i>
+    <i class="fa fa-caret-up" *ngIf="isOpenResults"></i>
+    <i class="fa fa-caret-down" *ngIf="!isOpenResults"></i>
   </h4>
   <div fxLayout="column" *ngIf="isOpenResults"
   class="accordionContainer">

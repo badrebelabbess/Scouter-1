@@ -23,6 +23,7 @@ import 'jquery-ui/themes/base/draggable.css';
 import 'jquery-ui/ui/core';
 import 'jquery-ui/ui/widgets/draggable';
 import 'jquery-ui/ui/widgets/droppable';
+import 'jquery-ui/ui/widgets/accordion';
 
 @Component({
   selector: 'app-workflow',
@@ -45,7 +46,7 @@ export class WorkflowComponent implements OnInit, OnDestroy {
   defaultWorkflow: any;
   errorMsg: string;
 
-  isOpenData = false;
+  isOpenData = true;
   isOpenKeywords = false;
   isOpenAnalytics = false;
   isOpenResults = false;
@@ -69,7 +70,8 @@ export class WorkflowComponent implements OnInit, OnDestroy {
 
   // tslint:disable-next-line:use-life-cycle-interface
   ngAfterViewInit() {
-    $(ConfigApp.draggableSelector).draggable({
+    $('span').draggable({
+    // $(ConfigApp.draggableSelector).draggable({
       cursor: ConfigApp.draggableConfig.cursor,
       delay: ConfigApp.draggableConfig.delay,
       refreshPositions: ConfigApp.draggableConfig.refreshPositions,
@@ -84,6 +86,10 @@ export class WorkflowComponent implements OnInit, OnDestroy {
         $(ConfigApp.dropContainer).append(newDiv);
         JsPlumbSingleton.initNode(newDiv);
       }
+    });
+    $( '#accordion' ).accordion({
+      collapsible: true,
+      heightStyle: "content"
     });
   }
 
@@ -148,7 +154,6 @@ export class WorkflowComponent implements OnInit, OnDestroy {
       if(e.classList[0] == 'elt') {
         JsPlumbSingleton.getInstance().remove(e);
         RestoreElementService.deleteFromDrawnComponents(e);
-        // RestoreElementService.deleteAllDrawnComponents();
       }
     }
     for (const e of this.ls.keys()) {

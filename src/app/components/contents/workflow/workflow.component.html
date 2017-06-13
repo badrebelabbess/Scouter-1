@@ -7,17 +7,13 @@
                 <li><a>Workflow</a></li>
             </ul>
             <div id="drop" fxLayout="row" (dblclick)="open($event)">
-                <div>
-                    <img src="assets/images/delete-all.png"
-                    title="Delete all" (click)="deleteAll()"/>
-                    <br/>
-                    <img src="assets/images/delete-all.png"
-                    title="Default workflow" (click)="drawDefaultWorkflow()"/>
+                <div class="buttons">
+                    <button class="btn" (click)="deleteAll()">Delete all</button>
+                    <button class="btn" (click)="drawDefaultWorkflow()">Default workflow</button>
                 </div>
             </div>
             
             <hr class="separator"/>
-
             <ul class="nav nav-tabs consoleNav">
                 <li><a>Console Result</a></li>
             </ul>
@@ -25,69 +21,54 @@
         </div>
         <!-- Tools menu content -->
         <!--<app-tools fxFlex="20" fxFlexAlign="start"></app-tools>-->
-<div class="content" fxFlex="20" fxFlexAlign="start">
+<div fxFlex="20" fxFlexAlign="start">
+<div fxFlex="10"></div>
+<div class="content" fxFlex="80" fxFlexAlign="start">
   <h3>Tools</h3>
   <hr class="separator"/>
-  <h4 class="btn"
-  fxLayoutAlign="space-between center"
-  (click)="reverseOpenData()">
-    Data
-    <i class="fa fa-caret-up" *ngIf="isOpenData"></i>
-    <i class="fa fa-caret-down" *ngIf="!isOpenData"></i>
-  </h4>
-  <div fxLayout="column"
-  class="accordionContainer">
+  <div id="accordion">
+  <h3 class="btn accTitle" (click)="reverseOpenData()" fxLayoutAlign="space-between center">
+      Data
+      <i class="fa fa-caret-up" *ngIf="isOpenData"></i>
+      <i class="fa fa-caret-down" *ngIf="!isOpenData"></i>
+  </h3>
+  <div class="accordionContainer">
     <span class="btn draggable"><img src="./assets/images/rss-feed.png" class="icon"/> RSS Feed</span>
     <span class="btn draggable"><img src="./assets/images/dbpedia.png" class="icon"/> DBpedia</span>
-    <!--<span class="btn">Eventful</span>-->
     <span class="btn draggable"><img src="./assets/images/open-agenda.png" class="icon"/> Open Agenda</span>
     <span class="btn draggable"><img src="./assets/images/owm.png" class="icon"/> OWM</span>
     <span class="btn draggable"><img src="./assets/images/facebook.png" class="icon"/> Facebook</span>
     <span class="btn draggable"><img src="./assets/images/twitter.png" class="icon"/> Twitter</span>
     <span class="btn draggable"><img src="./assets/images/geo-location.png" class="icon"/> Geo Location</span>
   </div>
-  <hr/>
-
-  <h4 class="btn"
-  fxLayoutAlign="space-between center"
-  (click)="reverseOpenKeywords()">
-    Keywords
-    <i class="fa fa-caret-up" *ngIf="isOpenData"></i>
-    <i class="fa fa-caret-down" *ngIf="!isOpenData"></i>
-  </h4>
-  <div fxLayout="column"
-  class="accordionContainer">
+  <h3 class="btn accTitle" (click)="reverseOpenKeywords()" fxLayoutAlign="space-between center">
+      Keywords
+      <i class="fa fa-caret-up" *ngIf="isOpenKeywords"></i>
+      <i class="fa fa-caret-down" *ngIf="!isOpenKeywords"></i>
+  </h3>
+  <div class="accordionContainer">
     <span class="btn draggable"><img src="./assets/images/keyword-list.png" class="icon"/> Keyword List</span>
-    <!--<span class="btn">Ontology</span>-->
   </div>
-  <hr/>
-
-  <h4 class="btn"
-  fxLayoutAlign="space-between center"
-  (click)="reverseOpenAnalytics()">
-    Analytics
-    <i class="fa fa-caret-up" *ngIf="isOpenData"></i>
-    <i class="fa fa-caret-down" *ngIf="!isOpenData"></i>
-  </h4>
-  <div fxLayout="column"
-  class="accordionContainer">
+  <h3 class="btn accTitle" (click)="reverseOpenAnalytics()" fxLayoutAlign="space-between center">
+      Analytics
+      <i class="fa fa-caret-up" *ngIf="isOpenAnalytics"></i>
+      <i class="fa fa-caret-down" *ngIf="!isOpenAnalytics"></i>
+  </h3>
+  <div class="accordionContainer">
     <span class="btn draggable"><img src="./assets/images/sentimental-analysis.png" class="icon"/> Sentimental Analysis</span>
     <span class="btn draggable"><img src="./assets/images/topic-extraction.png" class="icon"/> Topic extraction</span>
   </div>
-  <hr/>
-
-  <h4 class="btn"
-  fxLayoutAlign="space-between center"
-  (click)="reverseResults()">
-    Results
-    <i class="fa fa-caret-up" *ngIf="isOpenData"></i>
-    <i class="fa fa-caret-down" *ngIf="!isOpenData"></i>
-  </h4>
-  <div fxLayout="column"
-  class="accordionContainer">
+  <h3 class="btn accTitle" (click)="reverseResults()" fxLayoutAlign="space-between center">
+      Results
+      <i class="fa fa-caret-up" *ngIf="isOpenResults"></i>
+    <i class="fa fa-caret-down" *ngIf="!isOpenResults"></i>
+  </h3>
+  <div class="accordionContainer">
     <span class="btn draggable"><img src="./assets/images/mongodb-sink.png" class="icon"/> MongoDB sink</span>
     <span class="btn draggable"><img src="./assets/images/console-sink.png" class="icon"/> Console sink</span>
   </div>
+</div>
+</div>
 </div>
 
 <!-- Modals -->

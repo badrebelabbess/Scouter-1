@@ -35,6 +35,8 @@ chart {
   width: 80%;
   margin: auto;
 }
+
+
 $color: #F0F0F0;
 h3 {
     text-align: center;
@@ -54,6 +56,7 @@ h4 {
     margin-left: 4%;
 }
 span {
+    width: 96%;
     margin: 1px;
     background-color: $color;
     font-weight: 600;
@@ -67,4 +70,16 @@ span {
 }
 .icon {
     width: 15px;
+}
+.buttons {
+    display: block;
+    height: 50px;
+    float: right;
+}
+.accTitle {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 5px 0px 0px 0px;
+    background-color: $color;
+    padding-bottom: 10px;
 }
