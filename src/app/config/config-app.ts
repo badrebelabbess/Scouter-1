@@ -5,7 +5,7 @@ export class ConfigApp {
 
     static dropContainer = '#' + ConfigApp.dropContainerName;
 
-    static draggableSelector = 'span';
+    static draggableSelector = '.draggable';
 
     static draggableConfig = {
       cursor: 'move',

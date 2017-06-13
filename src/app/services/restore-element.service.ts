@@ -75,7 +75,6 @@ private connectTwoComponents( sourceId: string, sourceType: string , targetId: s
   }
 
   static deleteFromDrawnComponents(elt: any) {
-    console.log(elt);
     try {
       elt = elt.replace(/-/g, ' ');
     } catch (e) {}

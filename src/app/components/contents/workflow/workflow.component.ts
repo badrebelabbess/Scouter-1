@@ -45,6 +45,11 @@ export class WorkflowComponent implements OnInit, OnDestroy {
   defaultWorkflow: any;
   errorMsg: string;
 
+  isOpenData = false;
+  isOpenKeywords = false;
+  isOpenAnalytics = false;
+  isOpenResults = false;
+
   constructor(
     private jb: JsonBuilderService,
     private ls: LocalStorageService,
@@ -86,9 +91,9 @@ export class WorkflowComponent implements OnInit, OnDestroy {
   }
 
   private moveHelper(): HTMLDivElement {
-    const elt: string = $(this)[0].innerHTML;
-    console.log(elt);
-    console.log(RestoreElementService.getDrawnComponents());
+    let elt: string = $(this)[0].innerHTML;
+    elt = elt.substr(elt.lastIndexOf('> ') + 2, elt.length);
+    // console.log(RestoreElementService.getDrawnComponents());
     if ( RestoreElementService.getDrawnComponents().indexOf(elt.toLowerCase()) !== -1 ) {
       return null;
     }
@@ -147,7 +152,7 @@ export class WorkflowComponent implements OnInit, OnDestroy {
       }
     }
     for (const e of this.ls.keys()) {
-      // this.ls.remove(e);
+      this.ls.remove(e);
     }
   }
 
@@ -166,6 +171,28 @@ export class WorkflowComponent implements OnInit, OnDestroy {
     RestoreElementService.deleteFromDrawnComponents(
       this.ls.get(ConfigApp.localStorage.type)
     );
+  }
+
+  drawDefaultWorkflow() {
+    this.deleteAll();
+    console.log(this.defaultWorkflow);
+    this.re.draw(this.defaultWorkflow);
+  }
+
+  reverseOpenData(): void {
+    this.isOpenData = !this.isOpenData;
+  }
+
+  reverseOpenKeywords(): void {
+    this.isOpenKeywords = !this.isOpenKeywords;
+  }
+
+  reverseOpenAnalytics(): void {
+    this.isOpenAnalytics = !this.isOpenAnalytics;
+  }
+
+  reverseResults(): void {
+    this.isOpenResults = !this.isOpenResults;
   }
 
 }
