@@ -30,3 +30,21 @@
 	color: #ffffff;
 	text-decoration: none;
 }
+
+.arc {
+    display: block;
+    margin: auto;
+    width: 850px;
+}
+
+.box-primary {
+	padding: 8px 10px;
+	background: #fbfbfb;
+	border: 1px solid #ccc;
+	border-bottom: 3px solid #ccc;
+	border-radius: 10px;
+}
+.box-primary h4 {
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 10px;
+}

@@ -1,6 +1,31 @@
 <div fxLayout="row" fxLayoutAlign="space-between center" class="container1">
-  <div>
+  <div fxFlex="80">
     <img class="arc" src="./assets/images/about/Architecture.png"/>
+    <br/>
+    <div class="box-primary">
+        <h4>Why use Scouter?</h4>
+        <p>Scouter is a free and open source stream processing tool to contextualize events. Scouter makes it easy to reliably process streams of data, it was developed to be generic, fully configurable and extensible. </p>
+        <p>Scouter has many use cases, it is a generic tool that helps in capturing, analyzing, scoring and storing the contextual information of a given application domain. The processing depends on a semantic-based approach that exploits ontologies to score the relevancy of contextual information.</p>
+        <p>Scouter integrates with the Kafka queueing system and MongoDB database . A Scouter workflow consumes streams of data and processes those streams using Kafka Streams, repartitioning the streams between each stage of the computation however needed. Read more in the documentation.</p>
+    </div>
+    <br/>
+    <div class="box-primary">
+        <h4>How to use Scouter ?</h4>
+        <p>In order to use Scouter, a web interface is used to build a workflow and to configure different components. This workflow comes with a default flow option that connects all components together. If you want to create a new workflow, you start by defining a geo-location area on a map , this will create a bounding box for the data to be fetched, adding geo-filtering to our system.</p>
+        <p>Adding a data source simply requires a drag and drop interaction and some configuration. NLP  functions are applied to the streams for scoring purpose according to the relevancy of the event to detect. This scoring is based on annotating the texts. In addition, the system provides several analytics tools such as topic extraction and sentimental analysis to improve annotations.
+    </div>
+    <br/>
+    <div class="box-primary">
+        <h4>Scientific Publications</h4>
+        <p>B. Belabbess, M.Bairat, J. Lhez, Z. Khattabi and O. Curé, SCOUTER: A Stream Processing Tool to Contextualize Anomaly Detection, in ISWC 2017 Resource Track, Vienna/Austria;</p>
+        <p>B. Belabbess, M.Bairat, J. Lhez, Z. Khattabi and O. Curé, SCOUTER DEMO: Contextualizing singularities in real time , in ISWC 2017 Demonstration Track, Vienna/Austria;</p>
+    </div>
+    <br/>
+    <div class="box-primary">
+        <h4>Acknowledgement</h4>
+        <p>This work has been supported by the WAVES project which is partially supported by the French FUI (Fonds Unique Interministériel) call #17. The WAVES consortium is composed of industrial partners Atos, Ondeo Systems and Data publica, and academic partners ISEP and UPEM.</p>
+    </div>
+    <br/>
   </div>
   <div fxFlexAlign="start" class="box-warning" fxFlex="20">
     <h4>Latest News</h4>
