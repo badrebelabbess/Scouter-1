@@ -24,7 +24,7 @@
 <div class="menu" fxLayout="row" fxLayoutAlign="space-between center">
   <ul class="nav navbar-nav">
     <li><a routerLink="/home" routerLinkActive="active"><span>Home</span></a></li>
-    <li><a routerLink="#" routerLinkActive="active">About</a></li>
+    <li><a routerLink="/about" routerLinkActive="active">About</a></li>
     <li><a routerLink="#" routerLinkActive="active">Documentation</a></li>
     <li><a routerLink="/workflow" routerLinkActive="active">Application</a></li>
     <li><a routerLink="/monitoring" routerLinkActive="active">Monitoring</a></li>
@@ -32,7 +32,7 @@
   </ul>
   <div>
     <ul class="nav navbar-nav">
-      <li>
+      <li (mouseover)="hover=true" (mouseout)="hover=false">
         <a href="http://waves-rsp.org/" target="_blank">
           <img src="./assets/images/waves-logo.png" *ngIf="!hover" title="Waves project" class="wavesLogo"/>
           <img src="./assets/images/waves-logo-hover.png" *ngIf="hover" title="Waves project" class="wavesLogo"/>

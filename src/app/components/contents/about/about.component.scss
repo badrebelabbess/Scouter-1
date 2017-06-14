@@ -1,0 +1,32 @@
+.container1 {
+    width: 96%;
+    margin: auto;
+}
+.box-warning {
+    padding: 8px 10px;
+    background: #FFFAF3;
+    border: 1px solid #EB9A35;
+    border-bottom: 3px solid #EB9A35;
+    border-radius: 10px;
+}
+.latest-news {
+    list-style: none;
+    padding-left: 20px;
+}
+.latest-news li {
+    line-height: 28px;
+}
+.btn-std {
+    background-color: #328fbf;
+    border-bottom: 2px solid #235693;
+    color: #ffffff;
+    padding: 4px 12px;
+    font-size: 12px;
+    text-align: center;
+    border-radius: 5px;
+}
+.btn-std:hover {
+	background-color: #235693;
+	color: #ffffff;
+	text-decoration: none;
+}

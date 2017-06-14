@@ -48,6 +48,7 @@ import { KafkaUptimeChartComponent } from './components/contents/visualizations/
 import { HomeComponent } from './components/contents/home/home.component';
 import { FooterComponent } from './components/pageElements/footer/footer.component';
 import { ConsoleResultComponent } from './components/pageElements/console-result/console-result.component';
+import { AboutComponent } from './components/contents/about/about.component';
 
 @NgModule({
   declarations: [
@@ -87,7 +88,8 @@ import { ConsoleResultComponent } from './components/pageElements/console-result
     KafkaUptimeChartComponent,
     HomeComponent,
     FooterComponent,
-    ConsoleResultComponent
+    ConsoleResultComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
