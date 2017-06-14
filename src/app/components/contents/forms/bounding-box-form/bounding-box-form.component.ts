@@ -18,7 +18,7 @@ export class BoundingBoxFormComponent {
   private bounds: BoundingBoxModel = new BoundingBoxModel();
 
   @Output()
-  notify = new EventEmitter();
+  closeMapBox = new EventEmitter();
 
   constructor(
     private ls: LocalStorageService
@@ -133,7 +133,7 @@ export class BoundingBoxFormComponent {
   }
 
   save() {
-    this.notify.emit();
+    this.closeMapBox.emit();
   }
 
 }

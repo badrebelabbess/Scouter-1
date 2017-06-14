@@ -46,7 +46,7 @@ h3 {
 }
 h4 {
     margin: 1px;
-    background-color: $color;
+    // background-color: $color;
     font-weight: 600;
     width: 100%;
     text-align: left;
@@ -87,7 +87,7 @@ span {
     position: relative;
     height: 30px;
     font-size: 11px;
-    z-index: 10000;
+    z-index: 100;
 }
 .delete {
     top: 5px;

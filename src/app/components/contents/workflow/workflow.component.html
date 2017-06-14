@@ -1,3 +1,5 @@
+<!-- Geolocation -->
+<app-bounding-box-form (closeMapBox)="closeMapBox()" *ngIf="isMapIsOpened"></app-bounding-box-form>
 <div class="workflow">
     <div fxLayout="row" fxLayout.xs="column"
     fxLayoutAlign="space-between center" fxLayoutAlign.xs="stretch">
@@ -78,25 +80,23 @@
     </modal-header>
     <modal-body>
         <!-- RSS Feed -->
-        <app-rss-form (notify)="notify()" *ngIf="componentChoosen=='rss-feed.png'"></app-rss-form>
+        <app-rss-form (notify)="notify()" *ngIf="componentChosen=='rss-feed.png'"></app-rss-form>
         
         <!-- Open Data -->
-        <!--<app-open-data-form (notify)="notify()" *ngIf="componentChoosen=='open-data.png'"></app-open-data-form>            -->
-        <app-dbpedia-form (notify)="notify()" *ngIf="componentChoosen=='dbpedia.png'"></app-dbpedia-form>            
-        <app-eventful-form (notify)="notify()" *ngIf="componentChoosen=='eventful.png'"></app-eventful-form>            
-        <app-owm-form (notify)="notify()" *ngIf="componentChoosen=='owm.png'"></app-owm-form>            
-        <app-open-agenda-form (notify)="notify()" *ngIf="componentChoosen=='open-agenda.png'"></app-open-agenda-form>            
+        <app-dbpedia-form (notify)="notify()" *ngIf="componentChosen=='dbpedia.png'"></app-dbpedia-form>            
+        <app-eventful-form (notify)="notify()" *ngIf="componentChosen=='eventful.png'"></app-eventful-form>            
+        <app-owm-form (notify)="notify()" *ngIf="componentChosen=='owm.png'"></app-owm-form>            
+        <app-open-agenda-form (notify)="notify()" *ngIf="componentChosen=='open-agenda.png'"></app-open-agenda-form>            
 
         <!-- social networks -->
-        <!--<app-social-networks-form (notify)="notify()" *ngIf="componentChoosen=='social-networks.png'"></app-social-networks-form>-->
-        <app-facebook-form (notify)="notify()" *ngIf="componentChoosen=='facebook.png'"></app-facebook-form>
-        <app-twitter-form (notify)="notify()" *ngIf="componentChoosen=='twitter.png'"></app-twitter-form>
+        <app-facebook-form (notify)="notify()" *ngIf="componentChosen=='facebook.png'"></app-facebook-form>
+        <app-twitter-form (notify)="notify()" *ngIf="componentChosen=='twitter.png'"></app-twitter-form>
 
         <!-- Geolocation -->
-        <app-bounding-box-form (notify)="notify()" *ngIf="componentChoosen=='geo-location.png'"></app-bounding-box-form>
+        <app-bounding-box-form (notify)="notify()" *ngIf="componentChosen=='geo-location.png'"></app-bounding-box-form>
 
         <!-- Keywords -->
-        <app-keywords-form (notify)="notify()" *ngIf="componentChoosen=='keyword-list.png' || componentChoosen=='ontology.png'"></app-keywords-form>
+        <app-keywords-form (notify)="notify()" *ngIf="componentChosen=='keyword-list.png' || componentChosen=='ontology.png'"></app-keywords-form>
     </modal-body>
     <modal-footer [show-default-buttons]="false">
         <button class="btn btn-primary" (click)="delete()">delete</button>

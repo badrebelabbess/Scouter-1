@@ -1,6 +1,6 @@
-<h4>Geo location</h4>
+<!--<h4>Geo location</h4>-->
 <!-- Map -->
-<div leaflet class="map" style="height: 500px;"
+<div leaflet class="map" style="height: 700px;"
     leafletDraw
     [leafletOptions]="options"
     [leafletPanOptions]="panOptions"
@@ -12,4 +12,4 @@
     [leafletDrawOptions]="drawOptions"
     (leafletMapReady)="onMapReady($event)"> 
 </div>
-<button class="btn btn-primary none" (click)="save()">Save</button>
+<button class="btn btn-primary btn-lg none" (click)="save()">Save</button>

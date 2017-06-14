@@ -16,7 +16,6 @@ export class DocumentationComponent implements OnInit {
   onAnchorClick ( ) {
     this.route.fragment.subscribe ( f => {
       const element = document.querySelector ( "#" + f );
-      console.log(f);
       if ( element ) element.scrollIntoView ( element );
     });
   }

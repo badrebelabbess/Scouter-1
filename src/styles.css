@@ -669,6 +669,9 @@ form {
     margin: auto;
 }
 
+.modal {
+    z-index: 30000;
+}
 .modal-body {
     height: 560px !important;
     overflow: auto;
