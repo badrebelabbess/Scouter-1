@@ -49,6 +49,7 @@ import { HomeComponent } from './components/contents/home/home.component';
 import { FooterComponent } from './components/pageElements/footer/footer.component';
 import { ConsoleResultComponent } from './components/pageElements/console-result/console-result.component';
 import { AboutComponent } from './components/contents/about/about.component';
+import { DocumentationComponent } from './components/contents/documentation/documentation.component';
 
 @NgModule({
   declarations: [
@@ -89,7 +90,8 @@ import { AboutComponent } from './components/contents/about/about.component';
     HomeComponent,
     FooterComponent,
     ConsoleResultComponent,
-    AboutComponent
+    AboutComponent,
+    DocumentationComponent
   ],
   imports: [
     BrowserModule,
