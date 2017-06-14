@@ -5,17 +5,18 @@ $blue: #5596F3;
     height: 125px;
 }
 .wavesLogo {
-  height: 60px;
+  height: 25px;
 }
 .container-1 {
-  width: 225px;
+  padding: 7px;
+  width: 200px;
   vertical-align: middle;
   white-space: nowrap;
   position: relative;
   margin-left: 5px;
 }
 .container-1 input#search {
-  width: 220px;
+  width: 180px;
   height: 35px;
   border: none;
   font-size: 10pt;
@@ -75,4 +76,7 @@ $blue: #5596F3;
 .active {
     background-color: #EEEEEE;
     color: #337ab7 !important;
+}
+.box {
+  display: inline-block;
 }
