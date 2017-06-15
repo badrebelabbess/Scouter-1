@@ -1,0 +1,28 @@
+/* Page Specific - News */
+.news {
+	list-style: none;
+	padding-left: 0px;
+}
+.news li a {
+	display: block;
+	padding: 7px;
+	margin-bottom: 2px;
+	font-family: "Oswald", sans-serif;
+	letter-spacing: 1px;
+	color: #328fbf;
+	border: 1px #328fbf solid;
+	-webkit-transition:background 1s ease;
+	-moz-transition:background 1s ease;
+	-o-transition:background 1s ease;	
+	transition:background 1s ease;
+}
+.news li a:hover, .news li a.current {
+	text-decoration: none;
+	border: 1px #235693 solid;
+	background-color: #328fbf;
+	color:white;
+}
+.news-title {
+	color: #235693;
+	margin-top: 0;
+}
