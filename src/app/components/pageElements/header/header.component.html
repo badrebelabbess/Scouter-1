@@ -15,13 +15,16 @@
   </span>
 </header>-->
 <div class="menu" fxLayout="row" fxLayoutAlign="space-between center">
+  <img src="./assets/images/home/scouter_logo.png" *ngIf="!logoHover" title="Scouter project" class="scouterLogo"/>
+  <img src="./assets/images/home/scouter_logo_hover.png" *ngIf="logoHover" title="Scouter project" class="scouterLogo"/>
   <ul class="nav navbar-nav">
     <li><a routerLink="/home" routerLinkActive="active"><span>Home</span></a></li>
     <li><a routerLink="/about" routerLinkActive="active">About</a></li>
     <li><a routerLink="/documentation" routerLinkActive="active">Documentation</a></li>
     <li><a routerLink="/workflow" routerLinkActive="active">Application</a></li>
     <li><a routerLink="/monitoring" routerLinkActive="active">Monitoring</a></li>
-    <li><a routerLink="#" routerLinkActive="active">Downloads</a></li>
+    <li><a routerLink="/downloads" routerLinkActive="active">Downloads</a></li>
+    <li><a routerLink="/news" routerLinkActive="active">News</a></li>
   </ul>
   <div>
     <ul class="nav navbar-nav">

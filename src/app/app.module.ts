@@ -50,6 +50,8 @@ import { FooterComponent } from './components/pageElements/footer/footer.compone
 import { ConsoleResultComponent } from './components/pageElements/console-result/console-result.component';
 import { AboutComponent } from './components/contents/about/about.component';
 import { DocumentationComponent } from './components/contents/documentation/documentation.component';
+import { NewsComponent } from './components/contents/news/news.component';
+import { DownloadsComponent } from './components/contents/downloads/downloads.component';
 
 @NgModule({
   declarations: [
@@ -91,7 +93,9 @@ import { DocumentationComponent } from './components/contents/documentation/docu
     FooterComponent,
     ConsoleResultComponent,
     AboutComponent,
-    DocumentationComponent
+    DocumentationComponent,
+    NewsComponent,
+    DownloadsComponent
   ],
   imports: [
     BrowserModule,

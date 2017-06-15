@@ -6,6 +6,8 @@ import { WorkflowComponent } from '../../components/contents/workflow/workflow.c
 import { MonitoringComponent } from '../../components/contents/monitoring/monitoring.component';
 import { AboutComponent } from '../../components/contents/about/about.component';
 import { DocumentationComponent } from '../../components/contents/documentation/documentation.component';
+import { NewsComponent } from '../../components/contents/news/news.component';
+import { DownloadsComponent } from '../../components/contents/downloads/downloads.component';
 import { PageNotFoundComponent } from '../../components/pageElements/page-not-found/page-not-found.component';
 
 const routes: Routes = [
@@ -14,6 +16,8 @@ const routes: Routes = [
   { path: 'monitoring', component: MonitoringComponent },
   { path: 'about', component: AboutComponent },
   { path: 'documentation', component: DocumentationComponent },
+  { path: 'downloads', component: DownloadsComponent },
+  { path: 'news', component: NewsComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];

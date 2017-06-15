@@ -1022,3 +1022,18 @@ form {
     border-radius: 4px 4px 0 0;
     border: solid 1px;
 }
+
+.page-title {
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    color: grey;
+    border-bottom: 2px solid #5596F3;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.container1 {
+    width: 96%;
+    margin: auto;
+}
